@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicProjectile : MonoBehaviour
+public class RailgunProjectile : MonoBehaviour
 {
+    public float speed = 0;
 
-    public float speed = 5;
-
-    public float damage = 1;
+    public float damage = 2;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
 
@@ -24,18 +23,20 @@ public class BasicProjectile : MonoBehaviour
             //Debug.Log("enemy hit");
             other.transform.SendMessage("TakeDamage", damage, messageOptions);
             GameObject.FindGameObjectWithTag("Player").GetComponent<ComboManager>().increaseCombo();
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
-        else
-        {     
-            //Debug.Log("miss");
-            Destroy(gameObject);
-        }
-
+    }
+    private void Update()
+    {
+        Invoke("timeToDie", .2f);
     }
 
+    //private void OnBecameInvisible()
+    //{
+    //    Destroy(gameObject);
+    //}
 
-    private void OnBecameInvisible()
+    private void timeToDie()
     {
         Destroy(gameObject);
     }

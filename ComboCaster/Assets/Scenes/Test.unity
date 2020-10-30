@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 154905906}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 1105787247}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 1107640533}
   m_Layer: 0
   m_Name: Enemy (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,9 +504,10 @@ GameObject:
   - component: {fileID: 1316393470}
   - component: {fileID: 1316393469}
   - component: {fileID: 1316393472}
+  - component: {fileID: 1316393473}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -612,6 +613,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
   speed: 5
+--- !u!114 &1316393473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316393468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58a95179185c4643bf1d8f3ff1f31bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCombo: 0
+  resetTrickleTime: 5
 --- !u!1 &1585007057
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +739,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicMissle: {fileID: 1269447614442798110, guid: f12d63f2af8bd27479ad44e75141c2e5, type: 3}
+  railgun: {fileID: 1449788549298447017, guid: 2a01981164bf5a04d8eaebd90c140735, type: 3}
+  railgunCool: 1
 --- !u!1 &1738041532
 GameObject:
   m_ObjectHideFlags: 0
