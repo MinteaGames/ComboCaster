@@ -13,11 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public bool railgunCool = true;
 
 
-    // Start is called before the first frame update
-  //  void Start()
-  //  {
-  //      
-  //  }
+    
 
     // Update is called once per frame
     void Update()
@@ -27,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Instantiate(magicMissle, transform.position, transform.rotation);
             magicMissileCool = false;
-            Invoke("MagicMissileCooldown", 0.5f);
+            Invoke("MagicMissileCooldown", 0.3f);
         }
         if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= 3))
         {

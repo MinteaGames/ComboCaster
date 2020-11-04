@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7812833681228647003}
   - component: {fileID: 2544696138639242446}
   - component: {fileID: 4780460420584629179}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Railgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 2150263712079354431}
   - component: {fileID: 2150263712079354424}
   - component: {fileID: 2268482273695805366}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Railgun_sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

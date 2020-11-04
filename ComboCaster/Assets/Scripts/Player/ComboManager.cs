@@ -41,5 +41,9 @@ public class ComboManager : MonoBehaviour
         {
             playerCombo = 0;
         }
+
+        WorldInteraction.currentcombo = playerCombo;
+
+
     }
 }
