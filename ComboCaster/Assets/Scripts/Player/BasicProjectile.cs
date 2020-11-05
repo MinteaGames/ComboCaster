@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour
 {
+    public Animator animator;
 
     public float speed = 5;
 
@@ -15,16 +16,23 @@ public class BasicProjectile : MonoBehaviour
     void Start()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
+
+        animator.SetBool("HasHit", false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")
         {
+            // Remove force to get object to stop moving
+            GetComponent<Rigidbody2D>().AddForce(-transform.up * speed);
+            // Play hit animation which has destroy on end script
+            animator.SetBool("HasHit", true);
+
+
             //Debug.Log("enemy hit");
             other.transform.SendMessage("TakeDamage", damage, messageOptions);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<ComboManager>().increaseCombo();
-            Destroy(gameObject);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<ComboManager>().increaseCombo();            
         }
         else
         {     
