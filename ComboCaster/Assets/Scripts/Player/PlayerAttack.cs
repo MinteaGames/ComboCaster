@@ -8,9 +8,11 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject magicMissle;
     public GameObject railgun;
+    public GameObject melee;
 
     bool magicMissileCool = true;
     public bool railgunCool = true;
+    bool meleeCool = true;
 
 
     
@@ -32,13 +34,23 @@ public class PlayerAttack : MonoBehaviour
             railgunCool = false;
             Invoke("railgunCooldown", 1.0f);
         }
-        
+        if (Input.GetMouseButton(1) && meleeCool == true)
+        {
+            Instantiate(melee, transform.position, transform.rotation);  
+            meleeCool = false;
+            Invoke("meleeCooldown", 0.3f);
+        }
+
 
     }
 
     void railgunCooldown()
     {
         railgunCool = true;
+    }
+    void meleeCooldown()
+    {
+        meleeCool = true;
     }
 
     void MagicMissileCooldown()
