@@ -13,6 +13,7 @@ public class spawnEnemies : MonoBehaviour
     public float spawnDelay;
     float spawnDelayTime;
 
+
     public GameObject endPortal;
     GameObject[] enemiesOnField;
     void Start()
@@ -34,8 +35,10 @@ public class spawnEnemies : MonoBehaviour
             else
             {
                 spawnDelayTime = 0;
-                GameObject newGoblin = Instantiate(goblinPrefab, spawnLocations[0].position, transform.rotation);
+                int randomPos = Random.Range(0, spawnLocations.Length);
+                GameObject newGoblin = Instantiate(goblinPrefab, spawnLocations[randomPos].position, transform.rotation);
                 newGoblin.GetComponent<EnemyHealth>().health = 3;
+                newGoblin.GetComponent<enemyScore>().enemyBaseScore = 5;
                 goblinsLeftToSpawn--;
             }
         }
