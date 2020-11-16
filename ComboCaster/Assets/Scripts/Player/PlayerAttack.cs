@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (Input.GetMouseButton(1) && meleeCool == true)
         {
-            Instantiate(melee, transform.position, transform.rotation);  
+            Instantiate(melee, transform.position, transform.rotation, gameObject.transform);  
             meleeCool = false;
             Invoke("meleeCooldown", 0.3f);
         }
