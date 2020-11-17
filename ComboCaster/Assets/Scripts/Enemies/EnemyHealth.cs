@@ -20,7 +20,9 @@ public class EnemyHealth : MonoBehaviour
 
         if(health < 1)
         {
-            Destroy(gameObject);
+            PlayerScore.Instance.SendMessage("AddScore", GetComponent<enemyScore>().enemyBaseScore);
+
+            Destroy(gameObject);    
         }
 
     }
