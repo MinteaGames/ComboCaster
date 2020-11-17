@@ -10,16 +10,19 @@ public class WorldInteraction : MonoBehaviour
 
     public static int currentcombo;
 
+    public GameObject lifeScript;
+
+    bool invulnerable = false;
+
+    Renderer playerRenderer;
+
+    public GameObject deadPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        lifeScript = GameObject.Find("Lives");
+        playerRenderer = gameObject.GetComponent<Renderer>();
     }
 
 
@@ -29,18 +32,42 @@ public class WorldInteraction : MonoBehaviour
         {
 
             nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-            print(nextSceneIndex);
-
-            
+                        
 
             SceneManager.LoadScene(0);
 
         }
         
+        if((other.tag == "Enemy") && invulnerable == false)
+        {
+
+            lifeScript.SendMessage("LifeDecrement");
+
+        }
+
+
 
     }
 
 
+    void TriggerInvulnerability()
+    {
+        invulnerable = true;
+        playerRenderer.material.color = Color.blue;
+        Invoke("ResetInvulnerability", 0.3f);
+    }
+
+    void ResetInvulnerability()
+    {
+        invulnerable = false;
+        playerRenderer.material.color = Color.white;
+    }
+
+    void Died()
+    {
+        Instantiate(deadPlayer, gameObject.transform.position, gameObject.transform.rotation);
+
+        Destroy(gameObject);
+    }
 
 }

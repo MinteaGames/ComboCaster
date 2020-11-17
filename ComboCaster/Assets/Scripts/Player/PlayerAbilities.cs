@@ -30,7 +30,7 @@ public class PlayerAbilities : MonoBehaviour
         {
 
 
-
+            gameObject.SendMessage("TriggerInvulnerability");
             
             if (Input.GetKey(KeyCode.D) & !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
             {

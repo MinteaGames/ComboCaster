@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ComboManager : MonoBehaviour
 {
     public int playerCombo;
+
+    public Text comboText;
 
     private float timeTillTrickle;
     public float resetTrickleTime;
@@ -44,6 +47,7 @@ public class ComboManager : MonoBehaviour
 
         WorldInteraction.currentcombo = playerCombo;
 
+        comboText.text = playerCombo.ToString() + "x";
 
     }
 }
