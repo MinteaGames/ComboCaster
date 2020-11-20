@@ -22,7 +22,7 @@ public class meleeSwing : MonoBehaviour
         {
             //Debug.Log("enemy hit");
             other.transform.SendMessage("TakeDamage", damage, messageOptions);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<ComboManager>().increaseCombo();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<ComboManager>().increaseComboByAmount(2);
             //Destroy(gameObject);
         }
     }

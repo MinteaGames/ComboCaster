@@ -9,10 +9,13 @@ public class PlayerAttack : MonoBehaviour
     public GameObject magicMissle;
     public GameObject railgun;
     public GameObject melee;
+    public GameObject bounceBall;
+
 
     bool magicMissileCool = true;
     public bool railgunCool = true;
     bool meleeCool = true;
+    bool bounceCool = true;
 
 
     
@@ -40,6 +43,24 @@ public class PlayerAttack : MonoBehaviour
             meleeCool = false;
             Invoke("meleeCooldown", 0.3f);
         }
+        if(Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
+        {
+            
+            if (GameObject.Find("Bounce Ball(Clone)") == true)
+            {
+                GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
+                bounceCool = false;
+                Invoke("BounceCooldown", 2.0f);
+            }
+            else if (GetComponentInParent<ComboManager>().playerCombo >= 6)
+            {
+                bounceCool = false;
+                Instantiate(bounceBall, transform.position, transform.rotation);
+                GetComponentInParent<ComboManager>().reduceComboByAmmount(6);
+                Invoke("BounceCooldown", 2.0f);
+            }
+            
+        }
 
 
     }
@@ -56,6 +77,11 @@ public class PlayerAttack : MonoBehaviour
     void MagicMissileCooldown()
     {
         magicMissileCool = true;
+    }
+
+    void BounceCooldown()
+    {
+        bounceCool = true;
     }
 
 }
