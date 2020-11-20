@@ -114,6 +114,7 @@ MonoBehaviour:
   magicMissle: {fileID: 1269447614442798110, guid: f12d63f2af8bd27479ad44e75141c2e5, type: 3}
   railgun: {fileID: 1449788549298447017, guid: 2a01981164bf5a04d8eaebd90c140735, type: 3}
   melee: {fileID: 4076143252499260278, guid: 3f73888788b69154d9c4caa9f1fcebae, type: 3}
+  bounceBall: {fileID: 4421807547356543902, guid: 43dbb2aaeb78cae4bbaab36405bf0abd, type: 3}
   railgunCool: 1
 --- !u!1 &5958668135584031818
 GameObject:
@@ -125,12 +126,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5958668135584031817}
   - component: {fileID: 5958668135584031816}
-  - component: {fileID: 5958668135584031819}
   - component: {fileID: 5958668135584032694}
   - component: {fileID: 5958668135584032695}
   - component: {fileID: 5958668135584032692}
   - component: {fileID: 5958668135584032693}
   - component: {fileID: 5958668135584032690}
+  - component: {fileID: 465796197}
+  - component: {fileID: 465796199}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -204,27 +206,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5958668135584031819
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5958668135584031818}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &5958668135584032694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCombo: 0
+  comboText: {fileID: 0}
   resetTrickleTime: 5
 --- !u!114 &5958668135584032692
 MonoBehaviour:
@@ -266,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeScript: {fileID: 0}
+  deadPlayer: {fileID: 678295356617349059, guid: 94e590debaa561848a020946ffb5d859, type: 3}
 --- !u!61 &5958668135584032693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -276,7 +259,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -306,3 +289,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 25
   initialDashCooldown: 3
+--- !u!50 &465796197
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958668135584031818}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &465796199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958668135584031818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcd83bee58ea414e90baf93b1b40f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0

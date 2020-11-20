@@ -16,10 +16,10 @@ TagManager:
   - 
   - Player
   - Projectile
-  - 
-  - 
-  - 
-  - 
+  - Detection
+  - PlayerInv
+  - Enemy
+  - EnemyProjectile
   - 
   - 
   - 

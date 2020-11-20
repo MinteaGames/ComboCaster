@@ -26,9 +26,9 @@ public class WorldInteraction : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.name == "Exit")
+        if (other.gameObject.name == "Exit")
         {
 
             nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -38,7 +38,7 @@ public class WorldInteraction : MonoBehaviour
 
         }
         
-        if((other.tag == "Enemy") && invulnerable == false)
+        if((other.gameObject.tag == "Enemy") && invulnerable == false)
         {
 
             lifeScript.SendMessage("LifeDecrement");
@@ -46,6 +46,19 @@ public class WorldInteraction : MonoBehaviour
         }
 
 
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if ((collision.gameObject.tag == "Enemy") && invulnerable == false)
+        {
+
+            lifeScript.SendMessage("LifeDecrement");
+
+        }
 
     }
 

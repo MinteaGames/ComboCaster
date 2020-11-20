@@ -13,11 +13,14 @@ public class PlayerAbilities : MonoBehaviour
 
     public int initialDashCooldown = 3;
 
+    BoxCollider2D playerCollider;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class PlayerAbilities : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown == true)
         {
 
+            gameObject.layer = 11;
 
             gameObject.SendMessage("TriggerInvulnerability");
             
@@ -98,7 +102,7 @@ public class PlayerAbilities : MonoBehaviour
     }
     void DashReset()
     {
-
+        gameObject.layer = 8;
         rigidbody.velocity = Vector2.zero;
         Invoke("DashCooldown", initialDashCooldown);
     }

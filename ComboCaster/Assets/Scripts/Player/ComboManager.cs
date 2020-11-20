@@ -19,6 +19,13 @@ public class ComboManager : MonoBehaviour
         timeTillTrickle = resetTrickleTime;
     }
 
+    public void increaseComboByAmount(int increase)
+    {
+        playerCombo = playerCombo + increase;
+        timeTillTrickle = resetTrickleTime;
+    }
+
+
     public void reduceComboByAmmount(int abilityCost)
     {
         playerCombo -= abilityCost;    
