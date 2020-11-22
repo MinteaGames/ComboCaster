@@ -52,6 +52,15 @@ public class WorldInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.name == "Exit")
+        {
+
+            nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+
+            SceneManager.LoadScene(4);
+
+        }
 
         if ((collision.gameObject.tag == "Enemy") && invulnerable == false)
         {

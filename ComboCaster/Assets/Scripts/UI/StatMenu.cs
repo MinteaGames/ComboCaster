@@ -10,6 +10,7 @@ public class StatMenu : MonoBehaviour
     Scene nextScene;
 
     public Text currentComboText;
+    public Text dice;
 
     private int curCombo = WorldInteraction.currentcombo;
 
@@ -27,6 +28,13 @@ public class StatMenu : MonoBehaviour
     public Text wisV;
     public Text chaV;
 
+    public Text conMt;
+    public Text inteMt;
+    public Text strMt;
+    public Text dexMt;
+    public Text wisMt;
+    public Text chaMt;
+
     public static float conM;
     public static float inteM;
     public static float strM;
@@ -41,7 +49,22 @@ public class StatMenu : MonoBehaviour
     public Text enemyWisT;
     public Text enemyChaT;
 
-   
+    public Text enemyConM;
+    public Text enemyInteM;
+    public Text enemyStrM;
+    public Text enemyDexM;
+    public Text enemyWisM;
+    public Text enemyChaM;
+
+    public static float EconM;
+    public static float EinteM;
+    public static float EstrM;
+    public static float EdexM;
+    public static float EwisM;
+    public static float EchaM;
+
+
+
 
     int diceMax = 11;
     int diceMin = 0;
@@ -56,179 +79,201 @@ public class StatMenu : MonoBehaviour
     void Start()
     {
 
-
-
-        diceVal1 = Random.Range(diceMin, diceMax);
-        conM = 1 + diceVal1 / 10f;
-        conV.text = diceVal1.ToString() + "   =";
-        enemyConT.text = diceVal1.ToString() + "  [" + conM.ToString() + "x Health]";
+        currentComboText.text = curCombo.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        inteM = 1 + diceVal1 / 10f;
-        inteV.text = diceVal1.ToString() + "   =";
-        enemyInteT.text = diceVal1.ToString() + "  [" + inteM.ToString() + "x Ranged Damage]";
+        EconM = 1 + diceVal1 / 10f;
+        enemyConM.text = "x" + EconM.ToString();
+        enemyConT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        strM = 1 + diceVal1 / 10f;
-        strV.text = diceVal1.ToString() + "   =";
-        enemyStrT.text = diceVal1.ToString() + "  [" + strM.ToString() + "x Melee Damage]";
+        EinteM = 1 + diceVal1 / 10f;
+        enemyInteM.text = "x" + EinteM.ToString();
+        enemyInteT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        dexM = 1 + diceVal1 / 10f;
-        dexV.text = diceVal1.ToString() + "   =";
-        enemyDexT.text = diceVal1.ToString() + "  [" + dexM.ToString() + "x Movement Speed]";
+        EstrM = 1 + diceVal1 / 10f;
+        enemyStrM.text = "x" + EstrM.ToString();
+        enemyStrT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        wisM = 1 + diceVal1 / 10f;
-        wisV.text = diceVal1.ToString() + "   =";
-        enemyWisT.text = diceVal1.ToString() + "  [" + wisM.ToString() + "x Attack Speed]";
+        EdexM = 1 + diceVal1 / 10f;
+        enemyDexM.text = "x" + EdexM.ToString();
+        enemyDexT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        chaM = 1 + diceVal1 / 10f;
-        chaV.text = diceVal1.ToString() + "   =";
-        enemyChaT.text = diceVal1.ToString() + "  [" + chaM.ToString() + "x Ability Frequency]";
+        EwisM = 1 + diceVal1 / 10f;
+        enemyWisM.text = "x" + EwisM.ToString();
+        enemyWisT.text = diceVal1.ToString();
+
+        diceVal1 = Random.Range(diceMin, diceMax);
+        EchaM = 1 + diceVal1 / 10f;
+        enemyChaM.text = "x" + EchaM.ToString();
+        enemyChaT.text = diceVal1.ToString();
 
 
 
         if (curCombo < 5)
         {
 
+            dice.text = "1";
+
             diceVal1 = Random.Range(diceMin, diceMax);
             conM = 1 + diceVal1 / 10f;
-            conV.text = diceVal1.ToString() + "   =";
-            conT.text = diceVal1.ToString() + "  [" + conM.ToString() + "x Health]";
+            conMt.text = "x" + conM.ToString();
+            conV.text = diceVal1.ToString();
+            conT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             inteM = 1 + diceVal1 / 10f;
-            inteV.text = diceVal1.ToString() + "   =";
-            inteT.text = diceVal1.ToString() + "  [" + inteM.ToString() + "x Ranged Damage]";
+            inteMt.text = "x" + inteM.ToString();
+            inteV.text = diceVal1.ToString();
+            inteT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             strM = 1 + diceVal1 / 10f;
-            strV.text = diceVal1.ToString() + "   =";
-            strT.text = diceVal1.ToString() + "  [" + strM.ToString() + "x Melee Damage]";
+            strMt.text = "x" + strM.ToString();
+            strV.text = diceVal1.ToString();
+            strT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             dexM = 1 + diceVal1 / 10f;
-            dexV.text = diceVal1.ToString() + "   =";
-            dexT.text = diceVal1.ToString() + "  [" + dexM.ToString() + "x Movement Speed]";
+            dexMt.text = "x" + dexM.ToString();
+            dexV.text = diceVal1.ToString();
+            dexT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             wisM = 1 + diceVal1 / 10f;
-            wisV.text = diceVal1.ToString() + "   =";
-            wisT.text = diceVal1.ToString() + "  [" + wisM.ToString() + "x Attack Speed]";
+            wisMt.text = "x" + wisM.ToString();
+            wisV.text = diceVal1.ToString();
+            wisT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             chaM = 1 + diceVal1 / 10f;
-            chaV.text = diceVal1.ToString() + "   =";
-            chaT.text = diceVal1.ToString() + "  [" + chaM.ToString() + "x Ability Cost Reduced]";
+            chaMt.text = "x" + chaM.ToString();
+            chaV.text = diceVal1.ToString();
+            chaT.text = diceVal1.ToString();
 
 
-            currentComboText.text = "Final Combo: " + curCombo.ToString() + "  = 1 Die";
+            
 
         }
         else if(curCombo < 10)
         {
+            dice.text = "2";
 
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
             conM = 1 + diceValFin / 10f;
-            conV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "   =";
-            conT.text = diceValFin.ToString() + "  [" + conM.ToString() + "x Health]";
+            conMt.text = "x" + conM.ToString();
+            conV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
+            conT.text = diceValFin.ToString();
+
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
             inteM = 1 + diceValFin / 10f;
-            inteV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "   =";
-            inteT.text = diceValFin.ToString() + "  [" + inteM.ToString() + "x Ranged Damage]";
+            inteMt.text = "x" + inteM.ToString();
+            inteV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
+            inteT.text = diceValFin.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
             strM = 1 + diceValFin / 10f;
-            strV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "   =";
-            strT.text = diceValFin.ToString() + "  [" + strM.ToString() + "x Melee Damage]";
+            strMt.text = "x" + strM.ToString();
+            strV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
+            strT.text = diceValFin.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
             dexM = 1 + diceValFin / 10f;
-            dexV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "   =";
-            dexT.text = diceValFin.ToString() + "  [" + dexM.ToString() + "x Movement Speed]";
+            dexMt.text = "x" + dexM.ToString();
+            dexV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
+            dexT.text = diceValFin.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
             wisM = 1 + diceValFin / 10f;
-            wisV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "   =";
-            wisT.text = diceValFin.ToString() + "  [" + wisM.ToString() + "x Attack Speed]";
+            wisMt.text = "x" + wisM.ToString();
+            wisV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
+            wisT.text = diceValFin.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
             chaM = 1 + diceValFin / 10f;
-            chaV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "   =";
-            chaT.text = diceValFin.ToString() + "  [" + chaM.ToString() + "x Ability Cost Reduced]";
+            chaMt.text = "x" + chaM.ToString();
+            chaV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
+            chaT.text = diceValFin.ToString();
 
-            currentComboText.text = "Final Combo: " + curCombo.ToString() + "  = 2 Dice";
 
         }
         else
         {
+            dice.text = "3";
+
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
             conM = 1 + diceValFin / 10f;
-            conV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() +  "  +  " + diceVal3.ToString() + "   =";
-            conT.text = diceValFin.ToString() + "  [" + conM.ToString() + "x Health]";
+            conMt.text = "x" + conM.ToString();
+            conV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
+            conT.text = diceValFin.ToString();
+
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
             inteM = 1 + diceValFin / 10f;
-            inteV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString() + "   =";
-            inteT.text = diceValFin.ToString() + "  [" + inteM.ToString() + "x Ranged Damage]";
+            inteMt.text = "x" + inteM.ToString();
+            inteV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
+            inteT.text = diceValFin.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
             strM = 1 + diceValFin / 10f;
-            strV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString() + "   =";
-            strT.text = diceValFin.ToString() + "  [" + strM.ToString() + "x Melee Damage]";
+            strMt.text = "x" + strM.ToString();
+            strV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
+            strT.text = diceValFin.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
             dexM = 1 + diceValFin / 10f;
-            dexV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString() + "   =";
-            dexT.text = diceValFin.ToString() + "  [" + dexM.ToString() + "x Movement Speed]";
+            dexMt.text = "x" + dexM.ToString();
+            dexV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
+            dexT.text = diceValFin.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
             wisM = 1 + diceValFin / 10f;
-            wisV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString() + "   =";
-            wisT.text = diceValFin.ToString() + "  [" + wisM.ToString() + "x Attack Speed]";
+            wisMt.text = "x" + wisM.ToString();
+            wisV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
+            wisT.text = diceValFin.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
             chaM = 1 + diceValFin / 10f;
-            chaV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString() + "   =";
-            chaT.text = diceValFin.ToString() + "  [" + chaM.ToString() + "x Ability Cost Reduced]";
+            chaMt.text = "x" + chaM.ToString();
+            chaV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
+            chaT.text = diceValFin.ToString();
 
-
-            currentComboText.text = "Final Combo: " + curCombo.ToString() + "  = 3 Dice";
 
 
         }

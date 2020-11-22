@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f9e10055d4ddf624fb7099efa3eb89fb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Thin Pencil Handwriting
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d2f34936dfdf88d4799cba0ee834541e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
