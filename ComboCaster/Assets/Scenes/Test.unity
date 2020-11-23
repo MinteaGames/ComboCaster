@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 3386136150627016941, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
 --- !u!4 &301657746
@@ -420,6 +424,44 @@ Transform:
   m_Father: {fileID: 1216399336}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1168192740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5958668135584031818, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
+  m_PrefabInstance: {fileID: 5958668134672659894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1168192750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168192740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bc62a2e6f38c041b4369bcd5f7a062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateState: 0
+  anim: {fileID: 1168192751}
+--- !u!95 &1168192751
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168192740}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b87b7fc05ae90594ca8fa1441a6a32e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1216399335
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +983,10 @@ PrefabInstance:
     - target: {fileID: 5163411897239216814, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
       propertyPath: m_Name
       value: Beholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163411897239216814, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
