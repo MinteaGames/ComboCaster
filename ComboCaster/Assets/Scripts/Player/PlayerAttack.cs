@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Instantiate(melee, transform.position, transform.rotation, gameObject.transform);  
             meleeCool = false;
-            Invoke("meleeCooldown", 0.3f);
+            Invoke("meleeCooldown", 0.8f);
         }
         if(Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
         {

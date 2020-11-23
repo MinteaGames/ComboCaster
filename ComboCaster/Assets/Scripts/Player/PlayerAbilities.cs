@@ -7,13 +7,15 @@ public class PlayerAbilities : MonoBehaviour
 
     Rigidbody2D rigidbody;
 
-    public float dashSpeed = 50;
+    public float dashSpeed = 70;
 
-    bool dashCooldown = true;
+    public static bool dashCooldown = true;
 
     public int initialDashCooldown = 3;
 
     BoxCollider2D playerCollider;
+
+    public GameObject dodgeParticle;
 
 
     // Start is called before the first frame update
@@ -35,6 +37,10 @@ public class PlayerAbilities : MonoBehaviour
             gameObject.layer = 11;
 
             gameObject.SendMessage("TriggerInvulnerability");
+
+            Instantiate(dodgeParticle, transform.position, transform.rotation, transform);
+
+            DodgeDamage.dodging = true;
             
             if (Input.GetKey(KeyCode.D) & !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
             {
@@ -104,6 +110,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         gameObject.layer = 8;
         rigidbody.velocity = Vector2.zero;
+        DodgeDamage.dodging = false;
         Invoke("DashCooldown", initialDashCooldown);
     }
 

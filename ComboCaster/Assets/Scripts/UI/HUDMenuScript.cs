@@ -21,7 +21,7 @@ public class HUDMenuScript : MonoBehaviour
     public void RestartGame()
     {
         UpdateLives.numOfLives = 3;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
 
