@@ -28,7 +28,7 @@ public class RailgunProjectile : MonoBehaviour
     }
     private void Update()
     {
-        Invoke("timeToDie", .2f);
+        Invoke("timeToDie", .65f);
     }
 
     //private void OnBecameInvisible()
