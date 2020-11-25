@@ -10,6 +10,9 @@ public class EnemyProjectile : MonoBehaviour
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
 
+    public GameObject magicMissle;
+    private bool convert = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,19 @@ public class EnemyProjectile : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
 
         animator.SetBool("HasHit", false);
+    }
+
+    private void Update()
+    {
+        if (convert == true)
+        {
+            Instantiate(magicMissle, transform.position, transform.rotation);
+            // avoid colliding with instantiated object
+            GetComponent<CircleCollider2D>().enabled = false;
+
+            Destroy(this.gameObject);
+            convert = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,6 +46,11 @@ public class EnemyProjectile : MonoBehaviour
         else if (other.name == "Detection")
         {
 
+        }
+        else if (other.tag == "KnockBack")
+        {
+            convert = true;
+            transform.rotation = Quaternion.Inverse(transform.rotation);
         }
         else
         {

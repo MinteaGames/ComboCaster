@@ -10,12 +10,14 @@ public class PlayerAttack : MonoBehaviour
     public GameObject railgun;
     public GameObject melee;
     public GameObject bounceBall;
+    public GameObject shockWave;
 
 
     bool magicMissileCool = true;
     public bool railgunCool = true;
     bool meleeCool = true;
     bool bounceCool = true;
+    bool shockCool = true;
 
 
     
@@ -61,6 +63,12 @@ public class PlayerAttack : MonoBehaviour
             }
             
         }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && shockCool == true)
+        {
+            Instantiate(shockWave, transform.position, transform.rotation);
+            shockCool = false;
+            Invoke("ShockCooldown", 0.3f);
+        }
 
 
     }
@@ -82,6 +90,10 @@ public class PlayerAttack : MonoBehaviour
     void BounceCooldown()
     {
         bounceCool = true;
+    }
+    void ShockCooldown()
+    {
+        shockCool = true;
     }
 
 }

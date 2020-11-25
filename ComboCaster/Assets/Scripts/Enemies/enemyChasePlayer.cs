@@ -10,6 +10,8 @@ public class enemyChasePlayer : MonoBehaviour
 
     public GameObject[] allGoblins;
 
+    private float knockBackDistance = 0f;
+
     // Update is called once per frame
     private void Start()
     {
@@ -17,9 +19,22 @@ public class enemyChasePlayer : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, player.position) > stopDistance)
+        if (knockBackDistance != 0)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.position, -2 * speed * Time.deltaTime);
+            knockBackDistance -= 1;
         }
+        else
+        {
+            if (Vector2.Distance(transform.position, player.position) > stopDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            }
+        }
+    }
+
+    void KnockBack(float distance)
+    {
+        knockBackDistance = distance;
     }
 }
