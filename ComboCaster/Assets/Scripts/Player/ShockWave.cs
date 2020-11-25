@@ -27,10 +27,12 @@ public class ShockWave : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.tag);
-        if (other.tag == "Enemy")
+        Debug.Log(other.gameObject.tag);
+
+
+        if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("enemy hit");
             other.transform.SendMessage("TakeDamage", damage, messageOptions);
