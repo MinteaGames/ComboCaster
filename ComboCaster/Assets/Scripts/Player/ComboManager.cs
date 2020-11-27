@@ -53,8 +53,11 @@ public class ComboManager : MonoBehaviour
         }
 
         WorldInteraction.currentcombo = playerCombo;
-
-        comboText.text = playerCombo.ToString() + "x";
+        if (comboText)
+        {
+            comboText.text = playerCombo.ToString() + "x";
+        }
+       
 
     }
 }
