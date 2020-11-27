@@ -118,6 +118,7 @@ MonoBehaviour:
   melee: {fileID: 4076143252499260278, guid: 3f73888788b69154d9c4caa9f1fcebae, type: 3}
   bounceBall: {fileID: 4421807547356543902, guid: 43dbb2aaeb78cae4bbaab36405bf0abd, type: 3}
   shockWave: {fileID: 7918805796411505729, guid: eea3624c577dfb841940503757d7f359, type: 3}
+  fireBall: {fileID: 6267417591549585694, guid: 1047b8bcad675dc439cd07f35b06eabe, type: 3}
   railgunCool: 1
 --- !u!58 &213701235
 CircleCollider2D:

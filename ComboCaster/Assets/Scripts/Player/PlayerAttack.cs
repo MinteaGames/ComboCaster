@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject melee;
     public GameObject bounceBall;
     public GameObject shockWave;
+    public GameObject fireBall;
 
 
     bool magicMissileCool = true;
@@ -18,9 +19,15 @@ public class PlayerAttack : MonoBehaviour
     bool meleeCool = true;
     bool bounceCool = true;
     bool shockCool = true;
+    bool fireBallCool = true;
+
+    bool fireBallCharging = false;
+    float fireBallChargeTime = 0;
+    GameObject currentFireBall = null;
+    bool fireBallStage2 = false;
+    bool fireBallStage3 = false;
 
 
-    
 
     // Update is called once per frame
     void Update()
@@ -63,11 +70,77 @@ public class PlayerAttack : MonoBehaviour
             }
             
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && shockCool == true)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= 5)
         {
             Instantiate(shockWave, transform.position, transform.rotation);
             shockCool = false;
             Invoke("ShockCooldown", 0.3f);
+            GetComponentInParent<ComboManager>().reduceComboByAmmount(5);
+        }
+        if(Input.GetKey(KeyCode.Alpha3) && fireBallCool == true)
+        {
+            if (fireBallCharging == false && GetComponentInParent<ComboManager>().playerCombo >= 5)
+            {
+                currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
+                fireBallChargeTime += 1;
+                fireBallCharging = true;
+                GetComponentInParent<ComboManager>().reduceComboByAmmount(5);
+            }
+            else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo >= 2)
+            {
+                fireBallChargeTime += Time.deltaTime;
+
+                if (fireBallChargeTime >= 2 && fireBallChargeTime < 3)
+                {
+                    if (fireBallStage2 == false)
+                    {
+                        GetComponentInParent<ComboManager>().reduceComboByAmmount(2);
+                        fireBallStage2 = true;
+                    }
+                }
+                else if (fireBallChargeTime >= 3 && fireBallChargeTime < 4)
+                {
+                    if (fireBallStage2 == false)
+                    {
+                        GetComponentInParent<ComboManager>().reduceComboByAmmount(2);
+                        fireBallStage3 = true;
+                    }
+                }
+                if (fireBallChargeTime >= 4)
+                {
+                    currentFireBall.SendMessage("maxSizeReached");
+                }
+            }
+            else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo < 2)
+            {
+                currentFireBall.SendMessage("maxSizeReached");
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            if (fireBallStage2 == true)
+            {
+                if (fireBallStage3 == true)
+                {
+                    currentFireBall.SendMessage("stageReached", 3);
+                }
+                else
+                {
+                    currentFireBall.SendMessage("stageReached", 2);
+                }
+                currentFireBall.SendMessage("stageReached", 2);
+            }
+
+            fireBallCool = false;
+            Invoke("fireBallCooldown", 0.3f);
+            fireBallCharging = false;
+            fireBallChargeTime = 0;
+            fireBallStage2 = false;
+            fireBallStage3 = false;
+
+            currentFireBall.SendMessage("fire");
+            currentFireBall = null;
         }
 
 
@@ -96,4 +169,8 @@ public class PlayerAttack : MonoBehaviour
         shockCool = true;
     }
 
+    void fireBallCooldown()
+    {
+        fireBallCool = true;
+    }
 }
