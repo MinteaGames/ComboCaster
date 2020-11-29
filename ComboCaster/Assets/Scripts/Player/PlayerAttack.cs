@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject melee;
     public GameObject bounceBall;
 
+     public HUDManager playerHud;
 
     bool magicMissileCool = true;
     public bool railgunCool = true;
@@ -18,7 +19,10 @@ public class PlayerAttack : MonoBehaviour
     bool bounceCool = true;
 
 
-    
+    private void Start()
+    {
+        playerHud = GameObject.Find("HUD manager").GetComponent<HUDManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,6 +32,8 @@ public class PlayerAttack : MonoBehaviour
         {
             Instantiate(magicMissle, transform.position, transform.rotation);
             magicMissileCool = false;
+            //playerHud.ShowcooldownOfAbility(0 , 0.3f);
+            playerHud.StartCoroutine(playerHud.ShowcooldownOfAbility(0, 0.3f));
             Invoke("MagicMissileCooldown", 0.3f);
         }
         if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= 3))
