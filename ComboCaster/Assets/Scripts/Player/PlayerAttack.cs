@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        playerHud = GameObject.Find("HUD manager").GetComponent<HUDManager>();
+        playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
     }
 
     // Update is called once per frame
@@ -33,20 +33,22 @@ public class PlayerAttack : MonoBehaviour
             Instantiate(magicMissle, transform.position, transform.rotation);
             magicMissileCool = false;
             //playerHud.ShowcooldownOfAbility(0 , 0.3f);
-            playerHud.StartCoroutine(playerHud.ShowcooldownOfAbility(0, 0.3f));
-            Invoke("MagicMissileCooldown", 0.3f);
+            StartCoroutine( playerHud.ShowcooldownOfAbility(0, .3f));
+            Invoke("MagicMissileCooldown", .3f);
         }
         if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= 3))
         {
             Instantiate(railgun, transform.position, transform.rotation);
             GetComponentInParent<ComboManager>().reduceComboByAmmount(3);
             railgunCool = false;
+            StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f));
             Invoke("railgunCooldown", 1.0f);
         }
         if (Input.GetMouseButton(1) && meleeCool == true)
         {
             Instantiate(melee, transform.position, transform.rotation, gameObject.transform);  
             meleeCool = false;
+            StartCoroutine(playerHud.ShowcooldownOfAbility(2, .8f));
             Invoke("meleeCooldown", 0.8f);
         }
         if(Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
@@ -56,6 +58,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
                 bounceCool = false;
+
                 Invoke("BounceCooldown", 2.0f);
             }
             else if (GetComponentInParent<ComboManager>().playerCombo >= 6)

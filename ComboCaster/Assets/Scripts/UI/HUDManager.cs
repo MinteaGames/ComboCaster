@@ -1,6 +1,7 @@
 ﻿using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,22 +21,26 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         cooldownIndicators = new UnityEngine.UI.Image[8];
-
+        onCooldown = new bool[8];
         playerHud = GameObject.Find("player abilities");
         for (int i = 0; i < 8; i++)
         {
            cooldownIndicators[i] =  playerHud.transform.GetChild(i + 1).gameObject.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
+            cooldownIndicators[i].fillAmount = 0;
         }
     }
 
     public IEnumerator ShowcooldownOfAbility(int abilityUsed, float cooldownLength)
     {
-        cooldownIndicators[abilityUsed].fillAmount = 0;
-        while (cooldownIndicators[abilityUsed].fillAmount != 1)
-        {
-            cooldownIndicators[abilityUsed].fillAmount -= 1 / cooldownLength * Time.deltaTime;
-        }
+        float timePassed = 0;
 
-        yield return null;
+        cooldownIndicators[abilityUsed].fillAmount = 1;
+
+        while (timePassed < cooldownLength+.01)
+        {
+            cooldownIndicators[abilityUsed].fillAmount = Mathf.Lerp(1, 0, timePassed / cooldownLength);
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
     }
 }
