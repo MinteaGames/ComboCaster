@@ -7,13 +7,17 @@ public class meleeSwing : MonoBehaviour
     public float speed = 0;
 
     public float damage = 1;
+    public float knockBackDistance = 1f;
+
+    private Rigidbody2D rb2D;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
+        rb2D = GetComponent<Rigidbody2D>();
+        rb2D.AddForce(transform.up * speed);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,6 +26,8 @@ public class meleeSwing : MonoBehaviour
         {
             //Debug.Log("enemy hit");
             other.transform.SendMessage("TakeDamage", damage, messageOptions);
+            
+            other.transform.SendMessage("KnockBack", knockBackDistance, messageOptions);
             GameObject.FindGameObjectWithTag("Player").GetComponent<ComboManager>().increaseComboByAmount(2);
             //Destroy(gameObject);
         }

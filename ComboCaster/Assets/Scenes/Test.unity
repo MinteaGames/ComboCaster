@@ -225,11 +225,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3386136150627016937, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.69
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 3386136150627016937, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.008036
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 3386136150627016937, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -267,13 +267,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3386136150627016938, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3386136150627016941, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
       propertyPath: m_Name
       value: Goblin
-      objectReference: {fileID: 0}
-    - target: {fileID: 3386136150627016941, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
@@ -312,7 +312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &479969428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +424,32 @@ Transform:
   m_Father: {fileID: 1216399336}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &823710380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3386136150627016941, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
+  m_PrefabInstance: {fileID: 278170057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &823710386
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823710380}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1216399335
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1216399336
 Transform:
   m_ObjectHideFlags: 0
@@ -737,6 +763,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1927485929700912859, guid: 0565b70d33690064f98185c04154642b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 98.100006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927485929700912859, guid: 0565b70d33690064f98185c04154642b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.199951
+      objectReference: {fileID: 0}
     - target: {fileID: 1927485929700912862, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: lostLifeUI
       value: 
@@ -869,6 +903,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 3033009589449816517, guid: 0565b70d33690064f98185c04154642b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 85.29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033009589449816517, guid: 0565b70d33690064f98185c04154642b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38.69995
+      objectReference: {fileID: 0}
     - target: {fileID: 5847672659724432502, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: m_Name
       value: Restart Button
@@ -948,9 +990,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5163411897239216814, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1745520933265087565, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
 --- !u!1001 &5958668134672659894
 PrefabInstance:

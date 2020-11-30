@@ -117,6 +117,8 @@ MonoBehaviour:
   railgun: {fileID: 1449788549298447017, guid: 2a01981164bf5a04d8eaebd90c140735, type: 3}
   melee: {fileID: 4076143252499260278, guid: 3f73888788b69154d9c4caa9f1fcebae, type: 3}
   bounceBall: {fileID: 4421807547356543902, guid: 43dbb2aaeb78cae4bbaab36405bf0abd, type: 3}
+  shockWave: {fileID: 7918805796411505729, guid: eea3624c577dfb841940503757d7f359, type: 3}
+  fireBall: {fileID: 6267417591549585694, guid: 1047b8bcad675dc439cd07f35b06eabe, type: 3}
   railgunCool: 1
 --- !u!58 &213701235
 CircleCollider2D:
@@ -146,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34f1a037019f304bbf3f1fd4820c165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
 --- !u!1 &5958668135584031818
 GameObject:
   m_ObjectHideFlags: 0
