@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - KnockBack
+  - LifeUp
   layers:
   - Default
   - TransparentFX

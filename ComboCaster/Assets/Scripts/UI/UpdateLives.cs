@@ -29,10 +29,7 @@ public class UpdateLives : MonoBehaviour
         spriteImage = gameObject.GetComponent<Image>();
         player = GameObject.Find("Player");
 
-        if(numOfLives < 3 && currentRoom == false)
-        {
-            numOfLives++;
-        }
+        
 
         if(numOfLives == 3)
         {
@@ -46,7 +43,7 @@ public class UpdateLives : MonoBehaviour
         {
             spriteImage.sprite = lives1;
         }
-        currentRoom = false;
+        
 
     }
 

@@ -22,6 +22,8 @@ public class BounceProjectile : MonoBehaviour
     void Start()
     {
 
+        damage = damage * StatMenu.inteM;
+
         rigidbody = GetComponent<Rigidbody2D>();
 
         rigidbody.AddForce(transform.up * speed);

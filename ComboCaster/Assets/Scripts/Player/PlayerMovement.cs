@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        speed = speed * StatMenu.dexM;
     }
 
     // Update is called once per frame

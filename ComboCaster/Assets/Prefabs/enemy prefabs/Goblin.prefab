@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  life: {fileID: 2537754533088388117, guid: b61866d23bbfc8648b6b0333a37ee830, type: 3}
 --- !u!114 &5851157964036783188
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class fireBall : MonoBehaviour
     void Start()
     {
         GetComponent<CircleCollider2D>().enabled = false;
+
+        damage = damage * StatMenu.inteM;
     }
 
     // Update is called once per frame
@@ -34,7 +36,6 @@ public class fireBall : MonoBehaviour
             Debug.Log("enemy hit");
             other.transform.SendMessage("TakeDamage", damage, messageOptions);
             GameObject.FindGameObjectWithTag("Player").GetComponent<ComboManager>().increaseCombo();
-            Destroy(gameObject);
         }
         else
         {

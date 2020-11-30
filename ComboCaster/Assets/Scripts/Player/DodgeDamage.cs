@@ -8,6 +8,17 @@ public class DodgeDamage : MonoBehaviour
 
     float damage = 2;
 
+
+
+    private void Start()
+    {
+
+
+        damage = damage * StatMenu.strM;
+
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

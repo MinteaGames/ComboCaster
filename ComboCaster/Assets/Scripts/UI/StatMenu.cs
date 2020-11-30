@@ -35,12 +35,12 @@ public class StatMenu : MonoBehaviour
     public Text wisMt;
     public Text chaMt;
 
-    public static float conM;
-    public static float inteM;
-    public static float strM;
-    public static float dexM;
-    public static float wisM;
-    public static float chaM;
+    public static float conM = 1;
+    public static float inteM = 1;
+    public static float strM = 1;
+    public static float dexM = 1;
+    public static float wisM = 1;
+    public static float chaM = 1;
 
     public Text enemyConT;
     public Text enemyInteT;
@@ -56,12 +56,12 @@ public class StatMenu : MonoBehaviour
     public Text enemyWisM;
     public Text enemyChaM;
 
-    public static float EconM;
-    public static float EinteM;
-    public static float EstrM;
-    public static float EdexM;
-    public static float EwisM;
-    public static float EchaM;
+    public static float EconM = 1;
+    public static float EinteM = 1;
+    public static float EstrM = 1;
+    public static float EdexM = 1;
+    public static float EwisM = 1;
+    public static float EchaM = 1;
 
 
 
@@ -82,32 +82,32 @@ public class StatMenu : MonoBehaviour
         currentComboText.text = curCombo.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        EconM = 1 + diceVal1 / 10f;
+        EconM = 0.5f + (diceVal1 / 10f);
         enemyConM.text = "x" + EconM.ToString();
         enemyConT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        EinteM = 1 + diceVal1 / 10f;
+        EinteM = 0.5f + diceVal1 / 10f;
         enemyInteM.text = "x" + EinteM.ToString();
         enemyInteT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        EstrM = 1 + diceVal1 / 10f;
+        EstrM = 0.5f + diceVal1 / 10f;
         enemyStrM.text = "x" + EstrM.ToString();
         enemyStrT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        EdexM = 1 + diceVal1 / 10f;
+        EdexM = 0.5f + diceVal1 / 10f;
         enemyDexM.text = "x" + EdexM.ToString();
         enemyDexT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        EwisM = 1 + diceVal1 / 10f;
+        EwisM = 0.5f + diceVal1 / 10f;
         enemyWisM.text = "x" + EwisM.ToString();
         enemyWisT.text = diceVal1.ToString();
 
         diceVal1 = Random.Range(diceMin, diceMax);
-        EchaM = 1 + diceVal1 / 10f;
+        EchaM = 0.5f + diceVal1 / 10f;
         enemyChaM.text = "x" + EchaM.ToString();
         enemyChaT.text = diceVal1.ToString();
 
@@ -125,31 +125,31 @@ public class StatMenu : MonoBehaviour
             conT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
-            inteM = 1 + diceVal1 / 10f;
+            inteM = 0.1f + diceVal1 / 10f;
             inteMt.text = "x" + inteM.ToString();
             inteV.text = diceVal1.ToString();
             inteT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
-            strM = 1 + diceVal1 / 10f;
+            strM = 0.8f + diceVal1 / 10f;
             strMt.text = "x" + strM.ToString();
             strV.text = diceVal1.ToString();
             strT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
-            dexM = 1 + diceVal1 / 10f;
+            dexM = 0.1f + diceVal1 / 10f;
             dexMt.text = "x" + dexM.ToString();
             dexV.text = diceVal1.ToString();
             dexT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
-            wisM = 1 + diceVal1 / 10f;
+            wisM = 0.6f + ((diceVal1 / 10f) * 0.5f);
             wisMt.text = "x" + wisM.ToString();
             wisV.text = diceVal1.ToString();
             wisT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
-            chaM = 1 + diceVal1 / 10f;
+            chaM = 0.1f + diceVal1 / 10f;
             chaMt.text = "x" + chaM.ToString();
             chaV.text = diceVal1.ToString();
             chaT.text = diceVal1.ToString();
@@ -175,7 +175,7 @@ public class StatMenu : MonoBehaviour
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
-            inteM = 1 + diceValFin / 10f;
+            inteM = 0.1f + diceValFin / 10f;
             inteMt.text = "x" + inteM.ToString();
             inteV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
             inteT.text = diceValFin.ToString();
@@ -183,7 +183,7 @@ public class StatMenu : MonoBehaviour
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
-            strM = 1 + diceValFin / 10f;
+            strM = 0.8f + diceValFin / 10f;
             strMt.text = "x" + strM.ToString();
             strV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
             strT.text = diceValFin.ToString();
@@ -191,7 +191,7 @@ public class StatMenu : MonoBehaviour
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
-            dexM = 1 + diceValFin / 10f;
+            dexM = 0.1f + diceValFin / 10f;
             dexMt.text = "x" + dexM.ToString();
             dexV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
             dexT.text = diceValFin.ToString();
@@ -199,7 +199,7 @@ public class StatMenu : MonoBehaviour
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
-            wisM = 1 + diceValFin / 10f;
+            wisM = 0.6f + ((diceVal1 / 10f) * 0.5f);
             wisMt.text = "x" + wisM.ToString();
             wisV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
             wisT.text = diceValFin.ToString();
@@ -207,7 +207,7 @@ public class StatMenu : MonoBehaviour
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
-            chaM = 1 + diceValFin / 10f;
+            chaM = 0.1f + diceValFin / 10f;
             chaMt.text = "x" + chaM.ToString();
             chaV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
             chaT.text = diceValFin.ToString();
@@ -233,7 +233,7 @@ public class StatMenu : MonoBehaviour
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
-            inteM = 1 + diceValFin / 10f;
+            inteM = 0.1f + diceValFin / 10f;
             inteMt.text = "x" + inteM.ToString();
             inteV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
             inteT.text = diceValFin.ToString();
@@ -242,7 +242,7 @@ public class StatMenu : MonoBehaviour
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
-            strM = 1 + diceValFin / 10f;
+            strM = 0.8f + diceValFin / 10f;
             strMt.text = "x" + strM.ToString();
             strV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
             strT.text = diceValFin.ToString();
@@ -251,7 +251,7 @@ public class StatMenu : MonoBehaviour
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
-            dexM = 1 + diceValFin / 10f;
+            dexM = 0.1f + diceValFin / 10f;
             dexMt.text = "x" + dexM.ToString();
             dexV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
             dexT.text = diceValFin.ToString();
@@ -260,7 +260,7 @@ public class StatMenu : MonoBehaviour
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
-            wisM = 1 + diceValFin / 10f;
+            wisM = 0.6f + ((diceValFin / 10f) * 0.5f);
             wisMt.text = "x" + wisM.ToString();
             wisV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
             wisT.text = diceValFin.ToString();
@@ -269,7 +269,7 @@ public class StatMenu : MonoBehaviour
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
-            chaM = 1 + diceValFin / 10f;
+            chaM = 0.1f + diceValFin / 10f;
             chaMt.text = "x" + chaM.ToString();
             chaV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
             chaT.text = diceValFin.ToString();

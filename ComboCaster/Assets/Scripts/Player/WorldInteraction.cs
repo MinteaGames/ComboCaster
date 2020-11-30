@@ -69,6 +69,17 @@ public class WorldInteraction : MonoBehaviour
 
         }
 
+
+        if ((collision.gameObject.tag == "LifeUp"))
+        {
+
+            lifeScript.SendMessage("LifeIncrement");
+
+            Destroy(collision.gameObject);
+
+        }
+
+
     }
 
 

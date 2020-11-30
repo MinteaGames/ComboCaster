@@ -16,6 +16,9 @@ public class meleeSwing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        damage = damage * StatMenu.strM;
+
         rb2D = GetComponent<Rigidbody2D>();
         rb2D.AddForce(transform.up * speed);
     }

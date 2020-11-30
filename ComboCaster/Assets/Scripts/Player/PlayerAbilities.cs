@@ -23,6 +23,9 @@ public class PlayerAbilities : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
+
+
+
     }
 
     // Update is called once per frame

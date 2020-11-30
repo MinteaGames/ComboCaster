@@ -13,6 +13,9 @@ public class RailgunProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        damage = damage * StatMenu.inteM;
+
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
     }
 

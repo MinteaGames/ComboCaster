@@ -15,9 +15,13 @@ public class BeholderMovement : MonoBehaviour
 
     private float knockBackDistance = 0f;
 
+    float wisMod;
+
     // Start is called before the first frame update
     void Start()
     {
+        wisMod = StatMenu.EwisM;
+
         player = GameObject.Find("Player");
     }
 
@@ -32,7 +36,7 @@ public class BeholderMovement : MonoBehaviour
             {
                 Instantiate(projectile, transform.position, transform.rotation);
                 projectileCool = false;
-                Invoke("projectileCooldown", 2f);
+                Invoke("projectileCooldown", 2f/wisMod);
             }
 
 

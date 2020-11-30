@@ -27,6 +27,18 @@ public class PlayerAttack : MonoBehaviour
     bool fireBallStage2 = false;
     bool fireBallStage3 = false;
 
+    float wisMod;
+    float chaMod;
+
+    private void Start()
+    {
+
+
+        wisMod = StatMenu.wisM;
+
+        chaMod = StatMenu.chaM;
+
+    }
 
 
     // Update is called once per frame
@@ -37,20 +49,20 @@ public class PlayerAttack : MonoBehaviour
         {
             Instantiate(magicMissle, transform.position, transform.rotation);
             magicMissileCool = false;
-            Invoke("MagicMissileCooldown", 0.3f);
+            Invoke("MagicMissileCooldown", 0.3f/wisMod);
         }
-        if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= 3))
+        if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(3 / chaMod)))
         {
             Instantiate(railgun, transform.position, transform.rotation);
-            GetComponentInParent<ComboManager>().reduceComboByAmmount(3);
+            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(3/chaMod));
             railgunCool = false;
-            Invoke("railgunCooldown", 1.0f);
+            Invoke("railgunCooldown", 1.0f/wisMod);
         }
         if (Input.GetMouseButton(1) && meleeCool == true)
         {
             Instantiate(melee, transform.position, transform.rotation, gameObject.transform);  
             meleeCool = false;
-            Invoke("meleeCooldown", 0.8f);
+            Invoke("meleeCooldown", 0.8f/wisMod);
         }
         if(Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
         {
@@ -59,32 +71,32 @@ public class PlayerAttack : MonoBehaviour
             {
                 GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
                 bounceCool = false;
-                Invoke("BounceCooldown", 2.0f);
+                Invoke("BounceCooldown", 2.0f/wisMod);
             }
-            else if (GetComponentInParent<ComboManager>().playerCombo >= 6)
+            else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
             {
                 bounceCool = false;
                 Instantiate(bounceBall, transform.position, transform.rotation);
-                GetComponentInParent<ComboManager>().reduceComboByAmmount(6);
-                Invoke("BounceCooldown", 2.0f);
+                GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(6 / chaMod));
+                Invoke("BounceCooldown", 2.0f/wisMod);
             }
             
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= 5)
+        if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod))
         {
             Instantiate(shockWave, transform.position, transform.rotation);
             shockCool = false;
-            Invoke("ShockCooldown", 0.3f);
-            GetComponentInParent<ComboManager>().reduceComboByAmmount(5);
+            Invoke("ShockCooldown", 0.3f/wisMod);
+            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
         }
-        if(Input.GetKey(KeyCode.Alpha3) && fireBallCool == true)
+        if(Input.GetKey(KeyCode.Alpha2) && fireBallCool == true)
         {
-            if (fireBallCharging == false && GetComponentInParent<ComboManager>().playerCombo >= 5)
+            if (fireBallCharging == false && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod))
             {
                 currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
                 fireBallChargeTime += 1;
                 fireBallCharging = true;
-                GetComponentInParent<ComboManager>().reduceComboByAmmount(5);
+                GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
             }
             else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo >= 2)
             {
@@ -117,7 +129,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Alpha3))
+        if (Input.GetKeyUp(KeyCode.Alpha2))
         {
             if (fireBallStage2 == true)
             {
@@ -133,7 +145,7 @@ public class PlayerAttack : MonoBehaviour
             }
 
             fireBallCool = false;
-            Invoke("fireBallCooldown", 0.3f);
+            Invoke("fireBallCooldown", 0.3f/wisMod);
             fireBallCharging = false;
             fireBallChargeTime = 0;
             fireBallStage2 = false;
