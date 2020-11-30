@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 5ab49e97a467c004aa6d2fd3fa7543af
+guid: 0fc00c64d51106d469b1e884dede26b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6869325624984279803
-    second: HUD_0
+      213: 7425689683912824166
+    second: HUD cropped_0
   - first:
-      213: -2205522050570982886
-    second: HUD_1
+      213: -7019597201847604269
+    second: HUD cropped_1
   - first:
-      213: 1229794671371557974
-    second: HUD_2
+      213: 7320912846398393935
+    second: HUD cropped_2
   - first:
-      213: -7859544607282556093
-    second: HUD_3
+      213: -389231408828685514
+    second: HUD cropped_3
   - first:
-      213: -8154498446710104070
-    second: HUD_4
+      213: 3411467417715593296
+    second: HUD cropped_4
   - first:
-      213: 8996260626950966665
-    second: HUD_5
+      213: -4745090796777357429
+    second: HUD cropped_5
   - first:
-      213: 4529786283596834260
-    second: HUD_6
+      213: 6003617918954972962
+    second: HUD cropped_6
   - first:
-      213: 2933845967799184529
-    second: HUD_7
+      213: 3638441360637959222
+    second: HUD cropped_7
   - first:
-      213: -1607964472022901426
-    second: HUD_8
+      213: 5841238536045718056
+    second: HUD cropped_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -68,14 +68,14 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -116,190 +116,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HUD_0
+      name: HUD cropped_0
       rect:
         serializedVersion: 2
         x: 1
-        y: 2
+        y: 1
         width: 41
-        height: 44
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 505e2544db04ba0a0800000000000000
-      internalID: -6869325624984279803
+      spriteID: 66518edac695d0760800000000000000
+      internalID: 7425689683912824166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_1
+      name: HUD cropped_1
       rect:
         serializedVersion: 2
         x: 42
-        y: 2
-        width: 41
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1aec6f51696461e0800000000000000
-      internalID: -2205522050570982886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_2
-      rect:
-        serializedVersion: 2
-        x: 87
         y: 1
-        width: 53
+        width: 43
         height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65c15c5ecbb111110800000000000000
-      internalID: 1229794671371557974
+      spriteID: 3db2c8d4981659e90800000000000000
+      internalID: -7019597201847604269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_3
+      name: HUD cropped_2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 1
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e8b29227b199560800000000000000
+      internalID: 7320912846398393935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD cropped_3
       rect:
         serializedVersion: 2
         x: 140
-        y: 2
+        y: 1
         width: 41
-        height: 44
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 343169242d94de290800000000000000
-      internalID: -7859544607282556093
+      spriteID: 633675d881c299af0800000000000000
+      internalID: -389231408828685514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_4
+      name: HUD cropped_4
       rect:
         serializedVersion: 2
         x: 181
-        y: 2
+        y: 1
         width: 41
-        height: 44
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aff9e5afdd665de80800000000000000
-      internalID: -8154498446710104070
+      spriteID: 050d1cbaa87f75f20800000000000000
+      internalID: 3411467417715593296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_5
+      name: HUD cropped_5
       rect:
         serializedVersion: 2
         x: 222
-        y: 2
+        y: 1
         width: 41
-        height: 44
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98dce30406329dc70800000000000000
-      internalID: 8996260626950966665
+      spriteID: b8f3c179f0d062eb0800000000000000
+      internalID: -4745090796777357429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_6
+      name: HUD cropped_6
       rect:
         serializedVersion: 2
         x: 263
-        y: 2
+        y: 1
         width: 41
-        height: 44
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d5e93600a80dde30800000000000000
-      internalID: 4529786283596834260
+      spriteID: 2272b7250b2215350800000000000000
+      internalID: 6003617918954972962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_7
+      name: HUD cropped_7
       rect:
         serializedVersion: 2
         x: 304
-        y: 2
+        y: 1
         width: 41
-        height: 44
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19ce1601d5d17b820800000000000000
-      internalID: 2933845967799184529
+      spriteID: 63c1ae4e3275e7230800000000000000
+      internalID: 3638441360637959222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_8
+      name: HUD cropped_8
       rect:
         serializedVersion: 2
         x: 345
-        y: 2
-        width: 41
-        height: 44
+        y: 1
+        width: 42
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4d50a105dc5fa9e0800000000000000
-      internalID: -1607964472022901426
+      spriteID: 82ae355108f301150800000000000000
+      internalID: 5841238536045718056
       vertices: []
       indices: 
       edges: []
@@ -316,7 +316,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
