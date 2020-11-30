@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject shockWave;
     public GameObject fireBall;
 
+     public HUDManager playerHud;
 
     bool magicMissileCool = true;
     public bool railgunCool = true;
@@ -27,6 +28,7 @@ public class PlayerAttack : MonoBehaviour
     bool fireBallStage2 = false;
     bool fireBallStage3 = false;
 
+
     float wisMod;
     float chaMod;
 
@@ -37,8 +39,13 @@ public class PlayerAttack : MonoBehaviour
         wisMod = StatMenu.wisM;
 
         chaMod = StatMenu.chaM;
+		playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
+
 
     }
+
+
+    
 
 
     // Update is called once per frame
@@ -49,19 +56,34 @@ public class PlayerAttack : MonoBehaviour
         {
             Instantiate(magicMissle, transform.position, transform.rotation);
             magicMissileCool = false;
+
+            
+
+            //playerHud.ShowcooldownOfAbility(0 , 0.3f);
+            StartCoroutine( playerHud.ShowcooldownOfAbility(0, .3f));
             Invoke("MagicMissileCooldown", 0.3f/wisMod);
+
         }
         if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(3 / chaMod)))
         {
             Instantiate(railgun, transform.position, transform.rotation);
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(3/chaMod));
             railgunCool = false;
+
+            
+
+            StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f));
             Invoke("railgunCooldown", 1.0f/wisMod);
+
         }
         if (Input.GetMouseButton(1) && meleeCool == true)
         {
             Instantiate(melee, transform.position, transform.rotation, gameObject.transform);  
             meleeCool = false;
+
+            
+
+            StartCoroutine(playerHud.ShowcooldownOfAbility(2, .8f));
             Invoke("meleeCooldown", 0.8f/wisMod);
         }
         if(Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
@@ -71,7 +93,9 @@ public class PlayerAttack : MonoBehaviour
             {
                 GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
                 bounceCool = false;
+
                 Invoke("BounceCooldown", 2.0f/wisMod);
+
             }
             else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
             {
