@@ -41,19 +41,22 @@ public class HUDManager : MonoBehaviour
     private void Update()
     {
         //sets the color and fill ammount for each ability based on the value of the players combo
-        if (comboVal.playerCombo >= 6)
+
+
+
+        if (comboVal.playerCombo >= 15)
         {
             EnoughMana(3);
             EnoughMana(4);
             EnoughMana(5);
             EnoughMana(6);
-            notEnoughMana(7);
+            EnoughMana(7);
         }
-        else if (comboVal.playerCombo >= 5)
+        else if (comboVal.playerCombo >= 6)
         {
             EnoughMana(3);
-            EnoughMana(4);
-            notEnoughMana(5);
+            notEnoughMana(4);
+            EnoughMana(5);
             EnoughMana(6);
             notEnoughMana(7);
         }
@@ -84,6 +87,12 @@ public class HUDManager : MonoBehaviour
     {
         cooldownIndicators[abilityNum].fillAmount = 0;
         cooldownIndicators[abilityNum].color = black;
+    }
+
+
+    public void InstantReset()
+    {
+        cooldownIndicators[1].fillAmount = 0;
     }
 
     public IEnumerator ShowcooldownOfAbility(int abilityUsed, float cooldownLength)

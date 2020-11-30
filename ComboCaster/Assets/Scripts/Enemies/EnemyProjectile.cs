@@ -20,7 +20,14 @@ public class EnemyProjectile : MonoBehaviour
         print("spawned");
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
 
+        Invoke("killObject", 10f);
+
         animator.SetBool("HasHit", false);
+    }
+
+    void killObject()
+    {
+        Destroy(gameObject);
     }
 
     private void Update()

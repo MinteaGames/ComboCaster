@@ -17,14 +17,15 @@ public class PlayerAbilities : MonoBehaviour
 
     public GameObject dodgeParticle;
 
+    HUDManager playerHud;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
-
-
+        dashCooldown = true;
+        playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
 
     }
 
@@ -37,6 +38,9 @@ public class PlayerAbilities : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown == true)
         {
 
+
+
+
             gameObject.layer = 11;
 
             gameObject.SendMessage("TriggerInvulnerability");
@@ -48,51 +52,42 @@ public class PlayerAbilities : MonoBehaviour
             if (Input.GetKey(KeyCode.D) & !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
             {
                 rigidbody.velocity = Vector2.right * dashSpeed;
-                dashCooldown = false;
-                Invoke("DashReset", 0.1f);
+                
             }
             if (Input.GetKey(KeyCode.A) & !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
             {
                 rigidbody.velocity = Vector2.left * dashSpeed;
-                dashCooldown = false;
-                Invoke("DashReset", 0.1f);
+                
             }
             if (Input.GetKey(KeyCode.S) & !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
             {
                 rigidbody.velocity = Vector2.down * dashSpeed;
-                dashCooldown = false;
-                Invoke("DashReset", 0.1f);
+                
             }
             if (Input.GetKey(KeyCode.W) & !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
             {
                 rigidbody.velocity = Vector2.up * dashSpeed;
-                dashCooldown = false;
-                Invoke("DashReset", 0.1f);
+               
             }
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
             {
 
                 rigidbody.velocity += (Vector2.up * (dashSpeed / 1.5f)) + (Vector2.left * (dashSpeed / 1.5f));
-                dashCooldown = false;
-                Invoke("DashReset", 0.1f);
+                
             }
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
             {
                 rigidbody.velocity += (Vector2.up * (dashSpeed / 1.5f)) + (Vector2.right * (dashSpeed / 1.5f));
-                dashCooldown = false;
-                Invoke("DashReset", 0.1f);
+                
             }
             if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
             {
                 rigidbody.velocity += (Vector2.down * (dashSpeed / 1.5f)) + (Vector2.right * (dashSpeed / 1.5f));
-                dashCooldown = false;
-                Invoke("DashReset", 0.1f);
+                
             }
             if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
             {
                 rigidbody.velocity += (Vector2.down * (dashSpeed / 1.5f)) + (Vector2.left * (dashSpeed / 1.5f));
-                dashCooldown = false;
-                Invoke("DashReset", 0.1f);
             }
             else
             {
@@ -102,8 +97,9 @@ public class PlayerAbilities : MonoBehaviour
             }
 
 
-
-
+            dashCooldown = false;
+            Invoke("DashReset", 0.1f);
+            
 
         }
 
@@ -115,6 +111,12 @@ public class PlayerAbilities : MonoBehaviour
         rigidbody.velocity = Vector2.zero;
         DodgeDamage.dodging = false;
         Invoke("DashCooldown", initialDashCooldown);
+        if(DodgeDamage.hitEnemy == false)
+        {
+            StartCoroutine(playerHud.ShowcooldownOfAbility(1, initialDashCooldown));
+        }
+        DodgeDamage.hitEnemy = false;
+        
     }
 
     void DashCooldown()

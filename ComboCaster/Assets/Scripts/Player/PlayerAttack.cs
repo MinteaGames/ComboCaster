@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject shockWave;
     public GameObject fireBall;
 
-     public HUDManager playerHud;
+    HUDManager playerHud;
 
     bool magicMissileCool = true;
     public bool railgunCool = true;
@@ -66,7 +66,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(3 / chaMod)))
         {
-            Instantiate(railgun, transform.position, transform.rotation);
+            Instantiate(railgun, transform.position, transform.rotation, transform.parent.transform);
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(3/chaMod));
             railgunCool = false;
 
@@ -95,7 +95,7 @@ public class PlayerAttack : MonoBehaviour
                 bounceCool = false;
 
                 Invoke("BounceCooldown", 2.0f/wisMod);
-
+                StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
             }
             else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
             {
@@ -103,15 +103,17 @@ public class PlayerAttack : MonoBehaviour
                 Instantiate(bounceBall, transform.position, transform.rotation);
                 GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(6 / chaMod));
                 Invoke("BounceCooldown", 2.0f/wisMod);
+                StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
             }
             
         }
-        if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod))
+        if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(15 / chaMod))
         {
             Instantiate(shockWave, transform.position, transform.rotation);
             shockCool = false;
-            Invoke("ShockCooldown", 0.3f/wisMod);
-            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
+            Invoke("ShockCooldown", 10.0f/wisMod);
+            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(15 / chaMod));
+            StartCoroutine(playerHud.ShowcooldownOfAbility(4, 10.0f / wisMod));
         }
         if(Input.GetKey(KeyCode.Alpha2) && fireBallCool == true)
         {

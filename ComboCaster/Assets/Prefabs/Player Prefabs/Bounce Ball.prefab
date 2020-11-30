@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   speed: 300
-  damage: 1
+  damage: 3
   numOfBounces: 0
 --- !u!50 &-6330872292720300138
 Rigidbody2D:

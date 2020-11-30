@@ -7,7 +7,7 @@ public class ShockWave : MonoBehaviour
     private Vector3 scaleChange = new Vector3(0.01f, 0.01f, 0.01f);
     private ParticleSystem ps;
 
-    public float damage = 2;
+    public float damage = 1;
     public float knockBackDistance = 1f;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
@@ -35,7 +35,7 @@ public class ShockWave : MonoBehaviour
         Debug.Log(other.gameObject.tag);
 
 
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyProjectile")
         {
             Debug.Log("enemy hit");
             other.transform.SendMessage("TakeDamage", damage, messageOptions);
@@ -44,5 +44,8 @@ public class ShockWave : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<ComboManager>().increaseComboByAmount(2);
             //Destroy(gameObject);
         }
+
+        
+
     }
 }

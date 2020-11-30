@@ -8,11 +8,14 @@ public class spawnEnemies : MonoBehaviour
     public int numGoblinsToSpawn;
     int goblinsLeftToSpawn;
     public GameObject goblinPrefab;
+    public GameObject ogrePrefab;
+    public GameObject beholderPrefab;
 
     public Transform[] spawnLocations;
     public float spawnDelay;
     float spawnDelayTime;
 
+    int enemySpawn;
 
     public GameObject endPortal;
     GameObject[] enemiesOnField;
@@ -36,9 +39,30 @@ public class spawnEnemies : MonoBehaviour
             {
                 spawnDelayTime = 0;
                 int randomPos = Random.Range(0, spawnLocations.Length);
-                GameObject newGoblin = Instantiate(goblinPrefab, spawnLocations[randomPos].position, transform.rotation);
-                newGoblin.GetComponent<EnemyHealth>().health = 3;
-                newGoblin.GetComponent<enemyScore>().enemyBaseScore = 5;
+
+                enemySpawn = Random.Range(0, 10);
+
+                if (enemySpawn >= 9)
+                {
+                    GameObject newOgre = Instantiate(ogrePrefab, spawnLocations[randomPos].position, transform.rotation);
+                    newOgre.GetComponent<EnemyHealth>().health = 8;
+                    newOgre.GetComponent<enemyScore>().enemyBaseScore = 20;
+                }
+                else if (enemySpawn >= 8)
+                {
+                    GameObject newBeholder = Instantiate(beholderPrefab, spawnLocations[randomPos].position, transform.rotation);
+                    newBeholder.GetComponent<EnemyHealth>().health = 5;
+                    newBeholder.GetComponent<enemyScore>().enemyBaseScore = 15;
+                }
+                else
+                {
+                    GameObject newGoblin = Instantiate(goblinPrefab, spawnLocations[randomPos].position, transform.rotation);
+                    newGoblin.GetComponent<EnemyHealth>().health = 3;
+                    newGoblin.GetComponent<enemyScore>().enemyBaseScore = 5;
+                }
+                
+
+                
                 goblinsLeftToSpawn--;
             }
         }

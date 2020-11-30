@@ -113,7 +113,7 @@ public class StatMenu : MonoBehaviour
 
 
 
-        if (curCombo < 5)
+        if (curCombo < 50)
         {
 
             dice.text = "1";
@@ -158,7 +158,7 @@ public class StatMenu : MonoBehaviour
             
 
         }
-        else if(curCombo < 10)
+        else if(curCombo < 100)
         {
             dice.text = "2";
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6386610107409855562}
   - component: {fileID: 8528749987313872676}
   m_Layer: 12
-  m_Name: Strong Goblin
+  m_Name: Ogre
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6386610107409855565}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.29, y: 1.13, z: -1.861173}
-  m_LocalScale: {x: 1.121065, y: 1.121065, z: 1.121065}
+  m_LocalScale: {x: 1.4462785, y: 1.4462785, z: 1.4462785}
   m_Children:
   - {fileID: 6386610109111778300}
   m_Father: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a7c2e3abd7f0f42814599d4cc5d630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 8
   life: {fileID: 2537754533088388117, guid: b61866d23bbfc8648b6b0333a37ee830, type: 3}
 --- !u!114 &2841571011142494452
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 1
+  speed: 0.3
   stopDistance: 0
   allGoblins: []
 --- !u!61 &6386610107409855562
@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &6386610109111778290
 GameObject:
   m_ObjectHideFlags: 0
