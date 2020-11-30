@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
         {
             PlayerScore.Instance.SendMessage("AddScore", GetComponent<enemyScore>().enemyBaseScore);
 
-            if(Random.Range(0,100) < (2 * StatMenu.conM))
+            if(Random.Range(0,100) < (1 * StatMenu.conM))
             {
 
                 Instantiate(life, transform.position, transform.rotation);
