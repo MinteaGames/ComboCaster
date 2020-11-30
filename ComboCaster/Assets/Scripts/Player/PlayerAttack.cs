@@ -57,11 +57,11 @@ public class PlayerAttack : MonoBehaviour
             Instantiate(magicMissle, transform.position, transform.rotation);
             magicMissileCool = false;
 
-            
+            Invoke("MagicMissileCooldown", 0.3f/wisMod);
 
             //playerHud.ShowcooldownOfAbility(0 , 0.3f);
-            StartCoroutine( playerHud.ShowcooldownOfAbility(0, .3f));
-            Invoke("MagicMissileCooldown", 0.3f/wisMod);
+            StartCoroutine( playerHud.ShowcooldownOfAbility(0, 0.3f/wisMod));
+            
 
         }
         if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(3 / chaMod)))
@@ -70,10 +70,10 @@ public class PlayerAttack : MonoBehaviour
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(3/chaMod));
             railgunCool = false;
 
-            
 
-            StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f));
-            Invoke("railgunCooldown", 1.0f/wisMod);
+            Invoke("railgunCooldown", 1.0f / wisMod);
+            StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
+            
 
         }
         if (Input.GetMouseButton(1) && meleeCool == true)
@@ -81,10 +81,10 @@ public class PlayerAttack : MonoBehaviour
             Instantiate(melee, transform.position, transform.rotation, gameObject.transform);  
             meleeCool = false;
 
-            
 
-            StartCoroutine(playerHud.ShowcooldownOfAbility(2, .8f));
-            Invoke("meleeCooldown", 0.8f/wisMod);
+            Invoke("meleeCooldown", 0.8f / wisMod);
+            StartCoroutine(playerHud.ShowcooldownOfAbility(2, 0.8f / wisMod));
+            
         }
         if(Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
         {
