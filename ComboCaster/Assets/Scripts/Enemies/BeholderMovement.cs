@@ -13,6 +13,8 @@ public class BeholderMovement : MonoBehaviour
 
     public GameObject projectile;
 
+    private float knockBackDistance = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,26 +23,34 @@ public class BeholderMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        transform.up = player.transform.position - transform.position;
-
-        if(projectileCool == true)
+        if (knockBackDistance == 0)
         {
-            Instantiate(projectile, transform.position, transform.rotation);
-            projectileCool = false;
-            Invoke("projectileCooldown", 2f);
-        }
+
+            transform.up = player.transform.position - transform.position;
+
+            if (projectileCool == true)
+            {
+                Instantiate(projectile, transform.position, transform.rotation);
+                projectileCool = false;
+                Invoke("projectileCooldown", 2f);
+            }
 
 
-        transform.position += transform.up * 0.2f * Time.deltaTime;
+            transform.position += transform.up * 0.2f * Time.deltaTime;
 
-        if(turnRight == true)
-        {
-            transform.position += transform.right * 1f * Time.deltaTime;
+            if (turnRight == true)
+            {
+                transform.position += transform.right * 1f * Time.deltaTime;
+            }
+            else
+            {
+                transform.position += -transform.right * 1f * Time.deltaTime;
+            }
         }
         else
         {
-            transform.position += -transform.right * 1f * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -2 * Time.deltaTime);
+            knockBackDistance -= 1;
         }
         
     }
@@ -74,6 +84,11 @@ public class BeholderMovement : MonoBehaviour
         transform.position += entityDir * 0.2f * Time.deltaTime;
 
 
+    }
+
+    void KnockBack(float distance)
+    {
+        knockBackDistance = distance;
     }
 
 
