@@ -7,20 +7,23 @@ public class BeholderMovement : MonoBehaviour
 
     GameObject player;
 
-    bool projectileCool = true;
+    bool turnCool = true;
 
     bool turnRight = true;
 
-    public GameObject projectile;
-
     private float knockBackDistance = 0f;
 
-    float wisMod;
+    bool nearEntity = false;
+
+    Vector3 dir;
+
+    Collider2D closeEntity;
+   
 
     // Start is called before the first frame update
     void Start()
     {
-        wisMod = StatMenu.EwisM;
+        
 
         player = GameObject.Find("Player");
     }
@@ -30,25 +33,34 @@ public class BeholderMovement : MonoBehaviour
         if (knockBackDistance == 0)
         {
 
-            transform.up = player.transform.position - transform.position;
+            
 
-            if (projectileCool == true)
+            if (turnCool == true)
             {
-                Instantiate(projectile, transform.position, transform.rotation);
-                projectileCool = false;
-                Invoke("projectileCooldown", 2f/wisMod);
+                turnCool = false;
+                Invoke("TurnCooldown", 5f);
             }
 
-
-            transform.position += transform.up * 0.2f * Time.deltaTime;
-
-            if (turnRight == true)
+            if (nearEntity == false)
             {
-                transform.position += transform.right * 1f * Time.deltaTime;
+                dir = transform.position - player.transform.position;
+                dir = dir.normalized;
+
+                transform.position += dir * Time.deltaTime * -0.5f;
             }
             else
             {
-                transform.position += -transform.right * 1f * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1f * Time.deltaTime);
+            }
+
+
+            if (turnRight == true)
+            {
+                transform.position += transform.right * 0.2f * Time.deltaTime;
+            }
+            else
+            {
+                transform.position += -transform.right * 0.2f * Time.deltaTime;
             }
         }
         else
@@ -60,13 +72,14 @@ public class BeholderMovement : MonoBehaviour
     }
 
 
-    void projectileCooldown()
+    void TurnCooldown()
     {
+        nearEntity = false;
 
-        projectileCool = true;
+        turnCool = true;
 
 
-        if(turnRight == true)
+        if (turnRight == true)
         {
             turnRight = false;
         }
@@ -79,13 +92,16 @@ public class BeholderMovement : MonoBehaviour
 
     void EntityNearby(Collider2D entity)
     {
+       
 
-        
-
-        Vector3 entityDir = transform.position - entity.transform.position;
-
-
-        transform.position += entityDir * 0.2f * Time.deltaTime;
+        if(entity.tag == "Player")
+        {
+            nearEntity = true;
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, entity.transform.position, -1f * Time.deltaTime);
+        }
 
 
     }

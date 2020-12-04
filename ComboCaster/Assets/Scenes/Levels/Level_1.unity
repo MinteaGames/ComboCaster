@@ -6645,6 +6645,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213701235, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.44623488
+      objectReference: {fileID: 0}
+    - target: {fileID: 213701235, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
+      propertyPath: m_Radius
+      value: 0.18789391
+      objectReference: {fileID: 0}
+    - target: {fileID: 213701235, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.014188096
+      objectReference: {fileID: 0}
     - target: {fileID: 465796199, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
       propertyPath: scoreText
       value: 
@@ -6653,9 +6665,17 @@ PrefabInstance:
       propertyPath: theCamera
       value: 
       objectReference: {fileID: 621276992}
+    - target: {fileID: 5958668135314963559, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958668135314963559, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5958668135584031816, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5958668135584031817, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7151,6 +7171,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 750892715}
+    - target: {fileID: 1927485929700912859, guid: 0565b70d33690064f98185c04154642b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 98.1001
+      objectReference: {fileID: 0}
     - target: {fileID: 1927485929700912862, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: player
       value: 
@@ -7243,6 +7267,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 3033009589449816517, guid: 0565b70d33690064f98185c04154642b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 322.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033009589449816517, guid: 0565b70d33690064f98185c04154642b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20.180054
+      objectReference: {fileID: 0}
     - target: {fileID: 6934135582085678790, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7258,6 +7290,10 @@ PrefabInstance:
     - target: {fileID: 7596222060773319120, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596222061772224938, guid: 0565b70d33690064f98185c04154642b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25.180054
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0565b70d33690064f98185c04154642b, type: 3}

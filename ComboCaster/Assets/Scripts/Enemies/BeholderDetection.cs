@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeholderDetection : MonoBehaviour
 {
 
-    GameObject beholder;
+    public GameObject beholder;
 
     // Start is called before the first frame update
     void Start()
