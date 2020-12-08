@@ -119,7 +119,7 @@ public class StatMenu : MonoBehaviour
             dice.text = "1";
 
             diceVal1 = Random.Range(diceMin, diceMax);
-            conM = 1 + diceVal1 / 10f;
+            conM = 0.1f + diceVal1 / 10f;
             conMt.text = "x" + conM.ToString();
             conV.text = diceVal1.ToString();
             conT.text = diceVal1.ToString();
@@ -131,7 +131,7 @@ public class StatMenu : MonoBehaviour
             inteT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
-            strM = 0.8f + diceVal1 / 10f;
+            strM = 0.1f + diceVal1 / 10f;
             strMt.text = "x" + strM.ToString();
             strV.text = diceVal1.ToString();
             strT.text = diceVal1.ToString();
@@ -166,7 +166,7 @@ public class StatMenu : MonoBehaviour
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
-            conM = 1 + diceValFin / 10f;
+            conM = 0.1f + diceValFin / 10f;
             conMt.text = "x" + conM.ToString();
             conV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
             conT.text = diceValFin.ToString();
@@ -183,7 +183,7 @@ public class StatMenu : MonoBehaviour
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
-            strM = 0.8f + diceValFin / 10f;
+            strM = 0.1f + diceValFin / 10f;
             strMt.text = "x" + strM.ToString();
             strV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
             strT.text = diceValFin.ToString();
@@ -223,7 +223,7 @@ public class StatMenu : MonoBehaviour
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
-            conM = 1 + diceValFin / 10f;
+            conM = 0.1f + diceValFin / 10f;
             conMt.text = "x" + conM.ToString();
             conV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
             conT.text = diceValFin.ToString();
@@ -242,7 +242,7 @@ public class StatMenu : MonoBehaviour
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
-            strM = 0.8f + diceValFin / 10f;
+            strM = 0.1f + diceValFin / 10f;
             strMt.text = "x" + strM.ToString();
             strV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
             strT.text = diceValFin.ToString();
@@ -277,6 +277,43 @@ public class StatMenu : MonoBehaviour
 
 
         }
+
+
+        if(conM <= 1)
+        {
+            conMt.color = Color.red;
+            conT.color = Color.red;
+        }
+        if (inteM <= 1)
+        {
+            inteMt.color = Color.red;
+            inteT.color = Color.red;
+        }
+        if (strM <= 1)
+        {
+            strMt.color = Color.red;
+            strT.color = Color.red;
+        }
+        if (dexM <= 1)
+        {
+            dexMt.color = Color.red;
+            dexT.color = Color.red;
+        }
+        if (wisM <= 1)
+        {
+            wisMt.color = Color.red;
+            wisT.color = Color.red;
+        }
+        if (chaM <= 1)
+        {
+            chaMt.color = Color.red;
+            chaT.color = Color.red;
+        }
+
+
+
+
+
 
 
     }
