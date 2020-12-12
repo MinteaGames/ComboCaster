@@ -7,7 +7,7 @@ public class ShockWave : MonoBehaviour
     private Vector3 scaleChange = new Vector3(0.01f, 0.01f, 0.01f);
     private ParticleSystem ps;
 
-    public float damage = 1;
+    public static float damage = 1;
     public float knockBackDistance = 1f;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;

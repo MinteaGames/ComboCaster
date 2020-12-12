@@ -8,7 +8,7 @@ public class BasicProjectile : MonoBehaviour
 
     public float speed = 5;
 
-    public float damage = 1;
+    public static float damage = 1;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
 

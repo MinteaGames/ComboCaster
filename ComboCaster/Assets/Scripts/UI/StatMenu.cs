@@ -79,38 +79,56 @@ public class StatMenu : MonoBehaviour
     void Start()
     {
 
+        
+
+        
+        if(SceneManager.GetActiveScene().name == "Stat Roll")
+        {
+
+            conM = 1;
+            inteM = 1;
+            strM = 1;
+            dexM = 1;
+            wisM = 1;
+            chaM = 1;
+
+
+            EconM = 1;
+            EinteM = 1;
+            EstrM = 1;
+            EdexM = 1;
+            EwisM = 1;
+            EchaM = 1;
+
+
+            //PlayerMovement.speed = 5;
+            //PlayerAttack.wisMod = 1;
+            //PlayerAttack.chaMod = 1;
+            //BasicProjectile.damage = 1;
+            //BounceProjectile.damage = 3;
+            //fireBall.damage = 2;
+            //RailgunProjectile.damage = 2;
+            //ShockWave.damage = 1;
+            //DodgeDamage.damage = 2;
+            //meleeSwing.damage = 2;
+
+            RollStats();
+            RollEnemyStats();
+        }
+        else
+        {
+            FillStats();
+        }
+
+
+    }
+
+
+
+    void RollStats()
+    {
+
         currentComboText.text = curCombo.ToString();
-
-        diceVal1 = Random.Range(diceMin, diceMax);
-        EconM = 0.5f + (diceVal1 / 10f);
-        enemyConM.text = "x" + EconM.ToString();
-        enemyConT.text = diceVal1.ToString();
-
-        diceVal1 = Random.Range(diceMin, diceMax);
-        EinteM = 0.5f + diceVal1 / 10f;
-        enemyInteM.text = "x" + EinteM.ToString();
-        enemyInteT.text = diceVal1.ToString();
-
-        diceVal1 = Random.Range(diceMin, diceMax);
-        EstrM = 0.5f + diceVal1 / 10f;
-        enemyStrM.text = "x" + EstrM.ToString();
-        enemyStrT.text = diceVal1.ToString();
-
-        diceVal1 = Random.Range(diceMin, diceMax);
-        EdexM = 0.5f + diceVal1 / 10f;
-        enemyDexM.text = "x" + EdexM.ToString();
-        enemyDexT.text = diceVal1.ToString();
-
-        diceVal1 = Random.Range(diceMin, diceMax);
-        EwisM = 0.5f + diceVal1 / 10f;
-        enemyWisM.text = "x" + EwisM.ToString();
-        enemyWisT.text = diceVal1.ToString();
-
-        diceVal1 = Random.Range(diceMin, diceMax);
-        EchaM = 0.5f + diceVal1 / 10f;
-        enemyChaM.text = "x" + EchaM.ToString();
-        enemyChaT.text = diceVal1.ToString();
-
 
 
         if (curCombo < 50)
@@ -143,7 +161,7 @@ public class StatMenu : MonoBehaviour
             dexT.text = diceVal1.ToString();
 
             diceVal1 = Random.Range(diceMin, diceMax);
-            wisM = 0.6f + ((diceVal1 / 10f) * 0.5f);
+            wisM = 0.8f + ((diceVal1 / 10f) * 0.5f);
             wisMt.text = "x" + wisM.ToString();
             wisV.text = diceVal1.ToString();
             wisT.text = diceVal1.ToString();
@@ -155,10 +173,10 @@ public class StatMenu : MonoBehaviour
             chaT.text = diceVal1.ToString();
 
 
-            
+
 
         }
-        else if(curCombo < 100)
+        else if (curCombo < 100)
         {
             dice.text = "2";
 
@@ -199,7 +217,7 @@ public class StatMenu : MonoBehaviour
             diceVal1 = Random.Range(diceMin, diceMax);
             diceVal2 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2;
-            wisM = 0.6f + ((diceVal1 / 10f) * 0.5f);
+            wisM = 0.8f + ((diceVal1 / 10f) * 0.5f);
             wisMt.text = "x" + wisM.ToString();
             wisV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString();
             wisT.text = diceValFin.ToString();
@@ -260,7 +278,7 @@ public class StatMenu : MonoBehaviour
             diceVal2 = Random.Range(diceMin, diceMax);
             diceVal3 = Random.Range(diceMin, diceMax);
             diceValFin = diceVal1 + diceVal2 + diceVal3;
-            wisM = 0.6f + ((diceValFin / 10f) * 0.5f);
+            wisM = 0.8f + ((diceValFin / 10f) * 0.5f);
             wisMt.text = "x" + wisM.ToString();
             wisV.text = diceVal1.ToString() + "  +  " + diceVal2.ToString() + "  +  " + diceVal3.ToString();
             wisT.text = diceValFin.ToString();
@@ -279,7 +297,7 @@ public class StatMenu : MonoBehaviour
         }
 
 
-        if(conM <= 1)
+        if (conM <= 1)
         {
             conMt.color = Color.red;
             conT.color = Color.red;
@@ -311,10 +329,388 @@ public class StatMenu : MonoBehaviour
         }
 
 
+    }
+
+    void RollEnemyStats()
+    {
+        
+
+        diceVal1 = Random.Range(diceMin, diceMax);
+        EconM = 0.5f + (diceVal1 / 10f);
+        enemyConM.text = "x" + EconM.ToString();
+        enemyConT.text = diceVal1.ToString();
+
+        diceVal1 = Random.Range(diceMin, diceMax);
+        EinteM = 0.5f + diceVal1 / 10f;
+        enemyInteM.text = "x" + EinteM.ToString();
+        enemyInteT.text = diceVal1.ToString();
+
+        diceVal1 = Random.Range(diceMin, diceMax);
+        EstrM = 0.5f + diceVal1 / 10f;
+        enemyStrM.text = "x" + EstrM.ToString();
+        enemyStrT.text = diceVal1.ToString();
+
+        diceVal1 = Random.Range(diceMin, diceMax);
+        EdexM = 0.5f + diceVal1 / 10f;
+        enemyDexM.text = "x" + EdexM.ToString();
+        enemyDexT.text = diceVal1.ToString();
+
+        diceVal1 = Random.Range(diceMin, diceMax);
+        EwisM = 0.5f + diceVal1 / 10f;
+        enemyWisM.text = "x" + EwisM.ToString();
+        enemyWisT.text = diceVal1.ToString();
+
+        diceVal1 = Random.Range(diceMin, diceMax);
+        EchaM = 0.5f + diceVal1 / 10f;
+        enemyChaM.text = "x" + EchaM.ToString();
+        enemyChaT.text = diceVal1.ToString();
+
+    }
+
+    void FillStats()
+    {
 
 
 
 
+            conMt.text = "x" + conM.ToString();
+            conT.text = Mathf.RoundToInt((conM - 0.1f) * 10).ToString() ;
+
+            
+            inteMt.text = "x" + inteM.ToString();
+            inteT.text = Mathf.RoundToInt((inteM - 0.1f) * 10).ToString();
+
+
+            strMt.text = "x" + strM.ToString();
+            strT.text = Mathf.RoundToInt((strM - 0.1f) * 10).ToString();
+
+
+            dexMt.text = "x" + dexM.ToString();
+            dexT.text = Mathf.RoundToInt((dexM - 0.1f) * 10).ToString();
+
+
+            wisMt.text = "x" + wisM.ToString();
+            wisT.text = Mathf.RoundToInt(((wisM -0.8f) * 2) * 10).ToString();
+
+
+            chaMt.text = "x" + chaM.ToString();
+            chaT.text = Mathf.RoundToInt((chaM - 0.1f) * 10).ToString();
+
+
+
+
+
+
+        enemyConM.text = "x" + EconM.ToString();
+        enemyConT.text = ((EconM - 0.5f) * 10).ToString();
+
+        enemyInteM.text = "x" + EinteM.ToString();
+        enemyInteT.text = ((EinteM - 0.5f) * 10).ToString();
+
+        enemyStrM.text = "x" + EstrM.ToString();
+        enemyStrT.text = ((EstrM - 0.5f) * 10).ToString();
+
+        enemyDexM.text = "x" + EdexM.ToString();
+        enemyDexT.text = ((EdexM - 0.5f) * 10).ToString();
+
+        enemyWisM.text = "x" + EwisM.ToString();
+        enemyWisT.text = ((EwisM - 0.5f) * 10).ToString();
+
+        enemyChaM.text = "x" + EchaM.ToString();
+        enemyChaT.text = ((EchaM - 0.5f) * 10).ToString();
+
+
+        if (conM <= 1)
+        {
+            conMt.color = Color.red;
+            conT.color = Color.red;
+        }
+        else
+        {
+            conMt.color = Color.green;
+            conT.color = Color.blue;
+        }
+        if (inteM <= 1)
+        {
+            inteMt.color = Color.red;
+            inteT.color = Color.red;
+        }
+        else
+        {
+            inteMt.color = Color.green;
+            inteT.color = Color.blue;
+        }
+        if (strM <= 1)
+        {
+            strMt.color = Color.red;
+            strT.color = Color.red;
+        }
+        else
+        {
+            strMt.color = Color.green;
+            strT.color = Color.blue;
+        }
+        if (dexM <= 1)
+        {
+            dexMt.color = Color.red;
+            dexT.color = Color.red;
+        }
+        else
+        {
+            dexMt.color = Color.green;
+            dexT.color = Color.blue;
+        }
+        if (wisM <= 1)
+        {
+            wisMt.color = Color.red;
+            wisT.color = Color.red;
+        }
+        else
+        {
+            wisMt.color = Color.green;
+            wisT.color = Color.blue;
+        }
+        if (chaM <= 1)
+        {
+            chaMt.color = Color.red;
+            chaT.color = Color.red;
+        }
+        else
+        {
+            chaMt.color = Color.green;
+            chaT.color = Color.blue;
+        }
+
+
+
+
+
+    }
+
+
+    void ReRollStats()
+    {
+
+        curCombo = WorldInteraction.currentcombo;
+
+        if (curCombo < 50)
+        {
+
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            conM = 0.1f + diceVal1 / 10f;
+            conMt.text = "x" + conM.ToString();
+            conT.text = diceVal1.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            inteM = 0.1f + diceVal1 / 10f;
+            inteMt.text = "x" + inteM.ToString();
+            inteT.text = diceVal1.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            strM = 0.1f + diceVal1 / 10f;
+            strMt.text = "x" + strM.ToString();
+            strT.text = diceVal1.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            dexM = 0.1f + diceVal1 / 10f;
+            dexMt.text = "x" + dexM.ToString();
+            dexT.text = diceVal1.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            wisM = 0.8f + ((diceVal1 / 10f) * 0.5f);
+            wisMt.text = "x" + wisM.ToString();
+            wisT.text = diceVal1.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            chaM = 0.1f + diceVal1 / 10f;
+            chaMt.text = "x" + chaM.ToString();
+            chaT.text = diceVal1.ToString();
+
+
+
+
+        }
+        else if (curCombo < 100)
+        {
+            
+
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2;
+            conM = 0.1f + diceValFin / 10f;
+            conMt.text = "x" + conM.ToString();
+            conT.text = diceValFin.ToString();
+
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2;
+            inteM = 0.1f + diceValFin / 10f;
+            inteMt.text = "x" + inteM.ToString();
+            inteT.text = diceValFin.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2;
+            strM = 0.1f + diceValFin / 10f;
+            strMt.text = "x" + strM.ToString();
+            strT.text = diceValFin.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2;
+            dexM = 0.1f + diceValFin / 10f;
+            dexMt.text = "x" + dexM.ToString();
+            dexT.text = diceValFin.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2;
+            wisM = 0.8f + ((diceVal1 / 10f) * 0.5f);
+            wisMt.text = "x" + wisM.ToString();
+            wisT.text = diceValFin.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2;
+            chaM = 0.1f + diceValFin / 10f;
+            chaMt.text = "x" + chaM.ToString();
+            chaT.text = diceValFin.ToString();
+
+
+        }
+        else
+        {
+            
+
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceVal3 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2 + diceVal3;
+            conM = 0.1f + diceValFin / 10f;
+            conMt.text = "x" + conM.ToString();
+            conT.text = diceValFin.ToString();
+
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceVal3 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2 + diceVal3;
+            inteM = 0.1f + diceValFin / 10f;
+            inteMt.text = "x" + inteM.ToString();
+            inteT.text = diceValFin.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceVal3 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2 + diceVal3;
+            strM = 0.1f + diceValFin / 10f;
+            strMt.text = "x" + strM.ToString();
+            strT.text = diceValFin.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceVal3 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2 + diceVal3;
+            dexM = 0.1f + diceValFin / 10f;
+            dexMt.text = "x" + dexM.ToString();
+            dexT.text = diceValFin.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceVal3 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2 + diceVal3;
+            wisM = 0.8f + ((diceValFin / 10f) * 0.5f);
+            wisMt.text = "x" + wisM.ToString();
+            wisT.text = diceValFin.ToString();
+
+            diceVal1 = Random.Range(diceMin, diceMax);
+            diceVal2 = Random.Range(diceMin, diceMax);
+            diceVal3 = Random.Range(diceMin, diceMax);
+            diceValFin = diceVal1 + diceVal2 + diceVal3;
+            chaM = 0.1f + diceValFin / 10f;
+            chaMt.text = "x" + chaM.ToString();
+            chaT.text = diceValFin.ToString();
+
+
+
+        }
+
+
+        if (conM <= 1)
+        {
+            conMt.color = Color.red;
+            conT.color = Color.red;
+        }
+        else
+        {
+            conMt.color = Color.green;
+            conT.color = Color.blue;
+        }
+        if (inteM <= 1)
+        {
+            inteMt.color = Color.red;
+            inteT.color = Color.red;
+        }
+        else
+        {
+            inteMt.color = Color.green;
+            inteT.color = Color.blue;
+        }
+        if (strM <= 1)
+        {
+            strMt.color = Color.red;
+            strT.color = Color.red;
+        }
+        else
+        {
+            strMt.color = Color.green;
+            strT.color = Color.blue;
+        }
+        if (dexM <= 1)
+        {
+            dexMt.color = Color.red;
+            dexT.color = Color.red;
+        }
+        else
+        {
+            dexMt.color = Color.green;
+            dexT.color = Color.blue;
+        }
+        if (wisM <= 1)
+        {
+            wisMt.color = Color.red;
+            wisT.color = Color.red;
+        }
+        else
+        {
+            wisMt.color = Color.green;
+            wisT.color = Color.blue;
+        }
+        if (chaM <= 1)
+        {
+            chaMt.color = Color.red;
+            chaT.color = Color.red;
+        }
+        else
+        {
+            chaMt.color = Color.green;
+            chaT.color = Color.blue;
+        }
+
+        PlayerMovement.speed *= dexM;
+        PlayerAttack.wisMod = wisM;
+        PlayerAttack.chaMod = chaM;
+        BasicProjectile.damage *= inteM;
+        BounceProjectile.damage *= inteM;
+        fireBall.damage *= inteM;
+        RailgunProjectile.damage *= inteM;
+        ShockWave.damage *= inteM;
+        DodgeDamage.damage *= strM;
+        meleeSwing.damage *= strM;
 
     }
 
