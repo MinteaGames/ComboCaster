@@ -7,7 +7,7 @@ public class fireBall : MonoBehaviour
     private Vector3 scaleChange = new Vector3(0.02f, 0.02f, 0.02f);
     private bool maxSize = false;
 
-    public float damage = 2;
+    public static float damage = 2;
     public float speed = 100;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;

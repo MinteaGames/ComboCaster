@@ -12,6 +12,8 @@ public class PlayerAttack : MonoBehaviour
     public GameObject bounceBall;
     public GameObject shockWave;
     public GameObject fireBall;
+    public GameObject wish;
+
 
     HUDManager playerHud;
 
@@ -29,8 +31,8 @@ public class PlayerAttack : MonoBehaviour
     bool fireBallStage3 = false;
 
 
-    float wisMod;
-    float chaMod;
+    public static float wisMod;
+    public static float chaMod;
 
     private void Start()
     {
@@ -39,62 +41,63 @@ public class PlayerAttack : MonoBehaviour
         wisMod = StatMenu.wisM;
 
         chaMod = StatMenu.chaM;
-		playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
+        playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
 
+        wish = GameObject.Find("Combo Mana");
 
     }
 
 
-    
+
 
 
     // Update is called once per frame
     void Update()
     {
 
-        if(Input.GetMouseButton(0) && magicMissileCool == true)
+        if (Input.GetMouseButton(0) && magicMissileCool == true)
         {
             Instantiate(magicMissle, transform.position, transform.rotation);
             magicMissileCool = false;
 
-            Invoke("MagicMissileCooldown", 0.3f/wisMod);
+            Invoke("MagicMissileCooldown", 0.3f / wisMod);
 
             //playerHud.ShowcooldownOfAbility(0 , 0.3f);
-            StartCoroutine( playerHud.ShowcooldownOfAbility(0, 0.3f/wisMod));
-            
+            StartCoroutine(playerHud.ShowcooldownOfAbility(0, 0.3f / wisMod));
+
 
         }
         if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(3 / chaMod)))
         {
             Instantiate(railgun, transform.position, transform.rotation, transform.parent.transform);
-            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(3/chaMod));
+            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(3 / chaMod));
             railgunCool = false;
 
 
             Invoke("railgunCooldown", 1.0f / wisMod);
             StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
-            
+
 
         }
         if (Input.GetMouseButton(1) && meleeCool == true)
         {
-            Instantiate(melee, transform.position, transform.rotation, gameObject.transform);  
+            Instantiate(melee, transform.position, transform.rotation, gameObject.transform);
             meleeCool = false;
 
 
             Invoke("meleeCooldown", 0.8f / wisMod);
             StartCoroutine(playerHud.ShowcooldownOfAbility(2, 0.8f / wisMod));
-            
+
         }
-        if(Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
         {
-            
+
             if (GameObject.Find("Bounce Ball(Clone)") == true)
             {
                 GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
                 bounceCool = false;
 
-                Invoke("BounceCooldown", 2.0f/wisMod);
+                Invoke("BounceCooldown", 2.0f / wisMod);
                 StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
             }
             else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
@@ -102,20 +105,20 @@ public class PlayerAttack : MonoBehaviour
                 bounceCool = false;
                 Instantiate(bounceBall, transform.position, transform.rotation);
                 GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(6 / chaMod));
-                Invoke("BounceCooldown", 2.0f/wisMod);
+                Invoke("BounceCooldown", 2.0f / wisMod);
                 StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
             }
-            
+
         }
         if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(15 / chaMod))
         {
             Instantiate(shockWave, transform.position, transform.rotation);
             shockCool = false;
-            Invoke("ShockCooldown", 10.0f/wisMod);
+            Invoke("ShockCooldown", 10.0f / wisMod);
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(15 / chaMod));
             StartCoroutine(playerHud.ShowcooldownOfAbility(4, 10.0f / wisMod));
         }
-        if(Input.GetKey(KeyCode.Alpha2) && fireBallCool == true)
+        if (Input.GetKey(KeyCode.Alpha2) && fireBallCool == true)
         {
             if (fireBallCharging == false && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod))
             {
@@ -171,7 +174,7 @@ public class PlayerAttack : MonoBehaviour
             }
 
             fireBallCool = false;
-            Invoke("fireBallCooldown", 0.3f/wisMod);
+            Invoke("fireBallCooldown", 0.3f / wisMod);
             fireBallCharging = false;
             fireBallChargeTime = 0;
             fireBallStage2 = false;
@@ -181,34 +184,43 @@ public class PlayerAttack : MonoBehaviour
             currentFireBall = null;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha3) && GetComponentInParent<ComboManager>().playerCombo > 50)
+        {
 
-    }
 
-    void railgunCooldown()
-    {
-        railgunCool = true;
-    }
-    void meleeCooldown()
-    {
-        meleeCool = true;
-    }
+            wish.SendMessage("ReRollStats");
 
-    void MagicMissileCooldown()
-    {
-        magicMissileCool = true;
-    }
 
-    void BounceCooldown()
-    {
-        bounceCool = true;
-    }
-    void ShockCooldown()
-    {
-        shockCool = true;
-    }
+            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(50 / chaMod));
 
-    void fireBallCooldown()
-    {
-        fireBallCool = true;
+        }
     }
+        void railgunCooldown()
+        {
+            railgunCool = true;
+        }
+        void meleeCooldown()
+        {
+            meleeCool = true;
+        }
+
+        void MagicMissileCooldown()
+        {
+            magicMissileCool = true;
+        }
+
+        void BounceCooldown()
+        {
+            bounceCool = true;
+        }
+        void ShockCooldown()
+        {
+            shockCool = true;
+        }
+
+        void fireBallCooldown()
+        {
+            fireBallCool = true;
+        }
+    
 }
