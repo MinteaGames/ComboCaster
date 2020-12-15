@@ -11,6 +11,8 @@ public class fireBall : MonoBehaviour
     public float speed = 100;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
+
+    public Animator fireballAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,7 @@ public class fireBall : MonoBehaviour
     {
         Debug.Log("FIRE");
         transform.parent = null;
+        fireballAnimator.SetBool("fireBallFired", true);
         GetComponent<CircleCollider2D>().enabled = true;
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
     }
