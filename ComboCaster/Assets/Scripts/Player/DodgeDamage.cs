@@ -8,7 +8,7 @@ public class DodgeDamage : MonoBehaviour
 
     public static bool hitEnemy = false;
 
-    float damage = 2;
+    public static float damage = 2;
 
 
     HUDManager playerHud;

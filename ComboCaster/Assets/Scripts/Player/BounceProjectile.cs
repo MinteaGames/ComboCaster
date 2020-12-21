@@ -9,7 +9,7 @@ public class BounceProjectile : MonoBehaviour
 
     public float speed = 400;
 
-    public float damage = 1;
+    public static float damage = 3;
 
     public int numOfBounces = 0;
 

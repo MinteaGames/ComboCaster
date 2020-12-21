@@ -7,10 +7,12 @@ public class fireBall : MonoBehaviour
     private Vector3 scaleChange = new Vector3(0.02f, 0.02f, 0.02f);
     private bool maxSize = false;
 
-    public float damage = 2;
+    public static float damage = 2;
     public float speed = 100;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
+
+    public Animator fireballAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,7 @@ public class fireBall : MonoBehaviour
     {
         Debug.Log("FIRE");
         transform.parent = null;
+        fireballAnimator.SetBool("fireBallFired", true);
         GetComponent<CircleCollider2D>().enabled = true;
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
     }

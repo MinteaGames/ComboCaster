@@ -6,7 +6,7 @@ public class meleeSwing : MonoBehaviour
 {
     public float speed = 0;
 
-    public float damage = 1;
+    public static float damage = 2;
     public float knockBackDistance = 1f;
 
     private Rigidbody2D rb2D;

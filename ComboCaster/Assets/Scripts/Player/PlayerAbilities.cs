@@ -19,7 +19,12 @@ public class PlayerAbilities : MonoBehaviour
 
     HUDManager playerHud;
 
+
     public bool disableDash = false;
+    
+    bool paused = false;
+
+    public GameObject pauseScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +45,13 @@ public class PlayerAbilities : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown == true)
             {
 
+
                 gameObject.layer = 11;
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Space))
+        {
+            pauseGame();
+        }
 
                 gameObject.SendMessage("TriggerInvulnerability");
 
@@ -104,6 +115,29 @@ public class PlayerAbilities : MonoBehaviour
         }
 
     }
+
+    public void pauseGame()
+    {
+
+        if (paused == false)
+        {
+            paused = true;
+
+            Time.timeScale = 0;
+
+            pauseScreen.active = true;
+        }
+        else
+        {
+            paused = false;
+
+            Time.timeScale = 1;
+
+            pauseScreen.active = false;
+        }
+
+    }
+
     void DashReset()
     {
         gameObject.layer = 8;
