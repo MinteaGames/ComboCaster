@@ -37,7 +37,7 @@ public class meleeSwing : MonoBehaviour
     }
     private void Update()
     {
-        Invoke("timeToDie", .1f);
+        Invoke("timeToDie", .5f);
     }
 
     //private void OnBecameInvisible()

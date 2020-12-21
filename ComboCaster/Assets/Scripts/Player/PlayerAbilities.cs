@@ -34,11 +34,18 @@ public class PlayerAbilities : MonoBehaviour
         dashCooldown = true;
         playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
 
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Space))
+        {
+            pauseGame();
+        }
 
         if (disableDash == false)
         {
@@ -47,11 +54,6 @@ public class PlayerAbilities : MonoBehaviour
 
 
                 gameObject.layer = 11;
-
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Space))
-        {
-            pauseGame();
-        }
 
                 gameObject.SendMessage("TriggerInvulnerability");
 
