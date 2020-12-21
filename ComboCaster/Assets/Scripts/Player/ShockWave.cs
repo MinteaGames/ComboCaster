@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShockWave : MonoBehaviour
 {
-    private Vector3 scaleChange = new Vector3(0.01f, 0.01f, 0.01f);
+    private Vector3 scaleChange = new Vector3(0.03f, 0.03f, 0.03f);
     private ParticleSystem ps;
 
     public float damage = 1;

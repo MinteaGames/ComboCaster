@@ -1,43 +1,25 @@
 fileFormatVersion: 2
-guid: 9860222121f5adf45952d979a0aa4da8
+guid: e3a2595afb743ec40bf884324b9919a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7702511191135307881
-    second: Beholder_0
+      213: 8837233921002032969
+    second: BeholderBob_0
   - first:
-      213: 5524957980628738583
-    second: Beholder_1
+      213: 8743052161127058318
+    second: BeholderBob_1
   - first:
-      213: -3609839383454763561
-    second: Beholder_2
+      213: 899500880178321692
+    second: BeholderBob_2
   - first:
-      213: 2826785750006513472
-    second: Beholder_3
+      213: 2883793419530881396
+    second: BeholderBob_3
   - first:
-      213: -8019030441419752949
-    second: Beholder_4
+      213: -7030558463596171843
+    second: BeholderBob_4
   - first:
-      213: -4362427110978286317
-    second: Beholder_5
-  - first:
-      213: 8864201669777837530
-    second: Beholder_0
-  - first:
-      213: 2554627090570008516
-    second: Beholder_1
-  - first:
-      213: -5014790128651804789
-    second: Beholder_2
-  - first:
-      213: 2256846647162359807
-    second: Beholder_3
-  - first:
-      213: 3271272770209357901
-    second: Beholder_4
-  - first:
-      213: -6168277758446275331
-    second: Beholder_5
+      213: -5906824414551753406
+    second: BeholderBob_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,53 +103,77 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Beholder_0
+      name: BeholderBob_0
       rect:
         serializedVersion: 2
         x: 372
         y: 2673
         width: 1215
-        height: 869
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.50680745, y: 0.41399878}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: add48804478f30b70800000000000000
-      internalID: 8864201669777837530
+      spriteID: 94fcb52fd6924aa70800000000000000
+      internalID: 8837233921002032969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Beholder_1
+      name: BeholderBob_1
       rect:
         serializedVersion: 2
         x: 2632
         y: 2718
         width: 736
-        height: 799
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 930
+      alignment: 9
+      pivot: {x: 0.51105034, y: 0.46457177}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c7d30bcdcbd37320800000000000000
-      internalID: 2554627090570008516
+      spriteID: e8b80bc2e9f855970800000000000000
+      internalID: 8743052161127058318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Beholder_2
+      name: BeholderBob_2
       rect:
         serializedVersion: 2
         x: 1763
@@ -175,62 +181,62 @@ TextureImporter:
         width: 9
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8fd29e82f2e76ab0800000000000000
-      internalID: -5014790128651804789
+      spriteID: c191e26e84bab7c00800000000000000
+      internalID: 899500880178321692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Beholder_3
+      name: BeholderBob_3
       rect:
         serializedVersion: 2
         x: 413
         y: 692
         width: 1215
-        height: 850
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 981
+      alignment: 9
+      pivot: {x: 0.49565962, y: 0.47093794}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fffc4ac711ee15f10800000000000000
-      internalID: 2256846647162359807
+      spriteID: 4794fb806da450820800000000000000
+      internalID: 2883793419530881396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Beholder_4
+      name: BeholderBob_4
       rect:
         serializedVersion: 2
         x: 2632
         y: 718
         width: 736
-        height: 799
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 930
+      alignment: 9
+      pivot: {x: 0.5033656, y: 0.43691367}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d40acb7a045e56d20800000000000000
-      internalID: 3271272770209357901
+      spriteID: dbdebbca3507e6e90800000000000000
+      internalID: -7030558463596171843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Beholder_5
+      name: BeholderBob_5
       rect:
         serializedVersion: 2
         x: 228
@@ -238,14 +244,14 @@ TextureImporter:
         width: 9
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df4fdd34f00e56aa0800000000000000
-      internalID: -6168277758446275331
+      spriteID: 24db90c9d7eb60ea0800000000000000
+      internalID: -5906824414551753406
       vertices: []
       indices: 
       edges: []

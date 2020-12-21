@@ -7,7 +7,7 @@ public class BounceProjectile : MonoBehaviour
 
     public Animator animator;
 
-    public float speed = 5;
+    public float speed = 400;
 
     public float damage = 1;
 
