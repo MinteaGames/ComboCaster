@@ -30,169 +30,187 @@ public class PlayerAttack : MonoBehaviour
     bool fireBallStage2 = false;
     bool fireBallStage3 = false;
 
+    public bool disableMagicMissile = false;
+    public bool disableRailgun = false;
+    public bool disableMelee = false;
+    public bool disableBounce = false;
+    public bool disableShock = false;
+    public bool disableFireball = false;
+    public bool disableWish = false;
 
     public static float wisMod;
     public static float chaMod;
 
     private void Start()
     {
-
-
         wisMod = StatMenu.wisM;
 
         chaMod = StatMenu.chaM;
-        playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
-
-        wish = GameObject.Find("Combo Mana");
-
+		playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
+    
+    wish = GameObject.Find("Combo Mana");
     }
-
-
-
 
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButton(0) && magicMissileCool == true)
+        // Magic Missile
+        if (disableMagicMissile == false)
         {
-            Instantiate(magicMissle, transform.position, transform.rotation);
-            magicMissileCool = false;
-
-            Invoke("MagicMissileCooldown", 0.3f / wisMod);
-
-            //playerHud.ShowcooldownOfAbility(0 , 0.3f);
-            StartCoroutine(playerHud.ShowcooldownOfAbility(0, 0.3f / wisMod));
-
-
-        }
-        if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(3 / chaMod)))
-        {
-            Instantiate(railgun, transform.position, transform.rotation, transform.parent.transform);
-            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(3 / chaMod));
-            railgunCool = false;
-
-
-            Invoke("railgunCooldown", 1.0f / wisMod);
-            StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
-
-
-        }
-        if (Input.GetMouseButton(1) && meleeCool == true)
-        {
-            Instantiate(melee, transform.position, transform.rotation, gameObject.transform);
-            meleeCool = false;
-
-
-            Invoke("meleeCooldown", 0.8f / wisMod);
-            StartCoroutine(playerHud.ShowcooldownOfAbility(2, 0.8f / wisMod));
-
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
-        {
-
-            if (GameObject.Find("Bounce Ball(Clone)") == true)
+            if (Input.GetMouseButton(0) && magicMissileCool == true)
             {
-                GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
-                bounceCool = false;
+                Instantiate(magicMissle, transform.position, transform.rotation);
+                magicMissileCool = false;
 
-                Invoke("BounceCooldown", 2.0f / wisMod);
-                StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
+                Invoke("MagicMissileCooldown", 0.3f / wisMod);
+
+                //playerHud.ShowcooldownOfAbility(0 , 0.3f);
+                StartCoroutine(playerHud.ShowcooldownOfAbility(0, 0.3f / wisMod));
             }
-            else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
-            {
-                bounceCool = false;
-                Instantiate(bounceBall, transform.position, transform.rotation);
-                GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(6 / chaMod));
-                Invoke("BounceCooldown", 2.0f / wisMod);
-                StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
-            }
+        }
 
-        }
-        if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(15 / chaMod))
+        // Railgun
+        if (disableRailgun == false)
         {
-            Instantiate(shockWave, transform.position, transform.rotation);
-            shockCool = false;
-            Invoke("ShockCooldown", 10.0f / wisMod);
-            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(15 / chaMod));
-            StartCoroutine(playerHud.ShowcooldownOfAbility(4, 10.0f / wisMod));
-        }
-        if (Input.GetKey(KeyCode.Alpha2) && fireBallCool == true)
-        {
-            if (fireBallCharging == false && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod))
+            if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod)))
             {
-                currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
-                fireBallChargeTime += 1;
-                fireBallCharging = true;
+                Instantiate(railgun, transform.position, transform.rotation, transform.parent.transform);
                 GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
-            }
-            else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo >= 2)
-            {
-                fireBallChargeTime += Time.deltaTime;
+                railgunCool = false;
 
-                if (fireBallChargeTime >= 2 && fireBallChargeTime < 3)
+                Invoke("railgunCooldown", 1.0f / wisMod);
+                StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
+            }
+        }
+
+        // Melee
+        if (disableMelee == false)
+        {
+            if (Input.GetMouseButton(1) && meleeCool == true)
+            {
+                Instantiate(melee, transform.position, transform.rotation, gameObject.transform);
+                meleeCool = false;
+
+                Invoke("meleeCooldown", 0.8f / wisMod);
+                StartCoroutine(playerHud.ShowcooldownOfAbility(2, 0.8f / wisMod));
+
+            }
+        }
+
+        // Bounce
+        if (disableBounce == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
+            {
+
+                if (GameObject.Find("Bounce Ball(Clone)") == true)
                 {
-                    if (fireBallStage2 == false)
+                    GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
+                    bounceCool = false;
+
+                    Invoke("BounceCooldown", 2.0f / wisMod);
+                    StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
+                }
+                else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
+                {
+                    bounceCool = false;
+                    Instantiate(bounceBall, transform.position, transform.rotation);
+                    GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(6 / chaMod));
+                    Invoke("BounceCooldown", 2.0f / wisMod);
+                    StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
+                }
+
+            }
+        }
+
+        // Shockwave
+        if (disableShock == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(15 / chaMod))
+            {
+                Instantiate(shockWave, transform.position, transform.rotation);
+                shockCool = false;
+                Invoke("ShockCooldown", 10.0f / wisMod);
+                GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(15 / chaMod));
+                StartCoroutine(playerHud.ShowcooldownOfAbility(4, 10.0f / wisMod));
+            }
+        }
+
+        // Fireball
+        if (disableFireball == false)
+        {
+            if (Input.GetKey(KeyCode.Alpha2) && fireBallCool == true)
+            {
+                if (fireBallCharging == false && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod))
+                {
+                    currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
+                    fireBallChargeTime += 1;
+                    fireBallCharging = true;
+                    GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
+                }
+                else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo >= 2)
+                {
+                    fireBallChargeTime += Time.deltaTime;
+
+                    if (fireBallChargeTime >= 2 && fireBallChargeTime < 3)
                     {
-                        GetComponentInParent<ComboManager>().reduceComboByAmmount(2);
-                        fireBallStage2 = true;
+                        if (fireBallStage2 == false)
+                        {
+                            GetComponentInParent<ComboManager>().reduceComboByAmmount(2);
+                            fireBallStage2 = true;
+                        }
+                    }
+                    else if (fireBallChargeTime >= 3 && fireBallChargeTime < 4)
+                    {
+                        if (fireBallStage2 == false)
+                        {
+                            GetComponentInParent<ComboManager>().reduceComboByAmmount(2);
+                            fireBallStage3 = true;
+                        }
+                    }
+                    if (fireBallChargeTime >= 4)
+                    {
+                        currentFireBall.SendMessage("maxSizeReached");
                     }
                 }
-                else if (fireBallChargeTime >= 3 && fireBallChargeTime < 4)
-                {
-                    if (fireBallStage2 == false)
-                    {
-                        GetComponentInParent<ComboManager>().reduceComboByAmmount(2);
-                        fireBallStage3 = true;
-                    }
-                }
-                if (fireBallChargeTime >= 4)
+                else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo < 2)
                 {
                     currentFireBall.SendMessage("maxSizeReached");
                 }
             }
-            else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo < 2)
-            {
-                currentFireBall.SendMessage("maxSizeReached");
-            }
-        }
 
-        if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            if (fireBallStage2 == true)
+            if (Input.GetKeyUp(KeyCode.Alpha2))
             {
-                if (fireBallStage3 == true)
+                if (fireBallStage2 == true)
                 {
-                    currentFireBall.SendMessage("stageReached", 3);
-                }
-                else
-                {
+                    if (fireBallStage3 == true)
+                    {
+                        currentFireBall.SendMessage("stageReached", 3);
+                    }
+                    else
+                    {
+                        currentFireBall.SendMessage("stageReached", 2);
+                    }
                     currentFireBall.SendMessage("stageReached", 2);
                 }
-                currentFireBall.SendMessage("stageReached", 2);
+
+                fireBallCool = false;
+                Invoke("fireBallCooldown", 0.3f / wisMod);
+                fireBallCharging = false;
+                fireBallChargeTime = 0;
+                fireBallStage2 = false;
+                fireBallStage3 = false;
+
+                currentFireBall.SendMessage("fire");
+                currentFireBall = null;
             }
-
-            fireBallCool = false;
-            Invoke("fireBallCooldown", 0.3f / wisMod);
-            fireBallCharging = false;
-            fireBallChargeTime = 0;
-            fireBallStage2 = false;
-            fireBallStage3 = false;
-
-            currentFireBall.SendMessage("fire");
-            currentFireBall = null;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && GetComponentInParent<ComboManager>().playerCombo > 50)
         {
-
-
             wish.SendMessage("ReRollStats");
-
-
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(50 / chaMod));
-
         }
     }
         void railgunCooldown()

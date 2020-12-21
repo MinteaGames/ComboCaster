@@ -120,6 +120,13 @@ MonoBehaviour:
   shockWave: {fileID: 7918805796411505729, guid: eea3624c577dfb841940503757d7f359, type: 3}
   fireBall: {fileID: 6267417591549585694, guid: 1047b8bcad675dc439cd07f35b06eabe, type: 3}
   railgunCool: 1
+  disableMagicMissile: 0
+  disableRailgun: 0
+  disableMelee: 0
+  disableBounce: 0
+  disableShock: 0
+  disableFireball: 0
+  disableWish: 0
 --- !u!114 &213701234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
-  speed: 5
+  speed: 6
 --- !u!114 &5958668135584032695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +276,7 @@ MonoBehaviour:
   playerCombo: 0
   comboText: {fileID: 0}
   resetTrickleTime: 5
+  pauseComboEffects: 0
 --- !u!114 &5958668135584032692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +306,7 @@ MonoBehaviour:
   dashSpeed: 50
   initialDashCooldown: 3
   dodgeParticle: {fileID: 8548365509873405297, guid: d97d31f6d38bdbc439719713e0ac205e, type: 3}
+  disableDash: 0
 --- !u!50 &465796197
 Rigidbody2D:
   serializedVersion: 4

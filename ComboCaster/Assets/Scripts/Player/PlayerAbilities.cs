@@ -19,6 +19,9 @@ public class PlayerAbilities : MonoBehaviour
 
     HUDManager playerHud;
 
+
+    public bool disableDash = false;
+    
     bool paused = false;
 
     public GameObject pauseScreen;
@@ -37,81 +40,79 @@ public class PlayerAbilities : MonoBehaviour
     void Update()
     {
 
+        if (disableDash == false)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown == true)
+            {
+
+
+                gameObject.layer = 11;
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Space))
         {
             pauseGame();
         }
-        
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown == true)
-        {
+                gameObject.SendMessage("TriggerInvulnerability");
+
+                Instantiate(dodgeParticle, transform.position, transform.rotation, transform);
+
+                DodgeDamage.dodging = true;
+
+                if (Input.GetKey(KeyCode.D) & !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
+                {
+                    rigidbody.velocity = Vector2.right * dashSpeed;
+
+                }
+                if (Input.GetKey(KeyCode.A) & !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
+                {
+                    rigidbody.velocity = Vector2.left * dashSpeed;
+
+                }
+                if (Input.GetKey(KeyCode.S) & !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
+                {
+                    rigidbody.velocity = Vector2.down * dashSpeed;
+
+                }
+                if (Input.GetKey(KeyCode.W) & !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
+                {
+                    rigidbody.velocity = Vector2.up * dashSpeed;
+
+                }
+                if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+                {
+
+                    rigidbody.velocity += (Vector2.up * (dashSpeed / 1.5f)) + (Vector2.left * (dashSpeed / 1.5f));
+
+                }
+                if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+                {
+                    rigidbody.velocity += (Vector2.up * (dashSpeed / 1.5f)) + (Vector2.right * (dashSpeed / 1.5f));
+
+                }
+                if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
+                {
+                    rigidbody.velocity += (Vector2.down * (dashSpeed / 1.5f)) + (Vector2.right * (dashSpeed / 1.5f));
+
+                }
+                if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+                {
+                    rigidbody.velocity += (Vector2.down * (dashSpeed / 1.5f)) + (Vector2.left * (dashSpeed / 1.5f));
+                }
+                else
+                {
+                    //rigidbody.velocity = Vector2.right * dashSpeed;
+                    //dashCooldown = false;
+                    //Invoke("DashReset", 0.1f);
+                }
 
 
+                dashCooldown = false;
+                Invoke("DashReset", 0.1f);
 
 
-            gameObject.layer = 11;
-
-            gameObject.SendMessage("TriggerInvulnerability");
-
-            Instantiate(dodgeParticle, transform.position, transform.rotation, transform);
-
-            DodgeDamage.dodging = true;
-            
-            if (Input.GetKey(KeyCode.D) & !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
-            {
-                rigidbody.velocity = Vector2.right * dashSpeed;
-                
             }
-            if (Input.GetKey(KeyCode.A) & !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
-            {
-                rigidbody.velocity = Vector2.left * dashSpeed;
-                
-            }
-            if (Input.GetKey(KeyCode.S) & !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
-            {
-                rigidbody.velocity = Vector2.down * dashSpeed;
-                
-            }
-            if (Input.GetKey(KeyCode.W) & !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
-            {
-                rigidbody.velocity = Vector2.up * dashSpeed;
-               
-            }
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
-            {
-
-                rigidbody.velocity += (Vector2.up * (dashSpeed / 1.5f)) + (Vector2.left * (dashSpeed / 1.5f));
-                
-            }
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
-            {
-                rigidbody.velocity += (Vector2.up * (dashSpeed / 1.5f)) + (Vector2.right * (dashSpeed / 1.5f));
-                
-            }
-            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
-            {
-                rigidbody.velocity += (Vector2.down * (dashSpeed / 1.5f)) + (Vector2.right * (dashSpeed / 1.5f));
-                
-            }
-            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
-            {
-                rigidbody.velocity += (Vector2.down * (dashSpeed / 1.5f)) + (Vector2.left * (dashSpeed / 1.5f));
-            }
-            else
-            {
-                //rigidbody.velocity = Vector2.right * dashSpeed;
-                //dashCooldown = false;
-                //Invoke("DashReset", 0.1f);
-            }
-
-
-            dashCooldown = false;
-            Invoke("DashReset", 0.1f);
-            
-
         }
-
 
     }
 

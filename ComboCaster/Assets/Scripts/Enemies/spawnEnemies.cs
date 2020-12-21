@@ -5,11 +5,16 @@ using UnityEngine;
 public class spawnEnemies : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int numGoblinsToSpawn;
-    int goblinsLeftToSpawn;
+    public int numEnemiesToSpawn;
+    public int enemiesLeftToSpawn;
     public GameObject goblinPrefab;
     public GameObject ogrePrefab;
     public GameObject beholderPrefab;
+
+    // For tutorial purposes restrict enemy type
+    public bool onlyGoblins = false;
+    public bool onlyOgres = false;
+    public bool onlyBeholders = false;
 
     public Transform[] spawnLocations;
     public float spawnDelay;
@@ -22,14 +27,14 @@ public class spawnEnemies : MonoBehaviour
     void Start()
     {
         spawnDelayTime = spawnDelay;
-        goblinsLeftToSpawn = numGoblinsToSpawn;
+        enemiesLeftToSpawn = numEnemiesToSpawn;
         endPortal.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (goblinsLeftToSpawn >0)
+        if (enemiesLeftToSpawn >= 0)
         {
             if (spawnDelayTime <= spawnDelay)
             {
@@ -40,38 +45,55 @@ public class spawnEnemies : MonoBehaviour
                 spawnDelayTime = 0;
                 int randomPos = Random.Range(0, spawnLocations.Length);
 
-                enemySpawn = Random.Range(0, 10);
+                if (onlyGoblins == true) SpawnGoblin(randomPos);
+                else if (onlyOgres == true) SpawnOgre(randomPos); 
+                else if (onlyBeholders == true) SpawnBeholder(randomPos);
+                else  // If no restrictions pick randomly
+                {
+                    enemySpawn = Random.Range(0, 10);
 
-                if (enemySpawn >= 9)
-                {
-                    GameObject newOgre = Instantiate(ogrePrefab, spawnLocations[randomPos].position, transform.rotation);
-                    newOgre.GetComponent<EnemyHealth>().health = 8;
-                    newOgre.GetComponent<enemyScore>().enemyBaseScore = 20;
-                }
-                else if (enemySpawn >= 8)
-                {
-                    GameObject newBeholder = Instantiate(beholderPrefab, spawnLocations[randomPos].position, transform.rotation);
-                    newBeholder.GetComponent<EnemyHealth>().health = 5;
-                    newBeholder.GetComponent<enemyScore>().enemyBaseScore = 15;
-                }
-                else
-                {
-                    GameObject newGoblin = Instantiate(goblinPrefab, spawnLocations[randomPos].position, transform.rotation);
-                    newGoblin.GetComponent<EnemyHealth>().health = 3;
-                    newGoblin.GetComponent<enemyScore>().enemyBaseScore = 5;
+                    if (enemySpawn >= 9)
+                    {
+                        SpawnOgre(randomPos);
+                    }
+                    else if (enemySpawn >= 8)
+                    {
+                        SpawnBeholder(randomPos);
+                    }
+                    else
+                    {
+                        SpawnGoblin(randomPos);
+                    }
                 }
                 
-
-                
-                goblinsLeftToSpawn--;
+                enemiesLeftToSpawn--;
             }
         }
 
         enemiesOnField = GameObject.FindGameObjectsWithTag("Enemy");
-        if ((enemiesOnField.Length == 0) &&( goblinsLeftToSpawn == 0))
+        if ((enemiesOnField.Length == 0) &&( enemiesLeftToSpawn == 0))
         {
             endPortal.SetActive(true);
         }
+    }
+
+    private void SpawnGoblin(int randomPos)
+    {
+        GameObject newGoblin = Instantiate(goblinPrefab, spawnLocations[randomPos].position, transform.rotation);
+        newGoblin.GetComponent<EnemyHealth>().health = 3;
+        newGoblin.GetComponent<enemyScore>().enemyBaseScore = 5;
+    }
+    private void SpawnOgre(int randomPos)
+    {
+        GameObject newOgre = Instantiate(ogrePrefab, spawnLocations[randomPos].position, transform.rotation);
+        newOgre.GetComponent<EnemyHealth>().health = 8;
+        newOgre.GetComponent<enemyScore>().enemyBaseScore = 20;
+    }
+    private void SpawnBeholder (int randomPos)
+    {
+        GameObject newBeholder = Instantiate(beholderPrefab, spawnLocations[randomPos].position, transform.rotation);
+        newBeholder.GetComponent<EnemyHealth>().health = 5;
+        newBeholder.GetComponent<enemyScore>().enemyBaseScore = 15;
     }
 
 }

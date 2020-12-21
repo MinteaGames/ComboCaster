@@ -13,51 +13,63 @@ public class ComboManager : MonoBehaviour
     public float resetTrickleTime;
     private float timeBetweenDecrease;
 
+    // Stop all increases and decreases
+    public bool pauseComboEffects = false;
+
     public void increaseCombo()
     {
-        playerCombo++;
-        timeTillTrickle = resetTrickleTime;
+        if (pauseComboEffects == false)
+        {
+            playerCombo++;
+            timeTillTrickle = resetTrickleTime;
+        }
     }
 
     public void increaseComboByAmount(int increase)
     {
-        playerCombo = playerCombo + increase;
-        timeTillTrickle = resetTrickleTime;
+        if (pauseComboEffects == false)
+        {
+            playerCombo = playerCombo + increase;
+            timeTillTrickle = resetTrickleTime;
+        } 
     }
 
 
     public void reduceComboByAmmount(int abilityCost)
     {
-        playerCombo -= abilityCost;    
+        if (pauseComboEffects == false)
+            playerCombo -= abilityCost;    
     }
 
     private void Update()
     {
-        if (timeTillTrickle > 0 && playerCombo != 0)
+        if (pauseComboEffects == false)
         {
-            timeTillTrickle -= Time.deltaTime;
-        }
-        else if (timeBetweenDecrease < 0)
-        {
-            playerCombo--;
-            timeBetweenDecrease = 0.5f;
-        } 
-        else
-        {
-            timeBetweenDecrease -= Time.deltaTime;
-        }
+            if (timeTillTrickle > 0 && playerCombo != 0)
+            {
+                timeTillTrickle -= Time.deltaTime;
+            }
+            else if (timeBetweenDecrease < 0)
+            {
+                playerCombo--;
+                timeBetweenDecrease = 0.5f;
+            }
+            else
+            {
+                timeBetweenDecrease -= Time.deltaTime;
+            }
 
-        if (playerCombo < 0)
-        {
-            playerCombo = 0;
-        }
+            if (playerCombo < 0)
+            {
+                playerCombo = 0;
+            }
 
-        WorldInteraction.currentcombo = playerCombo;
-        if (comboText)
-        {
-            comboText.text = playerCombo.ToString() + "x";
-        }
-       
+            WorldInteraction.currentcombo = playerCombo;
+            if (comboText)
+            {
+                comboText.text = playerCombo.ToString() + "x";
+            }
+        }       
 
     }
 }
