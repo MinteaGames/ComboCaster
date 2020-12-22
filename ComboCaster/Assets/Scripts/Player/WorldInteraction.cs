@@ -98,7 +98,9 @@ public class WorldInteraction : MonoBehaviour
 
     void Died()
     {
-        Instantiate(deadPlayer, gameObject.transform.position, gameObject.transform.rotation);
+        Quaternion rotation = Quaternion.Euler(0,0,90);
+
+        Instantiate(deadPlayer, gameObject.transform.position , rotation);
 
         Destroy(gameObject);
     }

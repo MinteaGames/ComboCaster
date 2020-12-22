@@ -16,12 +16,21 @@ public class ComboManager : MonoBehaviour
     // Stop all increases and decreases
     public bool pauseComboEffects = false;
 
+    GameObject soundboard;
+
+
+    void Start()
+    {
+        soundboard = GameObject.Find("Sound Board");
+    }
+
     public void increaseCombo()
     {
         if (pauseComboEffects == false)
         {
             playerCombo++;
             timeTillTrickle = resetTrickleTime;
+            soundboard.SendMessage("playSound", 10, 0);
         }
     }
 
@@ -31,6 +40,7 @@ public class ComboManager : MonoBehaviour
         {
             playerCombo = playerCombo + increase;
             timeTillTrickle = resetTrickleTime;
+            soundboard.SendMessage("playSound", 10, 0);
         } 
     }
 

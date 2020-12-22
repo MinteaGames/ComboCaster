@@ -26,6 +26,8 @@ public class PlayerAbilities : MonoBehaviour
 
     public GameObject pauseScreen;
 
+    GameObject soundboard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +36,7 @@ public class PlayerAbilities : MonoBehaviour
         dashCooldown = true;
         playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
 
-        
-
+        soundboard = GameObject.Find("Sound Board");
     }
 
     // Update is called once per frame
@@ -51,6 +52,7 @@ public class PlayerAbilities : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown == true)
             {
+                soundboard.SendMessage("playSound", 8, 0);
 
 
                 gameObject.layer = 11;
