@@ -8,6 +8,7 @@ public class meleeSwing : MonoBehaviour
 
     public static float damage = 2;
     public float knockBackDistance = 1f;
+    public static bool flipped = false;
 
     private Rigidbody2D rb2D;
 
@@ -21,6 +22,25 @@ public class meleeSwing : MonoBehaviour
 
         rb2D = GetComponent<Rigidbody2D>();
         rb2D.AddForce(transform.up * speed);
+
+        Vector3 scaleVec = new Vector3(0, 0, 0);
+
+
+
+        if (flipped == false)
+        {
+            scaleVec = new Vector3(-2.7296f, 0, 0);
+            flipped = true;
+        }
+        else
+        {
+            scaleVec = new Vector3(0, 0, 0);
+            flipped = false;
+        }
+        
+
+        transform.localScale += scaleVec;
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
