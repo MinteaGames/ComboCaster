@@ -1,0 +1,502 @@
+fileFormatVersion: 2
+guid: 37ed6405afdf68245a45875e6106d509
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6241454495075796874
+    second: Railgun_0
+  - first:
+      213: 3530507161988193150
+    second: Railgun_1
+  - first:
+      213: 152242772906478506
+    second: Railgun_2
+  - first:
+      213: 4502404101294027278
+    second: Railgun_3
+  - first:
+      213: 7422197958308656450
+    second: Railgun_4
+  - first:
+      213: -2462692492252411186
+    second: Railgun_5
+  - first:
+      213: -8530620023959757397
+    second: Railgun_6
+  - first:
+      213: -6195872744414865275
+    second: Railgun_7
+  - first:
+      213: 6611277173328157778
+    second: Railgun_8
+  - first:
+      213: -3618118659372632561
+    second: Railgun_9
+  - first:
+      213: 8411374966866301905
+    second: Railgun_10
+  - first:
+      213: -2662436855593858966
+    second: Railgun_11
+  - first:
+      213: 5952771265520741865
+    second: Railgun_12
+  - first:
+      213: -2820590134511073118
+    second: Railgun_13
+  - first:
+      213: -3671251000661789286
+    second: Railgun_14
+  - first:
+      213: -2587659690207841114
+    second: Railgun_15
+  - first:
+      213: -9098201441890334380
+    second: Railgun_16
+  - first:
+      213: -6790376665331869006
+    second: Railgun_17
+  - first:
+      213: 7511594825826449475
+    second: Railgun_18
+  - first:
+      213: -6602117115551118146
+    second: Railgun_19
+  - first:
+      213: -3563110831054950446
+    second: Railgun_0
+  - first:
+      213: 6892898017726584852
+    second: Railgun_1
+  - first:
+      213: 8490926593888255312
+    second: Railgun_2
+  - first:
+      213: 7828943202810218318
+    second: Railgun_3
+  - first:
+      213: -6146955865632880044
+    second: Railgun_4
+  - first:
+      213: 5835996063387669643
+    second: Railgun_5
+  - first:
+      213: 3534748284273404927
+    second: Railgun_6
+  - first:
+      213: -3738136340121994018
+    second: Railgun_7
+  - first:
+      213: 238681003929849454
+    second: Railgun_8
+  - first:
+      213: 4758807637021585493
+    second: Railgun_9
+  - first:
+      213: -4011336615694318174
+    second: Railgun_10
+  - first:
+      213: -3328233347031029176
+    second: Railgun_11
+  - first:
+      213: 852250723636206369
+    second: Railgun_12
+  - first:
+      213: -4721955260992602373
+    second: Railgun_13
+  - first:
+      213: 464548944660538800
+    second: Railgun_14
+  - first:
+      213: -4892615676196543967
+    second: Railgun_15
+  - first:
+      213: 5771271972951455519
+    second: Railgun_16
+  - first:
+      213: -4598136936320615639
+    second: Railgun_17
+  - first:
+      213: -6971720291627339309
+    second: Railgun_18
+  - first:
+      213: -4388232514334136993
+    second: Railgun_19
+  - first:
+      213: -8199261039967487214
+    second: Railgun_20
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Railgun_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1813
+        width: 2000
+        height: 104
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad5b0e09462d9980800000000000000
+      internalID: -8530620023959757397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1564
+        width: 2000
+        height: 107
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58890abe096d30aa0800000000000000
+      internalID: -6195872744414865275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1314
+        width: 2000
+        height: 107
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c9fd3af89ffbb50800000000000000
+      internalID: 6611277173328157778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1063
+        width: 2000
+        height: 109
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06b1e8bf3cd9cdc0800000000000000
+      internalID: -3618118659372632561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 813
+        width: 2000
+        height: 109
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3ddac87f43bb470800000000000000
+      internalID: 8411374966866301905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 563
+        width: 2000
+        height: 104
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a688b6939cf1d0bd0800000000000000
+      internalID: -2662436855593858966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 305
+        width: 1055
+        height: 149
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ed24864ded7c9250800000000000000
+      internalID: 5952771265520741865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 1053
+        height: 120
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4590e213ef1bcb180800000000000000
+      internalID: -9098201441890334380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2052
+        width: 2000
+        height: 137
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df6f9bc3994d8ec0800000000000000
+      internalID: -3563110831054950446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2293
+        width: 1248
+        height: 144
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418569b1a3e78af50800000000000000
+      internalID: 6892898017726584852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2536
+        width: 1058
+        height: 135
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d70a210c4d5d570800000000000000
+      internalID: 8490926593888255312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2772
+        width: 883
+        height: 196
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0274e4eca0cb7e30800000000000000
+      internalID: 4502404101294027278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Railgun_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3037
+        width: 122
+        height: 136
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245fd95f7b1f00760800000000000000
+      internalID: 7422197958308656450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

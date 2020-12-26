@@ -10,37 +10,99 @@ public class WorldInteraction : MonoBehaviour
 
     public static int currentcombo;
 
+    public GameObject lifeScript;
+
+    bool invulnerable = false;
+
+    Renderer playerRenderer;
+
+    public GameObject deadPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        lifeScript = GameObject.Find("Lives");
+        playerRenderer = gameObject.GetComponent<Renderer>();
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.name == "Exit")
+        if (other.gameObject.name == "Exit")
+        {
+
+            nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+                        
+
+            SceneManager.LoadScene(4);
+
+        }
+        
+        if((other.gameObject.tag == "Enemy") && invulnerable == false)
+        {
+
+            lifeScript.SendMessage("LifeDecrement");
+
+        }
+
+
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Exit")
         {
 
             nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-            print(nextSceneIndex);
 
-            
-
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(4);
 
         }
-        
+
+        if ((collision.gameObject.tag == "Enemy") && invulnerable == false)
+        {
+
+            lifeScript.SendMessage("LifeDecrement");
+
+        }
+
+
+        if ((collision.gameObject.tag == "LifeUp"))
+        {
+
+            lifeScript.SendMessage("LifeIncrement");
+
+            Destroy(collision.gameObject);
+
+        }
+
 
     }
 
 
+    void TriggerInvulnerability()
+    {
+        invulnerable = true;
+        playerRenderer.material.color = Color.blue;
+        Invoke("ResetInvulnerability", 0.3f);
+    }
+
+    void ResetInvulnerability()
+    {
+        invulnerable = false;
+        playerRenderer.material.color = Color.white;
+    }
+
+    void Died()
+    {
+        Quaternion rotation = Quaternion.Euler(0,0,90);
+
+        Instantiate(deadPlayer, gameObject.transform.position , rotation);
+
+        Destroy(gameObject);
+    }
 
 }

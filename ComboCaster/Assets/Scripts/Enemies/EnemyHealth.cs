@@ -7,10 +7,16 @@ public class EnemyHealth : MonoBehaviour
 
     public float health = 1;
 
+    public GameObject life;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = health * StatMenu.EconM;
+
+
+
+
     }
 
     void TakeDamage(float damage)
@@ -20,7 +26,16 @@ public class EnemyHealth : MonoBehaviour
 
         if(health < 1)
         {
-            Destroy(gameObject);
+            PlayerScore.Instance.SendMessage("AddScore", GetComponent<enemyScore>().enemyBaseScore);
+
+            if(Random.Range(0,100) < (1 * StatMenu.conM))
+            {
+
+                Instantiate(life, transform.position, transform.rotation);
+
+            }
+
+            Destroy(gameObject);    
         }
 
     }

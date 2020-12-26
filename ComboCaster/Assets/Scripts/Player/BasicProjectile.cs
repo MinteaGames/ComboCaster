@@ -8,13 +8,16 @@ public class BasicProjectile : MonoBehaviour
 
     public float speed = 5;
 
-    public float damage = 1;
+    public static float damage = 1;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        damage = damage * StatMenu.inteM;
+
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
 
         animator.SetBool("HasHit", false);
@@ -26,6 +29,7 @@ public class BasicProjectile : MonoBehaviour
         {
             // Remove force to get object to stop moving
             GetComponent<Rigidbody2D>().AddForce(-transform.up * speed);
+            GetComponent<CircleCollider2D>().enabled = false;
             // Play hit animation which has destroy on end script
             animator.SetBool("HasHit", true);
 

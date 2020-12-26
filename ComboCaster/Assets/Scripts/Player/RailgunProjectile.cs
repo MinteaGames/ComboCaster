@@ -6,13 +6,16 @@ public class RailgunProjectile : MonoBehaviour
 {
     public float speed = 0;
 
-    public float damage = 2;
+    public static float damage = 2;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        damage = damage * StatMenu.inteM;
+
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
     }
 
@@ -28,7 +31,7 @@ public class RailgunProjectile : MonoBehaviour
     }
     private void Update()
     {
-        Invoke("timeToDie", .2f);
+        Invoke("timeToDie", .65f);
     }
 
     //private void OnBecameInvisible()
