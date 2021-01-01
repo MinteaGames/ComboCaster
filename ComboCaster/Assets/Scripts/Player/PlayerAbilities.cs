@@ -26,6 +26,8 @@ public class PlayerAbilities : MonoBehaviour
 
     public GameObject pauseScreen;
 
+    GameObject soundboard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,24 +36,26 @@ public class PlayerAbilities : MonoBehaviour
         dashCooldown = true;
         playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
 
+        soundboard = GameObject.Find("Sound Board");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (disableDash == false)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown == true)
-            {
-
-
-                gameObject.layer = 11;
-
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Space))
         {
             pauseGame();
         }
+
+        if (disableDash == false)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown == true)
+            {
+                soundboard.SendMessage("playSound", 8, 0);
+
+
+                gameObject.layer = 11;
 
                 gameObject.SendMessage("TriggerInvulnerability");
 

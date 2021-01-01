@@ -21,6 +21,7 @@ public class UpdateLives : MonoBehaviour
 
     public GameObject lostLifeUI;
     public GameObject gameOverUI;
+    public GameObject soundboard;
 
 
     // Start is called before the first frame update
@@ -51,6 +52,7 @@ public class UpdateLives : MonoBehaviour
     void LifeDecrement()
     {
 
+        soundboard.SendMessage("playSound", 9, 0);
         numOfLives--;
 
         if(numOfLives == 2)
@@ -71,7 +73,6 @@ public class UpdateLives : MonoBehaviour
         }
         else if(numOfLives == 0)
         {
-
             spriteImage.enabled = false;
             player.SendMessage("Died");
             gameOverUI.SetActive(true);

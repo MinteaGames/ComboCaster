@@ -14,6 +14,8 @@ public class PlayerAttack : MonoBehaviour
     public GameObject fireBall;
     public GameObject wish;
 
+    public GameObject soundBoard;
+
 
     HUDManager playerHud;
 
@@ -49,6 +51,8 @@ public class PlayerAttack : MonoBehaviour
 		playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
     
     wish = GameObject.Find("Combo Mana");
+
+        soundBoard = GameObject.Find("Sound Board");
     }
 
 
@@ -62,7 +66,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Instantiate(magicMissle, transform.position, transform.rotation);
                 magicMissileCool = false;
-
+                soundBoard.SendMessage("playSound", 0, 0);
                 Invoke("MagicMissileCooldown", 0.3f / wisMod);
 
                 //playerHud.ShowcooldownOfAbility(0 , 0.3f);
@@ -79,6 +83,7 @@ public class PlayerAttack : MonoBehaviour
                 GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
                 railgunCool = false;
 
+                soundBoard.SendMessage("playSound", 2 , 0);
                 Invoke("railgunCooldown", 1.0f / wisMod);
                 StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
             }
@@ -91,6 +96,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Instantiate(melee, transform.position, transform.rotation, gameObject.transform);
                 meleeCool = false;
+                soundBoard.SendMessage("playSound", 1, 0);
 
                 Invoke("meleeCooldown", 0.8f / wisMod);
                 StartCoroutine(playerHud.ShowcooldownOfAbility(2, 0.8f / wisMod));
@@ -114,6 +120,8 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
                 {
+                    soundBoard.SendMessage("playSound", 3, 0);
+
                     bounceCool = false;
                     Instantiate(bounceBall, transform.position, transform.rotation);
                     GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(6 / chaMod));
@@ -129,6 +137,8 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(15 / chaMod))
             {
+
+                soundBoard.SendMessage("playSound", 4, 0);
                 Instantiate(shockWave, transform.position, transform.rotation);
                 shockCool = false;
                 Invoke("ShockCooldown", 10.0f / wisMod);
@@ -144,14 +154,23 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (fireBallCharging == false && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod))
                 {
+
+
+
+                    soundBoard.SendMessage("playSound", 5, 0);
                     currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
                     fireBallChargeTime += 1;
                     fireBallCharging = true;
                     GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
+                    
+                     
+                    
+
                 }
                 else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo >= 2)
                 {
                     fireBallChargeTime += Time.deltaTime;
+                    
 
                     if (fireBallChargeTime >= 2 && fireBallChargeTime < 3)
                     {
@@ -195,6 +214,8 @@ public class PlayerAttack : MonoBehaviour
                     currentFireBall.SendMessage("stageReached", 2);
                 }
 
+                soundBoard.SendMessage("playSound", 6, 0);
+
                 fireBallCool = false;
                 Invoke("fireBallCooldown", 0.3f / wisMod);
                 fireBallCharging = false;
@@ -209,6 +230,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && GetComponentInParent<ComboManager>().playerCombo > 50)
         {
+            soundBoard.SendMessage("playSound", 7, 0);
             wish.SendMessage("ReRollStats");
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(50 / chaMod));
         }
@@ -240,5 +262,7 @@ public class PlayerAttack : MonoBehaviour
         {
             fireBallCool = true;
         }
+
+    
     
 }
