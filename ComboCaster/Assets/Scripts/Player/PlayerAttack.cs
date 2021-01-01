@@ -26,11 +26,9 @@ public class PlayerAttack : MonoBehaviour
     bool shockCool = true;
     bool fireBallCool = true;
 
-    bool fireBallCharging = false;
-    float fireBallChargeTime = 0;
+
+    int fireBallChargeTime = 0;
     GameObject currentFireBall = null;
-    bool fireBallStage2 = false;
-    bool fireBallStage3 = false;
 
     public bool disableMagicMissile = false;
     public bool disableRailgun = false;
@@ -150,81 +148,64 @@ public class PlayerAttack : MonoBehaviour
         // Fireball
         if (disableFireball == false)
         {
-            if (Input.GetKey(KeyCode.Alpha2) && fireBallCool == true)
+            if (Input.GetKeyDown(KeyCode.Alpha2) && fireBallCool == true)
             {
-                if (fireBallCharging == false && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod))
+                fireBallChargeTime += 1;
+                disableMagicMissile = true;
+
+
+                // Take combo
+                if (fireBallChargeTime == 1 && currentFireBall == null)
                 {
-
-
-
                     soundBoard.SendMessage("playSound", 5, 0);
-                    currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
-                    fireBallChargeTime += 1;
-                    fireBallCharging = true;
                     GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
-                    
-                     
-                    
 
+                    currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
                 }
-                else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo >= 2)
+                else if (fireBallChargeTime == 2 || fireBallChargeTime == 3)
                 {
-                    fireBallChargeTime += Time.deltaTime;
-                    
+                    if (currentFireBall != null)
+                    {
+                        GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(2 / chaMod));
 
-                    if (fireBallChargeTime >= 2 && fireBallChargeTime < 3)
-                    {
-                        if (fireBallStage2 == false)
-                        {
-                            GetComponentInParent<ComboManager>().reduceComboByAmmount(2);
-                            fireBallStage2 = true;
-                        }
-                    }
-                    else if (fireBallChargeTime >= 3 && fireBallChargeTime < 4)
-                    {
-                        if (fireBallStage2 == false)
-                        {
-                            GetComponentInParent<ComboManager>().reduceComboByAmmount(2);
-                            fireBallStage3 = true;
-                        }
-                    }
-                    if (fireBallChargeTime >= 4)
-                    {
-                        currentFireBall.SendMessage("maxSizeReached");
-                    }
-                }
-                else if (fireBallCharging == true && GetComponentInParent<ComboManager>().playerCombo < 2)
-                {
-                    currentFireBall.SendMessage("maxSizeReached");
-                }
-            }
-
-            if (Input.GetKeyUp(KeyCode.Alpha2))
-            {
-                if (fireBallStage2 == true)
-                {
-                    if (fireBallStage3 == true)
-                    {
-                        currentFireBall.SendMessage("stageReached", 3);
+                        currentFireBall.SendMessage("increaseSize");
                     }
                     else
                     {
-                        currentFireBall.SendMessage("stageReached", 2);
+                        fireBallChargeTime = 0;
+                        disableMagicMissile = false;
                     }
-                    currentFireBall.SendMessage("stageReached", 2);
                 }
+                // Return combo & reset fireball
+                else if (fireBallChargeTime == 4)
+                {
+                    fireBallChargeTime = 0;
+                    disableMagicMissile = false;
+                    GetComponentInParent<ComboManager>().increaseComboByAmount((Mathf.RoundToInt(5 / chaMod)) + (Mathf.RoundToInt(2 / chaMod)) + (Mathf.RoundToInt(2 / chaMod)));
 
-                soundBoard.SendMessage("playSound", 6, 0);
+                    Destroy(currentFireBall);
+                    currentFireBall = null;
+                }
+            }
 
-                fireBallCool = false;
-                Invoke("fireBallCooldown", 0.3f / wisMod);
-                fireBallCharging = false;
-                fireBallChargeTime = 0;
-                fireBallStage2 = false;
-                fireBallStage3 = false;
+            if (Input.GetMouseButton(0))
+            {
+                if (fireBallChargeTime != 0)
+                {
+                    currentFireBall.SendMessage("stageReached", fireBallChargeTime);
 
-                currentFireBall.SendMessage("fire");
-                currentFireBall = null;
+                    soundBoard.SendMessage("playSound", 6, 0);
+
+                    fireBallCool = false;
+                    Invoke("fireBallCooldown", 0.3f / wisMod);
+                    fireBallChargeTime = 0;
+                    currentFireBall.SendMessage("fire");
+                    currentFireBall = null;
+
+                    disableMagicMissile = false;
+
+                    StartCoroutine(playerHud.ShowcooldownOfAbility(6, 0.3f / wisMod));
+                }
             }
         }
 

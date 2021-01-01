@@ -262,7 +262,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 913024155}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -302,7 +302,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you get 100 combo you have the option to reroll your stats.
+  m_Text: If you get 100 combo you have the option to reroll your stats by pressing
+    3.
 --- !u!222 &32475376
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -339,7 +340,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 920400609}
-  - {fileID: 460822939}
   - {fileID: 61682577}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -374,7 +374,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 913024155}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 61682577}
   - component: {fileID: 61682578}
   m_Layer: 0
-  m_Name: Spawn 3
+  m_Name: Spawn 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +456,7 @@ Transform:
   - {fileID: 1120977407}
   - {fileID: 2006791717}
   m_Father: {fileID: 39047630}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &61682578
 MonoBehaviour:
@@ -470,12 +470,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8461792fe58cb2e4da2e9be5d30673bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 20
+  numEnemiesToSpawn: 50
   enemiesLeftToSpawn: 0
   goblinPrefab: {fileID: 3386136150627016941, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
   ogrePrefab: {fileID: 6386610107409855565, guid: 497af457d9488664d9ae0350037cf47f, type: 3}
   beholderPrefab: {fileID: 5163411897239216814, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
-  onlyGoblins: 1
+  onlyGoblins: 0
   onlyOgres: 0
   onlyBeholders: 0
   spawnLocations:
@@ -512,7 +512,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 913024155}
-  m_RootOrder: 3
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -552,7 +552,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Here, test out the changes.
+  m_Text: You can press TAB to pause and find out more about the stats you rolled.
 --- !u!222 &101581528
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -606,36 +606,6 @@ Transform:
   - {fileID: 1400208653}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &344378015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 344378016}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &344378016
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344378015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.93, y: -6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 460822939}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &456017307
 PrefabInstance:
@@ -703,62 +673,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4075764329998324286, guid: 17b8ada35224af845af889cc43048b5e, type: 3}
   m_PrefabInstance: {fileID: 456017307}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &460822938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 460822939}
-  - component: {fileID: 460822940}
-  m_Layer: 0
-  m_Name: Spawn 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &460822939
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460822938}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1332521, y: 0.739114, z: -9.266533}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 344378016}
-  m_Father: {fileID: 39047630}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &460822940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460822938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8461792fe58cb2e4da2e9be5d30673bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 3
-  enemiesLeftToSpawn: 0
-  goblinPrefab: {fileID: 3386136150627016941, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
-  ogrePrefab: {fileID: 6386610107409855565, guid: 497af457d9488664d9ae0350037cf47f, type: 3}
-  beholderPrefab: {fileID: 5163411897239216814, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
-  onlyGoblins: 1
-  onlyOgres: 0
-  onlyBeholders: 0
-  spawnLocations:
-  - {fileID: 344378016}
-  spawnDelay: 1
-  endPortal: {fileID: 0}
 --- !u!1 &544579707
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +756,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &761301439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761301440}
+  - component: {fileID: 761301442}
+  - component: {fileID: 761301441}
+  m_Layer: 5
+  m_Name: PopUp10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &761301440
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761301439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 913024155}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 104.58}
+  m_SizeDelta: {x: 534.05646, y: 69.154755}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &761301441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761301439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.94117653, g: 0.8941177, b: 0.8352942, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Congratulations!
+
+    You completed the tutorial!'
+--- !u!222 &761301442
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761301439}
+  m_CullTransparentMesh: 0
 --- !u!1001 &865342304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,7 +928,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 913024155}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -973,7 +968,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You have 2 more attacks to learn.
+  m_Text: Right, you still have 2 more attacks to learn.
 --- !u!222 &878043088
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1075,13 +1070,14 @@ RectTransform:
   - {fileID: 1595747442}
   - {fileID: 1303722462}
   - {fileID: 1916987420}
-  - {fileID: 101581526}
   - {fileID: 878043086}
   - {fileID: 1663089069}
   - {fileID: 1244751579}
   - {fileID: 61504720}
   - {fileID: 32475374}
+  - {fileID: 101581526}
   - {fileID: 9976970}
+  - {fileID: 761301440}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1139,7 +1135,7 @@ MonoBehaviour:
   goblinPrefab: {fileID: 3386136150627016941, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
   ogrePrefab: {fileID: 6386610107409855565, guid: 497af457d9488664d9ae0350037cf47f, type: 3}
   beholderPrefab: {fileID: 5163411897239216814, guid: af982dc277b48a148a5754b91c0cc719, type: 3}
-  onlyGoblins: 1
+  onlyGoblins: 0
   onlyOgres: 0
   onlyBeholders: 0
   spawnLocations:
@@ -1360,7 +1356,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 913024155}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3609,25 +3605,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1549329179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f6e51f9aa1ecb744b3bef316fb0e293, type: 3}
+  m_Script: {fileID: 11500000, guid: d6c61a9ee697ff04bb259321872ab7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   popUps:
   - {fileID: 1595747441}
   - {fileID: 1303722461}
   - {fileID: 1916987419}
-  - {fileID: 101581525}
   - {fileID: 878043085}
   - {fileID: 1663089068}
   - {fileID: 1244751578}
   - {fileID: 61504719}
   - {fileID: 32475373}
+  - {fileID: 101581525}
   - {fileID: 9976969}
+  - {fileID: 761301439}
   spawners:
   - {fileID: 920400608}
-  - {fileID: 460822938}
   - {fileID: 61682576}
-  - {fileID: 0}
   player: {fileID: 1070172844}
 --- !u!4 &1549329181
 Transform:
@@ -3821,7 +3816,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 913024155}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
