@@ -12,7 +12,8 @@ public class PlayerAttack : MonoBehaviour
     public GameObject bounceBall;
     public GameObject shockWave;
     public GameObject fireBall;
-    public GameObject wish;
+    public GameObject wishData;
+    public ParticleSystem wishPS;
 
     public GameObject soundBoard;
 
@@ -48,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
         chaMod = StatMenu.chaM;
 		playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
     
-    wish = GameObject.Find("Combo Mana");
+        wishData = GameObject.Find("Combo Mana");
 
         soundBoard = GameObject.Find("Sound Board");
     }
@@ -209,10 +210,12 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
+        // Wish
         if (Input.GetKeyDown(KeyCode.Alpha3) && GetComponentInParent<ComboManager>().playerCombo > 50)
         {
             soundBoard.SendMessage("playSound", 7, 0);
-            wish.SendMessage("ReRollStats");
+            wishPS.Play();
+            wishData.SendMessage("ReRollStats");
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(50 / chaMod));
         }
     }
