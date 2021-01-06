@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class fireBall : MonoBehaviour
 {
-    private Vector3 scaleChange = new Vector3(0.02f, 0.02f, 0.02f);
-    private bool maxSize = false;
-
     public static float damage = 2;
     public float speed = 100;
 
@@ -24,10 +21,6 @@ public class fireBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (maxSize == false)
-        {
-            this.transform.localScale += scaleChange;
-        }
 
     }
 
@@ -47,9 +40,9 @@ public class fireBall : MonoBehaviour
 
     }
 
-    private void maxSizeReached()
+    private void increaseSize()
     {
-        maxSize = true;
+        this.transform.localScale += new Vector3(2f, 2f, 2f);
     }
 
     private void stageReached(int stage)
@@ -62,8 +55,6 @@ public class fireBall : MonoBehaviour
         {
             damage = damage * 3;
         }
-
-        maxSizeReached();
     }
 
     private void fire()
