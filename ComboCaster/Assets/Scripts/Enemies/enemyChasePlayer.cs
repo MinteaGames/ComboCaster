@@ -39,7 +39,7 @@ public class enemyChasePlayer : MonoBehaviour
             }
         }
 
-        CalculateSprite();
+        //CalculateSprite();
     }
 
     void KnockBack(float distance)
@@ -47,12 +47,12 @@ public class enemyChasePlayer : MonoBehaviour
         knockBackDistance = distance;
     }
 
-    void CalculateSprite()
-    {
-        Vector3 dir = player.transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        int rotateState = Convert.ToInt32(Quaternion.AngleAxis(angle - 90, Vector3.forward).eulerAngles.z / 90.0f);
-
-        anim.SetInteger("direction", rotateState);
-    }
+   // void CalculateSprite()
+   // {
+   //     Vector3 dir = player.transform.position - transform.position;
+   //     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+   //     int rotateState = Convert.ToInt32(Quaternion.AngleAxis(angle - 90, Vector3.forward).eulerAngles.z / 90.0f);
+   //
+   //     anim.SetInteger("direction", rotateState);
+   // }
 }
