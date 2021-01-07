@@ -52,6 +52,8 @@ public class PlayerAttack : MonoBehaviour
         wishData = GameObject.Find("Combo Mana");
 
         soundBoard = GameObject.Find("Sound Board");
+
+        soundBoard.SendMessage("playSound", 15, 0);
     }
 
 
@@ -165,6 +167,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else if (fireBallChargeTime == 2 || fireBallChargeTime == 3)
                 {
+                    soundBoard.SendMessage("playSound", 5, 0);
                     if (currentFireBall != null)
                     {
                         GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(2 / chaMod));
@@ -180,6 +183,7 @@ public class PlayerAttack : MonoBehaviour
                 // Return combo & reset fireball
                 else if (fireBallChargeTime == 4)
                 {
+                    soundBoard.SendMessage("playSound", 17, 0);
                     fireBallChargeTime = 0;
                     disableMagicMissile = false;
                     GetComponentInParent<ComboManager>().increaseComboByAmount((Mathf.RoundToInt(5 / chaMod)) + (Mathf.RoundToInt(2 / chaMod)) + (Mathf.RoundToInt(2 / chaMod)));
@@ -214,6 +218,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3) && GetComponentInParent<ComboManager>().playerCombo > 50)
         {
             soundBoard.SendMessage("playSound", 7, 0);
+            soundBoard.SendMessage("playSound", 11, 0);
             wishPS.Play();
             wishData.SendMessage("ReRollStats");
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(50 / chaMod));

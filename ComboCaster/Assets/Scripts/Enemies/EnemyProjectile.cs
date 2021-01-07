@@ -20,6 +20,10 @@ public class EnemyProjectile : MonoBehaviour
         print("spawned");
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
 
+        GameObject soundBoard = GameObject.Find("Sound Board");
+
+        soundBoard.SendMessage("playSound", 12, 0);
+
         Invoke("killObject", 10f);
 
         animator.SetBool("HasHit", false);

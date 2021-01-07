@@ -22,6 +22,8 @@ public class spawnEnemies : MonoBehaviour
 
     int enemySpawn;
 
+    GameObject soundBoard;
+
     public GameObject endPortal;
     GameObject[] enemiesOnField;
     void Start()
@@ -29,6 +31,7 @@ public class spawnEnemies : MonoBehaviour
         spawnDelayTime = spawnDelay;
         enemiesLeftToSpawn = numEnemiesToSpawn;
         endPortal.SetActive(false);
+        soundBoard = GameObject.Find("Sound Board");
     }
 
     // Update is called once per frame
@@ -45,6 +48,9 @@ public class spawnEnemies : MonoBehaviour
                 spawnDelayTime = 0;
                 int randomPos = Random.Range(0, spawnLocations.Length);
 
+                
+
+
                 if (onlyGoblins == true) SpawnGoblin(randomPos);
                 else if (onlyOgres == true) SpawnOgre(randomPos); 
                 else if (onlyBeholders == true) SpawnBeholder(randomPos);
@@ -55,10 +61,12 @@ public class spawnEnemies : MonoBehaviour
                     if (enemySpawn >= 9)
                     {
                         SpawnOgre(randomPos);
+                        soundBoard.SendMessage("playSound", 14, 0);
                     }
                     else if (enemySpawn >= 8)
                     {
                         SpawnBeholder(randomPos);
+                        soundBoard.SendMessage("playSound", 14, 0);
                     }
                     else
                     {
