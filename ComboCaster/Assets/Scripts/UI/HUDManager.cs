@@ -39,15 +39,23 @@ public class HUDManager : MonoBehaviour
     {
         //sets the color and fill ammount for each ability based on the value of the players combo
 
-
-
-        if (comboVal.playerCombo >= 15)
+        if (comboVal.playerCombo >= 50)
         {
             EnoughMana(3);
             EnoughMana(4);
             EnoughMana(5);
             EnoughMana(6);
             EnoughMana(7);
+        }
+
+        else if (comboVal.playerCombo >= 15)
+        {
+            EnoughMana(3);
+            EnoughMana(4);
+            EnoughMana(5);
+            EnoughMana(6);
+            notEnoughMana(7);
+            //notEnoughMana(8);
         }
         else if (comboVal.playerCombo >= 6)
         {
@@ -56,6 +64,7 @@ public class HUDManager : MonoBehaviour
             EnoughMana(5);
             EnoughMana(6);
             notEnoughMana(7);
+            //notEnoughMana(8);
         }
         else if(comboVal.playerCombo >= 3)
         {
@@ -64,6 +73,7 @@ public class HUDManager : MonoBehaviour
             notEnoughMana(5);
             notEnoughMana(6);
             notEnoughMana(7);
+           // notEnoughMana(8);
         }
         else
         {
@@ -72,6 +82,7 @@ public class HUDManager : MonoBehaviour
             notEnoughMana(5);
             notEnoughMana(6);
             notEnoughMana(7);
+           // notEnoughMana(8);
         }
     }
 
