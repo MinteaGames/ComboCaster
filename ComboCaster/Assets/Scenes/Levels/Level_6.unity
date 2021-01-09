@@ -7970,8 +7970,8 @@ MonoBehaviour:
   spawnLocations:
   - {fileID: 1423611486}
   - {fileID: 1170624206}
-  - {fileID: 1170624206}
-  - {fileID: 1170624206}
+  - {fileID: 665102196}
+  - {fileID: 2143870}
   spawnDelay: 0.7
   endPortal: {fileID: 709755003}
   enemiesOnField: []
