@@ -222,6 +222,7 @@ public class PlayerAttack : MonoBehaviour
             wishPS.Play();
             wishData.SendMessage("ReRollStats");
             GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(50 / chaMod));
+            StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
         }
     }
         void railgunCooldown()

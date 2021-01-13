@@ -58,7 +58,7 @@ public class WorldInteraction : MonoBehaviour
             nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
 
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(7);
 
         }
 

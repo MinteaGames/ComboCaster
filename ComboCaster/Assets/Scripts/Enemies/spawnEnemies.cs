@@ -25,7 +25,7 @@ public class spawnEnemies : MonoBehaviour
     GameObject soundBoard;
 
     public GameObject endPortal;
-    GameObject[] enemiesOnField;
+    public GameObject[] enemiesOnField;
     void Start()
     {
         spawnDelayTime = spawnDelay;
@@ -79,7 +79,7 @@ public class spawnEnemies : MonoBehaviour
         }
 
         enemiesOnField = GameObject.FindGameObjectsWithTag("Enemy");
-        if ((enemiesOnField.Length == 0) &&( enemiesLeftToSpawn == 0))
+        if ((enemiesOnField.Length == 0) &&( enemiesLeftToSpawn <= 0))
         {
             endPortal.SetActive(true);
         }
