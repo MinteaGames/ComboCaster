@@ -6,6 +6,26 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
+    public void Start()
+    {
+        print("main menu");
+
+        StatMenu.conM = 1;
+        StatMenu.inteM = 1;
+        StatMenu.strM = 1;
+        StatMenu.dexM = 1;
+        StatMenu.wisM = 1;
+        StatMenu.chaM = 1;
+
+
+        StatMenu.EconM = 1;
+        StatMenu.EinteM = 1;
+        StatMenu.EstrM = 1;
+        StatMenu.EdexM = 1;
+        StatMenu.EwisM = 1;
+        StatMenu.EchaM = 1;
+    }
+
     public void quit()
     {
         Application.Quit();

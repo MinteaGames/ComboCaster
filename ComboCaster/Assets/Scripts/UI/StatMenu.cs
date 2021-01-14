@@ -131,6 +131,7 @@ public class StatMenu : MonoBehaviour
         currentComboText.text = curCombo.ToString();
 
 
+
         if (curCombo < 50)
         {
 

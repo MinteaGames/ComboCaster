@@ -6,7 +6,7 @@ public class ShockWave : MonoBehaviour
 {
     private Vector3 scaleChange = new Vector3(0.03f, 0.03f, 0.03f);
     private ParticleSystem ps;
-
+    const float constDamage = 1;
     public static float damage = 1;
     public float knockBackDistance = 1f;
 
@@ -14,7 +14,7 @@ public class ShockWave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        damage = constDamage;
         damage = damage * StatMenu.inteM;
 
         ps = GetComponent<ParticleSystem>();

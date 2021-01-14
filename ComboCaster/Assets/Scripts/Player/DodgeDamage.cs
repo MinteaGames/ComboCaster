@@ -9,7 +9,7 @@ public class DodgeDamage : MonoBehaviour
     public static bool hitEnemy = false;
 
     public static float damage = 2;
-
+    const float constDamage = 2;
 
     HUDManager playerHud;
 
@@ -17,6 +17,7 @@ public class DodgeDamage : MonoBehaviour
     {
 
         playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
+        damage = constDamage;
         damage = damage * StatMenu.strM;
 
     }

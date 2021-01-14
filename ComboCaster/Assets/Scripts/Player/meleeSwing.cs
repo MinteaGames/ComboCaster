@@ -7,6 +7,7 @@ public class meleeSwing : MonoBehaviour
     public float speed = 0;
 
     public static float damage = 2;
+    const float constDamage = 2;
     public float knockBackDistance = 1f;
     public static bool flipped = false;
 
@@ -17,6 +18,7 @@ public class meleeSwing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damage = constDamage;
 
         damage = damage * StatMenu.strM;
 

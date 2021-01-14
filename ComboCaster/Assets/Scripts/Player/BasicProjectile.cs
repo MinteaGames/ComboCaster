@@ -8,6 +8,7 @@ public class BasicProjectile : MonoBehaviour
 
     public float speed = 5;
 
+    const float constDamage = 1;
     public static float damage = 1;
 
     SendMessageOptions messageOptions = SendMessageOptions.DontRequireReceiver;
@@ -15,7 +16,7 @@ public class BasicProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        damage = constDamage;
         damage = damage * StatMenu.inteM;
 
         GetComponent<Rigidbody2D>().AddForce(transform.up * speed);

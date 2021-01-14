@@ -11,6 +11,8 @@ public class BounceProjectile : MonoBehaviour
 
     public static float damage = 3;
 
+    const float constDamage = 3;
+
     public int numOfBounces = 0;
 
     Rigidbody2D rigidbody;
@@ -21,6 +23,8 @@ public class BounceProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        damage = constDamage;
 
         damage = damage * StatMenu.inteM;
 

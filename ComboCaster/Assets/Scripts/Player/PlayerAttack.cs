@@ -47,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
         wisMod = StatMenu.wisM;
 
         chaMod = StatMenu.chaM;
+
 		playerHud = GameObject.Find("UI manager").GetComponent<HUDManager>();
     
         wishData = GameObject.Find("Combo Mana");

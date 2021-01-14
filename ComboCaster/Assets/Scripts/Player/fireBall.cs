@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class fireBall : MonoBehaviour
 {
+    const float constDamage = 2;
     public static float damage = 2;
     public float speed = 100;
 
@@ -14,7 +15,7 @@ public class fireBall : MonoBehaviour
     void Start()
     {
         GetComponent<CircleCollider2D>().enabled = false;
-
+        damage = constDamage;
         damage = damage * StatMenu.inteM;
     }
 

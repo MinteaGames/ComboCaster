@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour
 
     public static float speed = 6;
 
+    const float constSpeed = 6;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        speed = constSpeed;
         speed = speed * StatMenu.dexM;
     }
 
