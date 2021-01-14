@@ -7194,7 +7194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8461792fe58cb2e4da2e9be5d30673bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 20
+  numEnemiesToSpawn: 1
   enemiesLeftToSpawn: 0
   goblinPrefab: {fileID: 3386136150627016941, guid: fe477ef13efdff0478370a1ef0316b7a, type: 3}
   ogrePrefab: {fileID: 6386610107409855565, guid: 497af457d9488664d9ae0350037cf47f, type: 3}

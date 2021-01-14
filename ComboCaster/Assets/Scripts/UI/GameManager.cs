@@ -18,6 +18,6 @@ public class GameManager : MonoBehaviour
 
     public void tutorial()
     {
-        SceneManager.LoadScene("TutorialPart1");
+        SceneManager.LoadScene("Part1");
     }
 }
