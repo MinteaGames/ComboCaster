@@ -5773,7 +5773,7 @@ MonoBehaviour:
   player: {fileID: 0}
   lostLifeUI: {fileID: 1927485930596816870}
   gameOverUI: {fileID: 1927485930709614252}
-  soundboard: {fileID: 0}
+  soundboard: {fileID: 4000877089692162129}
 --- !u!1 &1927485930596816870
 GameObject:
   m_ObjectHideFlags: 0
