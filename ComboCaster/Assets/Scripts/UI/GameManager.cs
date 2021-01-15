@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
+    public GameObject soundBoard;
+
     public void Start()
     {
         print("main menu");
@@ -24,20 +26,28 @@ public class GameManager : MonoBehaviour
         StatMenu.EdexM = 1;
         StatMenu.EwisM = 1;
         StatMenu.EchaM = 1;
+
+        soundBoard = GameObject.Find("Sound Board");
+
+        soundBoard.SendMessage("playSound", 16, 0);
+
     }
 
     public void quit()
     {
+        soundBoard.SendMessage("playSound", 13, 0);
         Application.Quit();
     }
 
     public void play()
     {
+        soundBoard.SendMessage("playSound", 13, 0);
         SceneManager.LoadScene("Level_1");
     }
 
     public void tutorial()
     {
+        soundBoard.SendMessage("playSound", 13, 0);
         SceneManager.LoadScene("Part1");
     }
 }
