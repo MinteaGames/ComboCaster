@@ -8,6 +8,7 @@ TagManager:
   - KnockBack
   - LifeUp
   - EnemyProjectile
+  - DeathZone
   layers:
   - Default
   - TransparentFX

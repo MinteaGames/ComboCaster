@@ -26,27 +26,27 @@ public class WorldInteraction : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.name == "Exit")
-        {
-
-            nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-            SceneManager.LoadScene(10);
-
-        }
-        
-        if((other.gameObject.tag == "Enemy") && invulnerable == false)
-        {
-
-            lifeScript.SendMessage("LifeDecrement");
-
-        }
-
-
-
-    }
+   // private void OnCollisionEnter2D(Collision2D other)
+   // {
+   //     if (other.gameObject.name == "Exit")
+   //     {
+   //
+   //         nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+   //
+   //         SceneManager.LoadScene(10);
+   //
+   //     }
+   //     
+   //     if((other.gameObject.tag == "Enemy") && invulnerable == false)
+   //     {
+   //
+   //         lifeScript.SendMessage("LifeDecrement");
+   //
+   //     }
+   //
+   //
+   //
+   // }
 
 
     private void OnTriggerEnter2D(Collider2D collision)

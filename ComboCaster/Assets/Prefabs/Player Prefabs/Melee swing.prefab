@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3323192983630498264}
   - component: {fileID: 4494070033625790968}
+  - component: {fileID: -8747432446604369096}
   m_Layer: 9
   m_Name: Melee swing
   m_TagString: KnockBack
@@ -46,6 +47,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   knockBackDistance: 5
+--- !u!50 &-8747432446604369096
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076143252499260278}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4125846478221308572
 GameObject:
   m_ObjectHideFlags: 0
