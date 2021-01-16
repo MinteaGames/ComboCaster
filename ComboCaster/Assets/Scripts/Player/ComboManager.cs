@@ -75,11 +75,13 @@ public class ComboManager : MonoBehaviour
             }
 
             WorldInteraction.currentcombo = playerCombo;
-            if (comboText)
-            {
-                comboText.text = playerCombo.ToString() + "x";
-            }
-        }       
+
+        }
+        if (comboText)
+        {
+            //Debug.Log("update combo");
+            comboText.text = playerCombo.ToString() + "x";
+        }
 
     }
 }

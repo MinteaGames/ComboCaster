@@ -34,183 +34,187 @@ public class TutorialPart1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //Movement
-        if (popUpIndex == 0)
+        if (player.GetComponent<PlayerAbilities>().paused == false)
         {
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+
+
+            //Movement
+            if (popUpIndex == 0)
             {
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
+                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+                {
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+                }
+
             }
-
-        }
-        //Magic missile
-        else if(popUpIndex == 1)
-        {
-            player.GetComponentInChildren<PlayerAttack>().disableMagicMissile = false;
-
-            spawners[spawnerIndex].SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            //Magic missile
+            else if (popUpIndex == 1)
             {
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
+                player.GetComponentInChildren<PlayerAttack>().disableMagicMissile = false;
+
+                spawners[spawnerIndex].SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+                }
             }
-        }
-        // Melee
-        else if (popUpIndex == 2)
-        {
-            player.GetComponentInChildren<PlayerAttack>().disableMelee = false;
-
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            // Melee
+            else if (popUpIndex == 2)
             {
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
+                player.GetComponentInChildren<PlayerAttack>().disableMelee = false;
+
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+                }
             }
-        }
-        // Dodge
-        else if (popUpIndex == 3)
-        {
-            player.GetComponent<PlayerAbilities>().disableDash = false;
-
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            // Dodge
+            else if (popUpIndex == 3)
             {
-                spawners[spawnerIndex].SetActive(false);
-                spawnerIndex++;
+                player.GetComponent<PlayerAbilities>().disableDash = false;
 
-                // Wipe room
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    spawners[spawnerIndex].SetActive(false);
+                    spawnerIndex++;
+
+                    // Wipe room
+                    GameObject[] enemies;
+                    enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        Destroy(enemy);
+                    }
+
+                    // Pause combo effects
+                    player.GetComponent<ComboManager>().pauseComboEffects = true;
+                    if (player.GetComponent<ComboManager>().playerCombo < 15)
+                    {
+                        player.GetComponent<ComboManager>().playerCombo = 15;
+                    }
+
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+                }
+            }
+            // Introduce combo 
+            else if (popUpIndex == 4)
+            {
+                stage4Count += Time.deltaTime;
+                if (stage4Count >= 3)
+                {
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+                }
+            }
+            else if (popUpIndex == 5)
+            {
+                stage5Count += Time.deltaTime;
+                if (stage5Count >= 3)
+                {
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+                }
+            }
+            // Railgun
+            else if (popUpIndex == 6)
+            {
+                spawners[spawnerIndex].SetActive(true);
+
+                disableAllAbilities();
+                player.GetComponentInChildren<PlayerAttack>().disableRailgun = false;
+
+
+                // Disable all attacks besides Railgun
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    ePressed = true;
+                }
+
+
                 GameObject[] enemies;
                 enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach (GameObject enemy in enemies)
+
+                if (enemies.Length == 0 && ePressed == true)
                 {
-                    Destroy(enemy);
+                    spawners[spawnerIndex].SetActive(false);
+                    spawnerIndex++;
+
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+                }
+            }
+            //Shockwave
+            else if (popUpIndex == 7)
+            {
+                spawners[spawnerIndex].SetActive(true);
+
+                // Disable all attacks besides Shockwave
+                disableAllAbilities();
+                player.GetComponentInChildren<PlayerAttack>().disableShock = false;
+
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    qPressed = true;
                 }
 
-                // Pause combo effects
-                player.GetComponent<ComboManager>().pauseComboEffects = true;
-                if (player.GetComponent<ComboManager>().playerCombo < 15)
+                if (qPressed == true)
                 {
-                    player.GetComponent<ComboManager>().playerCombo = 15;
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+
+                    player.GetComponent<ComboManager>().pauseComboEffects = false;
+                    // Enable all known attacks
                 }
-
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
             }
-        }
-        // Introduce combo 
-        else if (popUpIndex == 4)
-        {
-            stage4Count += Time.deltaTime;
-            if (stage4Count >= 3)
+            // Complete level with whats known
+            else if (popUpIndex == 8)
             {
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
+                player.GetComponent<PlayerAbilities>().disableDash = false;
+                player.GetComponentInChildren<PlayerAttack>().disableMagicMissile = false;
+                player.GetComponentInChildren<PlayerAttack>().disableRailgun = false;
+                player.GetComponentInChildren<PlayerAttack>().disableMelee = false;
+                player.GetComponentInChildren<PlayerAttack>().disableShock = false;
+
+
+                stage8Count += Time.deltaTime;
+                if (stage8Count >= 5)
+                {
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                    popUps[popUpIndex].SetActive(true);
+                }
             }
-        }
-        else if (popUpIndex == 5)
-        {
-            stage5Count += Time.deltaTime;
-            if (stage5Count >= 3)
+            else if (popUpIndex == 9)
             {
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
+                stage9Count += Time.deltaTime;
+                if (stage9Count >= 5)
+                {
+                    popUps[popUpIndex].SetActive(false);
+                    popUpIndex++;
+                }
             }
-        }
-        // Railgun
-        else if(popUpIndex == 6)
-        {
-            spawners[spawnerIndex].SetActive(true);
-
-            disableAllAbilities();
-            player.GetComponentInChildren<PlayerAttack>().disableRailgun = false;
-
-
-            // Disable all attacks besides Railgun
-
-            if (Input.GetKeyDown(KeyCode.E))
+            else if (popUpIndex == 10)
             {
-                ePressed = true;
-            }
+                GameObject[] enemies;
+                enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-
-            GameObject[] enemies;
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-            if (enemies.Length == 0 && ePressed == true)
-            {
-                spawners[spawnerIndex].SetActive(false);
-                spawnerIndex++;
-
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
-            }
-        }
-        //Shockwave
-        else if (popUpIndex == 7)
-        {
-            spawners[spawnerIndex].SetActive(true);
-
-            // Disable all attacks besides Shockwave
-            disableAllAbilities();
-            player.GetComponentInChildren<PlayerAttack>().disableShock = false;
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                qPressed = true;
-            }
-
-            if (qPressed == true)
-            {
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
-
-                player.GetComponent<ComboManager>().pauseComboEffects = false;
-                // Enable all known attacks
-            }
-        }
-        // Complete level with whats known
-        else if (popUpIndex == 8)
-        {
-            player.GetComponent<PlayerAbilities>().disableDash = false;
-            player.GetComponentInChildren<PlayerAttack>().disableMagicMissile = false;
-            player.GetComponentInChildren<PlayerAttack>().disableRailgun = false;
-            player.GetComponentInChildren<PlayerAttack>().disableMelee = false;
-            player.GetComponentInChildren<PlayerAttack>().disableShock = false;
-
-
-            stage8Count += Time.deltaTime;
-            if (stage8Count >= 5)
-            {
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-                popUps[popUpIndex].SetActive(true);
-            }
-        }
-        else if(popUpIndex == 9)
-        {
-            stage9Count += Time.deltaTime;
-            if (stage9Count >= 5)
-            {
-                popUps[popUpIndex].SetActive(false);
-                popUpIndex++;
-            }
-        }
-        else if(popUpIndex == 10)
-        {
-            GameObject[] enemies;
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-            if (enemies.Length == 0 && spawners[spawnerIndex].GetComponent<spawnEnemies>().enemiesLeftToSpawn <= 0)
-            {
-                popUps[popUpIndex].SetActive(true);
+                if (enemies.Length == 0 && spawners[spawnerIndex].GetComponent<spawnEnemies>().enemiesLeftToSpawn <= 0)
+                {
+                    popUps[popUpIndex].SetActive(true);
+                }
             }
         }
     }

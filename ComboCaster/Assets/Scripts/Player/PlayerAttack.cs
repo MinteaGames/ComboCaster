@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject soundBoard;
 
+    GameObject player;
 
     HUDManager playerHud;
 
@@ -55,175 +56,180 @@ public class PlayerAttack : MonoBehaviour
         soundBoard = GameObject.Find("Sound Board");
 
         soundBoard.SendMessage("playSound", 15, 0);
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        // Magic Missile
-        if (disableMagicMissile == false)
+        if (player.GetComponent<PlayerAbilities>().paused == false)
         {
-            if (Input.GetMouseButton(0) && magicMissileCool == true)
+            // Magic Missile
+            if (disableMagicMissile == false)
             {
-                Instantiate(magicMissle, transform.position, transform.rotation);
-                magicMissileCool = false;
-                soundBoard.SendMessage("playSound", 0, 0);
-                Invoke("MagicMissileCooldown", 0.3f / wisMod);
-
-                //playerHud.ShowcooldownOfAbility(0 , 0.3f);
-                StartCoroutine(playerHud.ShowcooldownOfAbility(0, 0.3f / wisMod));
-            }
-        }
-
-        // Railgun
-        if (disableRailgun == false)
-        {
-            if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod)))
-            {
-                Instantiate(railgun, transform.position, transform.rotation, transform.parent.transform);
-                GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
-                railgunCool = false;
-
-                soundBoard.SendMessage("playSound", 2 , 0);
-                Invoke("railgunCooldown", 1.0f / wisMod);
-                StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
-            }
-        }
-
-        // Melee
-        if (disableMelee == false)
-        {
-            if (Input.GetMouseButton(1) && meleeCool == true)
-            {
-                Instantiate(melee, transform.position, transform.rotation, gameObject.transform);
-                meleeCool = false;
-                soundBoard.SendMessage("playSound", 1, 0);
-
-                Invoke("meleeCooldown", 0.8f / wisMod);
-                StartCoroutine(playerHud.ShowcooldownOfAbility(2, 0.8f / wisMod));
-
-            }
-        }
-
-        // Bounce
-        if (disableBounce == false)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
-            {
-
-                if (GameObject.Find("Bounce Ball(Clone)") == true)
+                if (Input.GetMouseButton(0) && magicMissileCool == true)
                 {
-                    GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
-                    bounceCool = false;
+                    Instantiate(magicMissle, transform.position, transform.rotation);
+                    magicMissileCool = false;
+                    soundBoard.SendMessage("playSound", 0, 0);
+                    Invoke("MagicMissileCooldown", 0.3f / wisMod);
 
-                    Invoke("BounceCooldown", 2.0f / wisMod);
-                    StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
+                    //playerHud.ShowcooldownOfAbility(0 , 0.3f);
+                    StartCoroutine(playerHud.ShowcooldownOfAbility(0, 0.3f / wisMod));
                 }
-                else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
-                {
-                    soundBoard.SendMessage("playSound", 3, 0);
-
-                    bounceCool = false;
-                    Instantiate(bounceBall, transform.position, transform.rotation);
-                    GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(6 / chaMod));
-                    Invoke("BounceCooldown", 2.0f / wisMod);
-                    StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
-                }
-
             }
-        }
 
-        // Shockwave
-        if (disableShock == false)
-        {
-            if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(15 / chaMod))
+            // Railgun
+            if (disableRailgun == false)
             {
-
-                soundBoard.SendMessage("playSound", 4, 0);
-                Instantiate(shockWave, transform.position, transform.rotation);
-                shockCool = false;
-                Invoke("ShockCooldown", 10.0f / wisMod);
-                GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(15 / chaMod));
-                StartCoroutine(playerHud.ShowcooldownOfAbility(4, 10.0f / wisMod));
-            }
-        }
-
-        // Fireball
-        if (disableFireball == false)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha2) && fireBallCool == true)
-            {
-                fireBallChargeTime += 1;
-                disableMagicMissile = true;
-
-
-                // Take combo
-                if (fireBallChargeTime == 1 && currentFireBall == null)
+                if ((Input.GetKeyDown("e")) && (railgunCool == true) && (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(5 / chaMod)))
                 {
-                    soundBoard.SendMessage("playSound", 5, 0);
+                    Instantiate(railgun, transform.position, transform.rotation, transform.parent.transform);
                     GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
+                    railgunCool = false;
 
-                    currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
+                    soundBoard.SendMessage("playSound", 2, 0);
+                    Invoke("railgunCooldown", 1.0f / wisMod);
+                    StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
                 }
-                else if (fireBallChargeTime == 2 || fireBallChargeTime == 3)
-                {
-                    soundBoard.SendMessage("playSound", 5, 0);
-                    if (currentFireBall != null)
-                    {
-                        GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(2 / chaMod));
+            }
 
-                        currentFireBall.SendMessage("increaseSize");
-                    }
-                    else
+            // Melee
+            if (disableMelee == false)
+            {
+                if (Input.GetMouseButton(1) && meleeCool == true)
+                {
+                    Instantiate(melee, transform.position, transform.rotation, gameObject.transform);
+                    meleeCool = false;
+                    soundBoard.SendMessage("playSound", 1, 0);
+
+                    Invoke("meleeCooldown", 0.8f / wisMod);
+                    StartCoroutine(playerHud.ShowcooldownOfAbility(2, 0.8f / wisMod));
+
+                }
+            }
+
+            // Bounce
+            if (disableBounce == false)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1) && bounceCool == true)
+                {
+
+                    if (GameObject.Find("Bounce Ball(Clone)") == true)
                     {
+                        GameObject.Find("Bounce Ball(Clone)").SendMessage("pullTowardsPlayer", gameObject.transform);
+                        bounceCool = false;
+
+                        Invoke("BounceCooldown", 2.0f / wisMod);
+                        StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
+                    }
+                    else if (GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(6 / chaMod))
+                    {
+                        soundBoard.SendMessage("playSound", 3, 0);
+
+                        bounceCool = false;
+                        Instantiate(bounceBall, transform.position, transform.rotation);
+                        GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(6 / chaMod));
+                        Invoke("BounceCooldown", 2.0f / wisMod);
+                        StartCoroutine(playerHud.ShowcooldownOfAbility(5, 2.0f / wisMod));
+                    }
+
+                }
+            }
+
+            // Shockwave
+            if (disableShock == false)
+            {
+                if (Input.GetKeyDown(KeyCode.Q) && shockCool == true && GetComponentInParent<ComboManager>().playerCombo >= Mathf.RoundToInt(15 / chaMod))
+                {
+
+                    soundBoard.SendMessage("playSound", 4, 0);
+                    Instantiate(shockWave, transform.position, transform.rotation);
+                    shockCool = false;
+                    Invoke("ShockCooldown", 10.0f / wisMod);
+                    GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(15 / chaMod));
+                    StartCoroutine(playerHud.ShowcooldownOfAbility(4, 10.0f / wisMod));
+                }
+            }
+
+            // Fireball
+            if (disableFireball == false)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha2) && fireBallCool == true)
+                {
+                    fireBallChargeTime += 1;
+                    disableMagicMissile = true;
+
+
+                    // Take combo
+                    if (fireBallChargeTime == 1 && currentFireBall == null)
+                    {
+                        soundBoard.SendMessage("playSound", 5, 0);
+                        GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(5 / chaMod));
+
+                        currentFireBall = Instantiate(fireBall, transform.position, transform.rotation, gameObject.transform);
+                    }
+                    else if (fireBallChargeTime == 2 || fireBallChargeTime == 3)
+                    {
+                        soundBoard.SendMessage("playSound", 5, 0);
+                        if (currentFireBall != null)
+                        {
+                            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(2 / chaMod));
+
+                            currentFireBall.SendMessage("increaseSize");
+                        }
+                        else
+                        {
+                            fireBallChargeTime = 0;
+                            disableMagicMissile = false;
+                        }
+                    }
+                    // Return combo & reset fireball
+                    else if (fireBallChargeTime == 4)
+                    {
+                        soundBoard.SendMessage("playSound", 17, 0);
                         fireBallChargeTime = 0;
                         disableMagicMissile = false;
+                        GetComponentInParent<ComboManager>().increaseComboByAmount((Mathf.RoundToInt(5 / chaMod)) + (Mathf.RoundToInt(2 / chaMod)) + (Mathf.RoundToInt(2 / chaMod)));
+
+                        Destroy(currentFireBall);
+                        currentFireBall = null;
                     }
                 }
-                // Return combo & reset fireball
-                else if (fireBallChargeTime == 4)
-                {
-                    soundBoard.SendMessage("playSound", 17, 0);
-                    fireBallChargeTime = 0;
-                    disableMagicMissile = false;
-                    GetComponentInParent<ComboManager>().increaseComboByAmount((Mathf.RoundToInt(5 / chaMod)) + (Mathf.RoundToInt(2 / chaMod)) + (Mathf.RoundToInt(2 / chaMod)));
 
-                    Destroy(currentFireBall);
-                    currentFireBall = null;
+                if (Input.GetMouseButton(0))
+                {
+                    if (fireBallChargeTime != 0)
+                    {
+                        currentFireBall.SendMessage("stageReached", fireBallChargeTime);
+
+                        soundBoard.SendMessage("playSound", 6, 0);
+
+                        fireBallCool = false;
+                        Invoke("fireBallCooldown", 0.3f / wisMod);
+                        fireBallChargeTime = 0;
+                        currentFireBall.SendMessage("fire");
+                        currentFireBall = null;
+
+                        disableMagicMissile = false;
+
+                        StartCoroutine(playerHud.ShowcooldownOfAbility(6, 0.3f / wisMod));
+                    }
                 }
             }
 
-            if (Input.GetMouseButton(0))
+            // Wish
+            if (Input.GetKeyDown(KeyCode.Alpha3) && GetComponentInParent<ComboManager>().playerCombo > 50)
             {
-                if (fireBallChargeTime != 0)
-                {
-                    currentFireBall.SendMessage("stageReached", fireBallChargeTime);
-
-                    soundBoard.SendMessage("playSound", 6, 0);
-
-                    fireBallCool = false;
-                    Invoke("fireBallCooldown", 0.3f / wisMod);
-                    fireBallChargeTime = 0;
-                    currentFireBall.SendMessage("fire");
-                    currentFireBall = null;
-
-                    disableMagicMissile = false;
-
-                    StartCoroutine(playerHud.ShowcooldownOfAbility(6, 0.3f / wisMod));
-                }
+                soundBoard.SendMessage("playSound", 7, 0);
+                soundBoard.SendMessage("playSound", 11, 0);
+                wishPS.Play();
+                wishData.SendMessage("ReRollStats");
+                GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(50 / chaMod));
+                StartCoroutine(playerHud.ShowcooldownOfAbility(7, 1.0f / wisMod));
             }
-        }
-
-        // Wish
-        if (Input.GetKeyDown(KeyCode.Alpha3) && GetComponentInParent<ComboManager>().playerCombo > 50)
-        {
-            soundBoard.SendMessage("playSound", 7, 0);
-            soundBoard.SendMessage("playSound", 11, 0);
-            wishPS.Play();
-            wishData.SendMessage("ReRollStats");
-            GetComponentInParent<ComboManager>().reduceComboByAmmount(Mathf.RoundToInt(50 / chaMod));
-            StartCoroutine(playerHud.ShowcooldownOfAbility(3, 1.0f / wisMod));
         }
     }
         void railgunCooldown()
@@ -253,7 +259,7 @@ public class PlayerAttack : MonoBehaviour
         {
             fireBallCool = true;
         }
-
+    
     
     
 }

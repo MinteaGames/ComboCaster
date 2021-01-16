@@ -193,7 +193,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -625,18 +625,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 142809394748532196, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
     - target: {fileID: 671542279134365247, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1381500191}
-    - target: {fileID: 671542279134365247, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RetryRoom
-      objectReference: {fileID: 0}
     - target: {fileID: 1927485929700912862, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: player
       value: 
@@ -729,42 +721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 2865765385967662928, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
-    - target: {fileID: 3033009589449816517, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -110.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3033009589449816517, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 45.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130233389827638628, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
-    - target: {fileID: 5669484205321402281, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
-    - target: {fileID: 6750689397639307063, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
     - target: {fileID: 6934135582085678790, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1381500191}
-    - target: {fileID: 6934135582085678790, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RetryRoom
-      objectReference: {fileID: 0}
-    - target: {fileID: 7596222061772224938, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0565b70d33690064f98185c04154642b, type: 3}
 --- !u!114 &616459920 stripped
@@ -3072,6 +3032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5958668135584032690, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
+      propertyPath: pauseScreen
+      value: 
+      objectReference: {fileID: 1777882822}
     - target: {fileID: 5958668135584032695, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
       propertyPath: pauseComboEffects
       value: 0
@@ -3697,11 +3661,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4075764329998324283, guid: 17b8ada35224af845af889cc43048b5e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.38
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4075764329998324283, guid: 17b8ada35224af845af889cc43048b5e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.43
+      value: 4.88
       objectReference: {fileID: 0}
     - target: {fileID: 4075764329998324283, guid: 17b8ada35224af845af889cc43048b5e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6643,6 +6607,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1777882822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2009270799, guid: 0565b70d33690064f98185c04154642b, type: 3}
+  m_PrefabInstance: {fileID: 616459919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1782200548 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4075764329998324286, guid: 17b8ada35224af845af889cc43048b5e, type: 3}

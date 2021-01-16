@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+
         print("main menu");
 
         StatMenu.conM = 1;
@@ -43,6 +44,13 @@ public class GameManager : MonoBehaviour
     {
         soundBoard.SendMessage("playSound", 13, 0);
         SceneManager.LoadScene("Level_1");
+    }
+
+
+    public void menu()
+    {
+        soundBoard.SendMessage("playSound", 13, 0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void tutorial()

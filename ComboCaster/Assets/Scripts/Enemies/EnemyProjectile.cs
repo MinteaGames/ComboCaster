@@ -38,7 +38,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (convert == true)
         {
-            Instantiate(magicMissle, transform.position, transform.rotation);
+            Instantiate(magicMissle, transform.position, (Quaternion.Inverse(transform.rotation)* Quaternion.Euler(180, 180, 0)));
             // avoid colliding with instantiated object
             GetComponent<CircleCollider2D>().enabled = false;
 
