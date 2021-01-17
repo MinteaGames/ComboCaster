@@ -38,12 +38,13 @@ public class PlayerAbilities : MonoBehaviour
 
         soundboard = GameObject.Find("Sound Board");
         player = GameObject.FindGameObjectWithTag("Player");
+        paused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<PlayerAbilities>().paused == false)
+        if (paused == false)
         {
 
 

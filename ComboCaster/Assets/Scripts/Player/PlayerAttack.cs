@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject soundBoard;
 
-    GameObject player;
+    //GameObject player;
 
     HUDManager playerHud;
 
@@ -57,14 +57,14 @@ public class PlayerAttack : MonoBehaviour
 
         soundBoard.SendMessage("playSound", 15, 0);
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<PlayerAbilities>().paused == false)
+        if (GetComponentInParent<PlayerAbilities>().paused == false)
         {
             // Magic Missile
             if (disableMagicMissile == false)
