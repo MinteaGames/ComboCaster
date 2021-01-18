@@ -22,6 +22,7 @@ public class ComboManager : MonoBehaviour
     void Start()
     {
         soundboard = GameObject.Find("Sound Board");
+        pauseComboEffects = false;
     }
 
     public void increaseCombo()

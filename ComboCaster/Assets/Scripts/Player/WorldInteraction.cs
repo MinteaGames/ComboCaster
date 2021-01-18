@@ -78,6 +78,10 @@ public class WorldInteraction : MonoBehaviour
 
         }
 
+        if((collision.gameObject.tag == "EnemyProjectile") && invulnerable == false)
+        {
+            lifeScript.SendMessage("LifeDecrement");
+        }
 
     }
 

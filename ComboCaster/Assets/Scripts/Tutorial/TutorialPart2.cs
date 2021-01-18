@@ -39,6 +39,8 @@ public class TutorialPart2 : MonoBehaviour
         // Stats
         if (popUpIndex == 0)
         {
+            player.GetComponent<ComboManager>().playerCombo = 100;
+            player.GetComponent<ComboManager>().pauseComboEffects = true;
             stageCount += Time.deltaTime;
 
             if (stageCount >= 3)
@@ -64,7 +66,7 @@ public class TutorialPart2 : MonoBehaviour
             }
         }
         else if (popUpIndex == 2)
-        {
+        {            
             stageCount += Time.deltaTime;
 
             if (stageCount >= 3)
@@ -77,7 +79,7 @@ public class TutorialPart2 : MonoBehaviour
             }
         }
         else if (popUpIndex == 3)
-        {
+        {            
             stageCount += Time.deltaTime;
 
             if (stageCount >= 3)
@@ -95,7 +97,7 @@ public class TutorialPart2 : MonoBehaviour
 
         // Bounce ball
         else if (popUpIndex == 4)
-        {
+        {            
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 popUps[popUpIndex].SetActive(false);
@@ -104,7 +106,7 @@ public class TutorialPart2 : MonoBehaviour
             }
         }
         else if (popUpIndex == 5)
-        {
+        {            
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 popUps[popUpIndex].SetActive(false);
@@ -117,7 +119,7 @@ public class TutorialPart2 : MonoBehaviour
 
         // Fireball
         else if (popUpIndex == 6)
-        {
+        {            
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 // If released
@@ -149,7 +151,7 @@ public class TutorialPart2 : MonoBehaviour
 
         //Wish
         else if (popUpIndex == 7)
-        {
+        {            
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 popUps[popUpIndex].SetActive(false);
@@ -158,7 +160,7 @@ public class TutorialPart2 : MonoBehaviour
             }
         }
         if (popUpIndex == 8)
-        {
+        {            
             stageCount += Time.deltaTime;
 
             if (stageCount >= 3)
@@ -171,14 +173,14 @@ public class TutorialPart2 : MonoBehaviour
 
                 spawners[spawnerIndex].SetActive(true);
 
-                player.GetComponent<ComboManager>().pauseComboEffects = false;
-                player.GetComponent<ComboManager>().playerCombo = 0;
+                //player.GetComponent<ComboManager>().pauseComboEffects = false;
+                //player.GetComponent<ComboManager>().playerCombo = 0;
             }
         }
 
         //Final boss
         else if (popUpIndex == 9)
-        {
+        {            
             stageCount += Time.deltaTime;
             if (stageCount >= 5)
             {

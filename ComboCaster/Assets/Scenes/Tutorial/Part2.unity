@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Now you know everything, \nFIGHT FIGHT FIGHT!"
+  m_Text: "Without limits on your combo, \nFIGHT FIGHT FIGHT!"
 --- !u!222 &9976972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -642,6 +642,10 @@ PrefabInstance:
       propertyPath: pauseScreen
       value: 
       objectReference: {fileID: 1191578872}
+    - target: {fileID: 5958668135584032692, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
+      propertyPath: lifeScript
+      value: 
+      objectReference: {fileID: 1308305021}
     - target: {fileID: 5958668135584032695, guid: 9338cce7eb672ac43841b6728f5414fa, type: 3}
       propertyPath: comboText
       value: 
@@ -1210,7 +1214,7 @@ MonoBehaviour:
   spawnLocations:
   - {fileID: 13711353}
   spawnDelay: 2
-  endPortal: {fileID: 0}
+  endPortal: {fileID: 456017308}
   enemiesOnField: []
 --- !u!1 &1120977406
 GameObject:
@@ -1249,26 +1253,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2018557675, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: currentComboText
-      value: 
-      objectReference: {fileID: 760209367}
-    - target: {fileID: 142809394748532196, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
-    - target: {fileID: 671542279134365247, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1308305020}
-    - target: {fileID: 671542279134365247, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RetryRoom
-      objectReference: {fileID: 0}
     - target: {fileID: 1927485929700912862, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1830119466}
     - target: {fileID: 1927485931191566625, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1356,42 +1344,6 @@ PrefabInstance:
     - target: {fileID: 1927485931191566637, guid: 0565b70d33690064f98185c04154642b, type: 3}
       propertyPath: m_Name
       value: HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 2865765385967662928, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
-    - target: {fileID: 3033009589449816517, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -112.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3033009589449816517, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 44.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130233389827638628, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
-    - target: {fileID: 5669484205321402281, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
-    - target: {fileID: 6750689397639307063, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 0c59f833ac333694f9d776f25d6875cc, type: 3}
-    - target: {fileID: 6934135582085678790, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1308305020}
-    - target: {fileID: 6934135582085678790, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RetryRoom
-      objectReference: {fileID: 0}
-    - target: {fileID: 7596222061772224938, guid: 0565b70d33690064f98185c04154642b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0565b70d33690064f98185c04154642b, type: 3}
@@ -1615,17 +1567,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7a52430a019c3a47a0eb803af8a9f97, type: 3}
---- !u!114 &1308305020 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 554702195881072054, guid: d7a52430a019c3a47a0eb803af8a9f97, type: 3}
+--- !u!1 &1308305021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 554702195881072052, guid: d7a52430a019c3a47a0eb803af8a9f97, type: 3}
   m_PrefabInstance: {fileID: 1308305019}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e78c9d30b8780bb4889a3519be3b79de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1385674411
 GameObject:
   m_ObjectHideFlags: 0
